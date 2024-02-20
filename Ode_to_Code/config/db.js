@@ -1,7 +1,10 @@
+//Imports
 const mongoose = require('mongoose');
 const colours = require('colours')
 
+// Configuration
 colours.enable()
+
 const connectDB = async () => {
   db = mongoose.connections()
   await mongoose.connect("mongodb://127.0.0.1:27017")
@@ -9,7 +12,6 @@ const connectDB = async () => {
   db.on('error', (error) => {
     console.log(`Mongodb Server Issue ${error}`.bgRed.white);
   })
-
 };
 
 module.exports = connectDB;
