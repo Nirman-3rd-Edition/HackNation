@@ -25,5 +25,5 @@ app.use('/api/otp', require('./routes/otp'))
 
 
 app.listen(port, () => {
-    console.log(`Nirogh backend listening at http://localhost:${port}`)
+    console.log(`Meals_Bridge backend listening at http://localhost:${port}`)
   })

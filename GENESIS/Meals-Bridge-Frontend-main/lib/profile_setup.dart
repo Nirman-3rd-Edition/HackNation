@@ -1,4 +1,5 @@
 
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -9,12 +10,20 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:meals_bridge_frontend/Services/shared_preference.dart';
 
 import 'package:meals_bridge_frontend/donner/home_screen_donner.dart';
+import 'package:meals_bridge_frontend/user_registration.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'config.dart';
 
 class ProgileSetup extends StatefulWidget {
   final String phoneNumber;
-  const ProgileSetup({super.key, required this.phoneNumber,});
+  final String uid;
+  const ProgileSetup({super.key, required this.phoneNumber, required this.uid});
 
   @override
   State<ProgileSetup> createState() => _ProgileSetupState();
@@ -22,16 +31,17 @@ class ProgileSetup extends StatefulWidget {
 
 class _ProgileSetupState extends State<ProgileSetup> {
 
-  String email = '';
-  String userProfilePic = '';
-  String userName = '';
-  String uid = '';
-  String phoneNumber = '';
+  // String email = '';
+  File? userProfilePic = null;
+  // String userName = '';
   String selectedType = '';
   String selectedRole = '';
   // late bool isDarkMode;
   bool isFetchingLocation = true;
   late List<String> choices = [];
+  List<String> locationData = [];
+
+  String userProfilePicBase64 = '';
 
   // TextEditingController _phoneNumberController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
@@ -56,12 +66,13 @@ class _ProgileSetupState extends State<ProgileSetup> {
       lat = position.latitude;
       long = position.longitude;
       await updateText();
+
+      // Store lat and long in the array
+      locationData = [lat.toString(), long.toString()];
     } catch (error) {
       print("Error $error");
     } finally {
-      setState(() {
-        isFetchingLocation = false;
-      });
+      // Existing code...
     }
   }
 
@@ -99,7 +110,7 @@ class _ProgileSetupState extends State<ProgileSetup> {
     }
   }
 
-  Future _getImage(ImageSource source) async {
+  Future<void> _getImage(ImageSource source) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
@@ -108,55 +119,18 @@ class _ProgileSetupState extends State<ProgileSetup> {
       img = await _cropImage(imageFile: img);
 
       if (img != null) {
-        showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return WillPopScope(
-              onWillPop: () async => false, // Disable popping with back button
-              child: Container(
-                width: 200,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 3,
-                      blurRadius: 10,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircularProgressIndicator(color: Color(0xFF04FC10)),
-                    SizedBox(height: 10),
-                    Text('Please wait...'),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
-        // // Upload image to Firebase Cloud Storage
-        // String imageName = DateTime.now().millisecondsSinceEpoch.toString(); // Generating a unique name for the image
-        // firebase_storage.Reference ref =
-        // firebase_storage.FirebaseStorage.instance.ref().child(imageName);
-        //
-        // firebase_storage.UploadTask uploadTask = ref.putFile(img);
-        // firebase_storage.TaskSnapshot taskSnapshot = await uploadTask;
-
-        // Get the download URL from the uploaded image
-        // String imageUrl = await taskSnapshot.ref.getDownloadURL();
+        // Convert image to base64
+        List<int> imageBytes = await img.readAsBytes();
+        String base64Image = base64Encode(imageBytes);
 
         setState(() {
-          // userProfilePic = imageUrl; // Update the userProfilePic variable
+          // Store base64 image in a variable for further use
+          userProfilePicBase64 = base64Image;
+
+          // Assign the img to userProfilePic for displaying on the screen
+          userProfilePic = img;
         });
       }
-      Navigator.of(context).pop();
     } on PlatformException catch (e) {
       print(e);
       Navigator.of(context).pop();
@@ -379,10 +353,60 @@ class _ProgileSetupState extends State<ProgileSetup> {
     }
   }
 
+  Future<void> saveUserProfile() async {
+    // Prepare the request body
+    Map<String, dynamic> requestBody = {
+      "uid": widget.uid,
+      "name": _nameController.text,
+      "email": _emailController.text,
+      // "location": locationData.map((e) => double.parse(e)).toList(), // Convert locationData to double
+      "location": locationData,
+      "type": selectedType,
+      "role": selectedRole,
+      "phone": widget.phoneNumber,
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(Config.saveUserUrl),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          // Add any other headers if needed
+        },
+        body: jsonEncode(requestBody),
+      );
+
+      if (response.statusCode == 200) {
+        // Successful API call
+        print("API Response: ${response.body}");
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreenDonner()));
+        // You can handle the response accordingly
+      } else {
+        // Handle the error or non-200 status code
+        print("API Error: ${response.statusCode} - ${response.body}");
+        final snackBar = SnackBar(
+          content: Text('User data failed to save'),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 2),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+    } catch (e) {
+      // Handle any exceptions during the HTTP request
+      print("Error: $e");
+      final snackBar = SnackBar(
+        content: Text('Error in API call'),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       // appBar: AppBar(
       //   backgroundColor: Colors.white,
       //   // leading: IconButton(
@@ -433,25 +457,24 @@ class _ProgileSetupState extends State<ProgileSetup> {
           ),
         ),
       )
-          : Container(
+          : SingleChildScrollView(
+            child: Container(
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF04FC10).withOpacity(0.5),
-              Colors.white70,
-              Colors.white70,
-              Colors.white70,
-              Color(0xFF04FC10).withOpacity(0.5)
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF04FC10).withOpacity(0.5),
+                Colors.white70,
+                Colors.white70,
+                Colors.white70,
+                Color(0xFF04FC10).withOpacity(0.5)
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
         ),
         padding: const EdgeInsets.only(left: 16, right: 16, top: 60, bottom: 16), // Adjust padding based on screen width
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
+        child: Column(
             children: [
               Text("Profile", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
               const SizedBox(height: 30),
@@ -462,9 +485,9 @@ class _ProgileSetupState extends State<ProgileSetup> {
                     height: MediaQuery.of(context).size.width * 0.32,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width * 0.5), // Adjust borderRadius based on screen width
-                      child: userProfilePic.isNotEmpty
-                          ? Image.network(
-                        userProfilePic,
+                      child: userProfilePic?.path != null
+                          ? Image.file(
+                        userProfilePic!,
                         fit: BoxFit.cover,
                       )
                           : Transform.scale(
@@ -480,7 +503,15 @@ class _ProgileSetupState extends State<ProgileSetup> {
                       backgroundColor: Colors.white,
                       radius: MediaQuery.of(context).size.width * 0.05, // Adjust radius based on screen width
                       child: IconButton(
-                        onPressed: () => openImageBottomSheet(),
+                        // onPressed: () => openImageBottomSheet(),
+                        onPressed: () {
+                          final snackBar = SnackBar(
+                            content: Text('Feature is comming soon'),
+                            backgroundColor: Colors.green,
+                            duration: Duration(seconds: 2),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
                         color: Colors.black,
                         icon: const Icon(
                           Icons.camera_alt_outlined,
@@ -514,7 +545,7 @@ class _ProgileSetupState extends State<ProgileSetup> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                      prefixIcon: const Icon(Icons.transgender_outlined),
+                      prefixIcon: const Icon(Icons.person_pin_rounded),
                       prefixIconColor: Colors.black,
                     ),
                     controller: TextEditingController(text: selectedType),
@@ -545,7 +576,7 @@ class _ProgileSetupState extends State<ProgileSetup> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                      prefixIcon: const Icon(Icons.transgender_outlined),
+                      prefixIcon: const Icon(Icons.personal_injury_sharp),
                       prefixIconColor: Colors.black,
                     ),
                     controller: TextEditingController(text: selectedRole),
@@ -579,7 +610,7 @@ class _ProgileSetupState extends State<ProgileSetup> {
                       prefixIcon: const Icon(Icons.person_2_outlined),
                       prefixIconColor: Colors.black,
                     ),
-                    controller: TextEditingController(text: userName),
+                    controller: _nameController,
                   ),
                   const SizedBox(height: 20),
                   TextField(
@@ -601,10 +632,10 @@ class _ProgileSetupState extends State<ProgileSetup> {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                      prefixIcon: const Icon(Icons.person_2_outlined),
+                      prefixIcon: const Icon(Icons.email),
                       prefixIconColor: Colors.black,
                     ),
-                    controller: TextEditingController(text: email),
+                    controller: _emailController,
                   ),
                   const SizedBox(height: 20),
                   TextField(
@@ -688,25 +719,36 @@ class _ProgileSetupState extends State<ProgileSetup> {
                     child: ElevatedButton(
                       onPressed: () {
                         // Add your logic here
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => HomeScreenDonner(), // Assuming UserRegistration is the registration screen
-                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                              const begin = Offset(0.0, 1.0);
-                              const end = Offset.zero;
-                              const curve = Curves.easeInOut;
-
-                              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                              var offsetAnimation = animation.drive(tween);
-
-                              return SlideTransition(
-                                position: offsetAnimation,
-                                child: child,
-                              );
-                            },
-                          ),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   PageRouteBuilder(
+                        //     pageBuilder: (context, animation, secondaryAnimation) => HomeScreenDonner(), // Assuming UserRegistration is the registration screen
+                        //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        //       const begin = Offset(0.0, 1.0);
+                        //       const end = Offset.zero;
+                        //       const curve = Curves.easeInOut;
+                        //
+                        //       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                        //       var offsetAnimation = animation.drive(tween);
+                        //
+                        //       return SlideTransition(
+                        //         position: offsetAnimation,
+                        //         child: child,
+                        //       );
+                        //     },
+                        //   ),
+                        // );
+                        print(widget.uid);
+                        print(selectedType);
+                        print(selectedRole);
+                        print(_nameController.text);
+                        print(_emailController.text);
+                        print(widget.phoneNumber);
+                        print(lat);
+                        print("Location Data: $locationData");
+                        SharedPreferenceService.saveUidToLocalStorage(widget.uid);
+                        saveUserProfile();
+                        // print(location);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
@@ -723,9 +765,9 @@ class _ProgileSetupState extends State<ProgileSetup> {
                 ],
               ),
             ],
-          ),
         ),
       ),
+          ),
     );
   }
 }

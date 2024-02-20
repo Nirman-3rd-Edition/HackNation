@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:meals_bridge_frontend/profile_setup.dart';
 import 'package:meals_bridge_frontend/user_registration.dart';
 import 'package:pinput/pinput.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'config.dart';
 
 class OtpVerification extends StatefulWidget {
   final String phoneNumber;
@@ -14,6 +18,71 @@ class OtpVerification extends StatefulWidget {
 
 class _OtpVerificationState extends State<OtpVerification> {
   TextEditingController otpController = TextEditingController();
+
+  bool _isLoading = false;
+
+  Future<void> _verifyOtp() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    final response = await http.post(
+      Uri.parse(Config.verifyOtpUrl),
+      body: jsonEncode({
+        "phone": '+91${widget.phoneNumber}',
+        "otp": otpController.text,
+      }),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode == 200) {
+      // API call succeeded, print success message and navigate to the next screen
+      print("API Success: ${response.body}");
+
+      final Map<String, dynamic> responseData = jsonDecode(response.body);
+      final String uid = responseData['uid'];
+      final String message = responseData['message'];
+
+      // Show toast message
+      // Fluttertoast.showToast(
+      //   msg: 'Feature is comming soon',
+      //   toastLength: Toast.LENGTH_SHORT,
+      //   gravity: ToastGravity.BOTTOM,
+      //   backgroundColor: Colors.grey[800],
+      //   textColor: Colors.white,
+      // );
+
+      Navigator.push(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              ProgileSetup(phoneNumber: widget.phoneNumber, uid: uid),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(0.0, 1.0);
+            const end = Offset.zero;
+            const curve = Curves.easeInOut;
+
+            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            var offsetAnimation = animation.drive(tween);
+
+            return SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            );
+          },
+        ),
+      );
+    } else {
+      // API call failed, show an error message
+      print("API Error: ${response.body}");
+      // Fluttertoast.showToast(msg: "OTP verification failed", toastLength: Toast.LENGTH_SHORT);
+    }
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +128,9 @@ class _OtpVerificationState extends State<OtpVerification> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      body: Container(
+      body: _isLoading ? Center(
+        child: CircularProgressIndicator(),
+      ) : Container(
         margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
         alignment: Alignment.center,
         child: SingleChildScrollView(
@@ -86,12 +157,11 @@ class _OtpVerificationState extends State<OtpVerification> {
               ),
               Pinput(
                 length: 6,
+                onCompleted: (pin) => otpController.text = pin,
                 // defaultPinTheme: defaultPinTheme,
                 focusedPinTheme: focusedPinTheme,
                 submittedPinTheme: submittedPinTheme,
-
                 showCursor: true,
-                onCompleted: (pin) => otpController.text=pin,
               ),
               SizedBox(
                 height: screenHeight * 0.02,
@@ -107,25 +177,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                         // )
                     ),
                     onPressed: () async {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => ProgileSetup(phoneNumber: widget.phoneNumber,), // Assuming UserRegistration is the registration screen
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            const begin = Offset(0.0, 1.0);
-                            const end = Offset.zero;
-                            const curve = Curves.easeInOut;
-
-                            var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                            var offsetAnimation = animation.drive(tween);
-
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
-                            );
-                          },
-                        ),
-                      );
+                      print("Phone number: ${widget.phoneNumber}");
+                      print("OTP: ${otpController.text}");
+                      _verifyOtp();
                     },
                     child: const Text("Verify Phone Number", style: TextStyle(color: Color(0xFF63FF6A), fontWeight: FontWeight.bold),)),
               ),

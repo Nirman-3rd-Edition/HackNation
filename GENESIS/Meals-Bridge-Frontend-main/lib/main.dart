@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_bridge_frontend/check_session.dart';
 import 'package:meals_bridge_frontend/user_registration.dart';
 
 import 'distributor/home_screen_distributor.dart';
@@ -11,6 +12,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +38,8 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: HomeScreenDistributor(),
-      // home: UserRegistration(),
+      // home: HomeScreenDistributor(),
+      home: UserSession(),
     );
   }
 }

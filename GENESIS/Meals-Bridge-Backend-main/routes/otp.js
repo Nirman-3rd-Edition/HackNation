@@ -22,6 +22,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
+      console.log("entered verifyotp")
       const { phone } = req.body;
       const verifyotp = await Otp.find({ phone: phone });
       console.log(verifyotp);
@@ -34,7 +35,7 @@ router.post(
 
 
       const otps = verifyotp[0].otp;
-      console.log(req.body.otp);
+      // console.log(req.body.otp);
 
       if (otps === req.body.otp) {
         
@@ -57,6 +58,7 @@ router.post(
       
       
       else {
+        console.log("otp not verified");
         return res.status(404).send("otp not verified");
       }
     } catch (error) {

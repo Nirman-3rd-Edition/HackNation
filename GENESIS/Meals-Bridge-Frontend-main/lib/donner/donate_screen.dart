@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:meals_bridge_frontend/donner/donation_confirmation.dart';
 
 class DonateScreen extends StatefulWidget {
   const DonateScreen({super.key});
@@ -158,8 +159,29 @@ class _DonateScreenState extends State<DonateScreen> {
         child: FloatingActionButton.extended(
           elevation: 0,
           backgroundColor: Colors.white,
-          onPressed: () {
-            // Handle donate action
+          onPressed: () async {
+            List<CardData> nonEmptyCards = cardsData
+                .where((card) =>
+            card.textField1Controller.text.trim().isNotEmpty &&
+                card.textField2Controller.text.trim().isNotEmpty)
+                .toList();
+
+            if (nonEmptyCards.isNotEmpty) {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DonationConfirm(donationId: ''),
+                ),
+              );
+            } else {
+              // Show an alert or snackbar to inform the user that at least one item is required.
+              // You can customize this part based on your UI and error handling preferences.
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Please add at least one item before donating.'),
+                ),
+              );
+            }
           },
           label: Text(
             'Donate',

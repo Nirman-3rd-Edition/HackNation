@@ -12,7 +12,7 @@ const OtpSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        expires: 500 
+        expires: 100 
     }
 });
 
