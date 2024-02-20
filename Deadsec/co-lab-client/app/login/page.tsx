@@ -31,7 +31,7 @@ function Login() {
 	const { trigger } = useSWRMutation("login", login, {
 		onSuccess: () => {
 			mutate("me");
-			router.push("/");
+			router.push("/dashboard");
 		},
 	});
 

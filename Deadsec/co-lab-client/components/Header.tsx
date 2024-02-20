@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import useSWR, { mutate } from "swr";
 import useSWRMutation from "swr/mutation";
 
 function Header() {
+	const router = useRouter();
 	const me = async () => {
 		const res = await fetch("http://localhost:4000/me", {
 			credentials: "include",
@@ -29,6 +31,7 @@ function Header() {
 	const { trigger } = useSWRMutation("logout", logout, {
 		onSuccess: () => {
 			mutate("me");
+			router.push("/");
 		},
 	});
 
@@ -37,7 +40,7 @@ function Header() {
 	};
 
 	return (
-		<header className="flex items-center justify-between fixed w-full p-4">
+		<header className="flex items-center justify-between fixed w-full p-4 z-10 bg-base-100">
 			<Link href={"/"} className="text-2xl font-bold">
 				Co-Lab
 			</Link>

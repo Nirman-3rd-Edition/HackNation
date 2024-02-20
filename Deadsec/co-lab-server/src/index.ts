@@ -212,6 +212,50 @@ app.post("/create-team", async (req: CreateTeamRequest, res) => {
 	});
 });
 
+// get all users
+app.get("/all-users", async (req, res) => {
+	const allUsers = (
+		await db.user.findMany({
+			select: {
+				id: true,
+				name: true,
+				email: true,
+			},
+		})
+	).filter((u) => u.id !== req.session.userId);
+
+	return res.json(allUsers);
+});
+
+// get user teams
+app.get("/teams", async (req, res) => {
+	const allUsers = (
+		await db.team.findMany({
+			// select: {
+			// 	id: true,
+			// 	name: true,
+			// },
+			where: {
+				members: {
+					some: {
+						id: req.session.userId,
+					},
+				},
+			},
+			include: {
+				members: {
+					select: {
+						id: true,
+						name: true,
+					},
+				},
+			},
+		})
+	).filter((u) => u.id !== req.session.userId);
+
+	return res.json(allUsers);
+});
+
 app.listen(4000, () => {
 	console.log(`listening on http://localhost:4000`);
 });

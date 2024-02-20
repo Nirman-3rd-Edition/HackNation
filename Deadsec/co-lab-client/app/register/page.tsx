@@ -45,7 +45,7 @@ function Register() {
 	const { trigger } = useSWRMutation("register", register, {
 		onSuccess: () => {
 			if (loginDirectlyRef.current?.checked) {
-				router.push("/");
+				router.push("/dashboard");
 			} else router.push("/login");
 			mutate("me");
 		},
