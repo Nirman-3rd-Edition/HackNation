@@ -1,128 +1,178 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <title>BinarBrink</title>
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQeJmi6jy-mkhmC3tHeLZjwpc-zCpyT2U&callback=initMap" async defer></script>
-            <style>
-                #map {
-                height: 100%;
-                }
-                html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                }
-                #station-select {
-                position: absolute;
-                font-size: 18px;
-                font-family: Arial, Helvetica, sans-serif;
-                font-weight: normal;
-                top: 9px;
-                left: 200px;
-                padding: 10px;
-                z-index: 99;
-                border-radius: 2px;
-                border: 1px solid rgba(0, 0, 0, 0.127);
-                /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.644); */
-                }
-            </style>
-        </head>
-        <body>
-            <div id="map"></div>
-            <select id="station-select">
-                <option value="">Select a station</option>
-                <option value="station1">EV Charging Station</option>
-                <option value="station2">EV Showrooms (Cars)</option>
-                <option value="station3">EV Showrooms (Bikes)</option>
-            </select>
-            <script>
-            let map;
-            let markers = [];
-            let directionsService;
-            let directionsRenderer;
+<html>
 
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 20.2817736, lng: 85.8007684},
-                    zoom: 15,
-                });
+<head>
+  <title>Multiple Markers</title>
+  <style>
+    #map {
+      height: 100%;
+    }
 
-                directionsService = new google.maps.DirectionsService();
-                directionsRenderer = new google.maps.DirectionsRenderer();
-                directionsRenderer.setMap(map);
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-                const locations_stations = [
-                    {lat: 20.2817736, lng: 85.8007684},
-                    {lat: 20.2817436, lng: 85.8004684},
-                    {lat: 20.2817236, lng: 85.8007284},
-                    {lat: 20.2811736, lng: 85.8007184},
-                    {lat: 20.2816736, lng: 85.8007684},
-                ];
+    #station-select {
+      position: absolute;
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      top: 9px;
+      left: 200px;
+      padding: 10px;
+      z-index: 99;
+      border-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.127);
+    }
+  </style>
+</head>
 
-                const cars_showrooms = [
-                    {lat: 20.2814736, lng: 85.8037684},
-                    {lat: 20.2817436, lng: 85.8004684},
-                    {lat: 20.2817236, lng: 85.8007284},
-                ];
+<body>
+  <div id="map"></div>
+  <select id="station-select">
+    <option value="">Select a location</option>
+    <option value="currentLocation">Your Current Location</option>
+    <option value="allStations">All Charging Stations</option>
+  </select>
+  <script>
+    let map;
+    let markers = [];
+    let directionsService;
+    let directionsRenderer;
+    let userLocation;
 
-                const bikes_showrooms = [
-                    {lat: 20.2817736, lng: 85.8007684},
-                    {lat: 20.2817436, lng: 85.8004684},
-                    {lat: 20.2817236, lng: 85.8007284},
-                ];
+    async function fetchData() {
+      try {
+        const response = await fetch('StationData.json');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching JSON data:', error);
+        return [];
+      }
+    }
 
-                const stationSelect = document.getElementById("station-select");
-                stationSelect.addEventListener("change", () => {
-                    const station = stationSelect.value;
-                    if (station) {
-                    markers.forEach(marker => {
-                        marker.setMap(null);
-                    });
-                    markers = [];
-                    if (station === "station1") {
-                        locations_stations.forEach(location => {
-                        markers.push(new google.maps.Marker({
-                            position: location,
-                            map: map
-                        }));
-                        });
-                    } else if (station === "station2") {
-                        cars_showrooms.forEach(location => {
-                        markers.push(new google.maps.Marker({
-                            position: location,
-                            map: map
-                        }));
-                        });
-                    } else if (station === "station3") {
-                        bikes_showrooms.forEach(location => {
-                        markers.push(new google.maps.Marker({
-                            position: location,
-                            map: map
-                        }));
-                        });
-                    }
-                    }
-                });
+    async function initMap() {
+      const jsonData = await fetchData();
 
-                map.addListener('click', (event) => {
-                    calculateAndDisplayRoute(event.latLng);
-                });
-            }
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 20.2817736, lng: 85.8007684 },
+        zoom: 15,
+      });
 
-            function calculateAndDisplayRoute(destination) {
-                const request = {
-                    origin: {lat: 20.2817736, lng: 85.8007684},
-                    destination: destination,
-                    travelMode: 'DRIVING'
-                };
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(map);
 
-                directionsService.route(request, (result, status) => {
-                    if (status === 'OK') {
-                        directionsRenderer.setDirections(result);
-                    }
-                });
-            }
-        </script>
-        </body>
-        </html>
+      // Get user's current location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          map.setCenter(userLocation);
+          // Add a blue marker for the user's current location
+          const userMarker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            title: 'Your Location'
+          });
+          markers.push(userMarker);
+        }, error => {
+          console.error('Error getting user location:', error);
+        });
+      }
+
+      // Add markers for all locations
+      jsonData.forEach(location => {
+        const marker = new google.maps.Marker({
+          position: { lat: location.latitude, lng: location.longitude },
+          map: map,
+          title: location.name
+        });
+        markers.push(marker);
+
+        // Handle marker click event
+        marker.addListener('click', () => {
+          calculateAndDisplayRoute(location.latitude, location.longitude);
+        });
+      });
+
+      const stationSelect = document.getElementById("station-select");
+      stationSelect.addEventListener("change", () => {
+        const selectedOption = stationSelect.value;
+
+        markers.forEach(marker => {
+          marker.setMap(null);
+        });
+        markers = [];
+
+        if (selectedOption === "currentLocation") {
+          // Show predefined location for "Your Current Location"
+          map.setCenter(userLocation);
+          // Add a blue marker for the user's current location
+          const userMarker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+            title: 'Your Location'
+          });
+          markers.push(userMarker);
+
+        } else if (selectedOption === "allStations") {
+          // Add markers for all locations
+          jsonData.forEach(location => {
+            const marker = new google.maps.Marker({
+              position: { lat: location.latitude, lng: location.longitude },
+              map: map,
+              title: location.name
+            });
+            markers.push(marker);
+
+            // Handle marker click event
+            marker.addListener('click', () => {
+              calculateAndDisplayRoute(location.latitude, location.longitude);
+            });
+          });
+        }
+        // Add other conditions for different locations if needed
+      });
+
+      map.addListener('click', (event) => {
+        calculateAndDisplayRoute(event.latLng.lat(), event.latLng.lng());
+      });
+    }
+
+    function calculateAndDisplayRoute(destinationLat, destinationLng) {
+      const request = {
+        origin: userLocation,
+        destination: { lat: destinationLat, lng: destinationLng },
+        travelMode: 'DRIVING'
+      };
+
+      directionsService.route(request, (result, status) => {
+        if (status === 'OK') {
+          directionsRenderer.setDirections(result);
+        }
+      });
+    }
+
+    // Load Google Maps API and initialize the map
+    function loadMapScript() {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBQeJmi6jy-mkhmC3tHeLZjwpc-zCpyT2U&callback=initMap`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    loadMapScript();
+  </script>
+</body>
+
+</html>
