@@ -1,2 +1,3 @@
 # KALINGA
-This is the README file for KALINGA.
+the link to our github repo is ....
+https://github.com/pradosh27/nirman.git
