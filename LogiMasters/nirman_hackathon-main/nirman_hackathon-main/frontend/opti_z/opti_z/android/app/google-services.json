@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131643657404",
+    "project_id": "optiz-ffcf9",
+    "storage_bucket": "optiz-ffcf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131643657404:android:7a9e1feba4df6014bd94b9",
+        "android_client_info": {
+          "package_name": "com.example.opti_z"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvTh784M_KrbLveVZF6O7vvxvFlKqdlxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
