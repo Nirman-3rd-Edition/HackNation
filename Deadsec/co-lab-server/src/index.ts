@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
 	cors({
-		origin: ["localhost:3000"],
+		origin: ["http://localhost:3000"],
 		credentials: true,
 	})
 );
@@ -171,7 +171,7 @@ app.get("/me", async (req, res) => {
 	const user = await db.user.findUnique({ where: { id: req.session.userId } });
 
 	return res.json({
-		data: {
+		user: {
 			id: user?.id,
 			name: user?.name,
 			email: user?.email,
