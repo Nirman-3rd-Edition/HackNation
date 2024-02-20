@@ -26,6 +26,12 @@ body {
   background: #F2C501;
   transition: all 0.2s ease;
 }
+.chatbox .bot-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
 body.show-chatbot .chatbot-toggler {
   transform: rotate(90deg);
 }
