@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkal Agri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(#4CAF50,darkgreen,rgb(22, 71, 30));
+            color: white;
+            padding: 30px 0;
+            display: flex;
+            justify-content: left;
+            height: 12vh;
+        }
+
+        #logo {
+            margin: 0 0 0 30px;
+            margin-right: 0px;
+            height: 12vh; /* Adjust as needed */
+            width: auto;
+        }
+
+        #welcome {
+            float: left;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0px;
+            font-size: 30px;
+            height: 12vh;
+        }
+        
+        .gridcol {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            grid-gap: 0;
+        }
+
+        nav {
+            /*background-color: #006400; / Dark green */
+            background: linear-gradient(darkgreen,rgb(48, 110, 48),#1f6821);
+            height: auto;
+            padding-top: 36px;
+            padding-left: 30px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
+        nav a:hover {
+            background-color: #003300; /* Darken on hover */
+        }
+
+        main {
+            height: 80vh;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 0px;
+            height: 100%;
+            padding: 0 50px;
+        }
+
+        .grid-item div{
+            border-radius: 10%;
+            text-align: center;
+            align-self: center;
+            margin: auto auto;
+            padding: 0;
+            height: 200px;
+            width: 220px;
+            
+        }
+        
+        .grid-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid-item img{
+            transform: scale(1.5);
+            
+        }
+        .card{
+            position: relative;
+            perspective: 1000px;
+
+        }
+        .card-inner{
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            
+            
+        }
+        .grid-item:hover .card-inner{
+            transform: rotateY(-180deg);
+        }
+        .card-front{
+            background-color: #f2f7f2;
+            margin: 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-front, .card-back{
+            position: absolute;
+            backface-visibility: hidden;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        }
+        
+        .card-back{
+            background-color: rgb(198, 221, 212);
+            transform: rotateY(180deg);
+        }
+
+
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            clear: both;
+            bottom: 0;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img id="logo" src="https://png.pngtree.com/png-clipart/20211212/original/pngtree-agricultural-logo-design-png-image_6962123.png" alt="Logo">
+    <div id="welcome">WELCOME TO UTKALAGRI !!</div>
+</header>
+
+<div class="gridcol">
+    <nav>
+        <a href="#">Home</a>
+        <a href="about.html">About</a>
+        <a href="#">Services</a>
+    </nav>
+
+    <main>
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="https://webstockreview.net/images/grasshopper-clipart-invertebrate-10.png" alt="PEST MANAGEMENT" width="100">
+            
+                        </div>
+                        <div class="card-back">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, reiciendis.</p>
+                            <div class="link"><a href="pestesti.html">Go Here<i class="fa-sharp fa-solid fa-chevron-right" style="font-size:28px;"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="https://static.vecteezy.com/system/resources/previews/012/066/505/non_2x/sunny-and-rainy-day-weather-forecast-icon-meteorological-sign-3d-render-png.png" alt="WEATHER PREDICTOR" width="100">
+            
+                        </div>
+                        <div class="card-back">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, reiciendis.</p>
+                            <div class="link"><a href="tstweb.html">Go Here<i class="fa-regular fa-chevron-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="https://hometurf.ca/wp-content/uploads/2021/02/ht-soil-icon.png" alt="SOIL HEALTH MONITOR" width="100" style="transform: scale(1.4);">
+            
+                        </div>
+                        <div class="card-back">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, reiciendis.</p>
+                            <div class="link"><a href="#">Go Here<i class="fa-regular fa-chevron-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="https://webstockreview.net/images/grain-clipart-millet.png" alt="PRECISION FARMING" width="50" style="transform: scale(1.2);">
+ 
+                        </div>
+                        <div class="card-back">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, reiciendis.</p>
+                            <div class="link"><a href="precision.html">Go Here<i class="fa-regular fa-chevron-right"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </main>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Semicolon. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
