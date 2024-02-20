@@ -263,8 +263,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+                
               }}
             />
           ) : (
@@ -272,8 +271,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+                
               }}
               src={
                 isPredicted === false
@@ -322,8 +320,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+               
               }}
             />
           ) : (
@@ -331,8 +328,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+                
               }}
               src={
                 isPredicted === false
@@ -414,8 +410,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+               
               }}
             />
           ) : (
@@ -423,8 +418,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+                
               }}
               src={
                 isPredicted === false
@@ -473,8 +467,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+               
               }}
             />
           ) : (
@@ -482,8 +475,7 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                paddingLeft: "8rem",
-                paddingRight: "8rem",
+               
               }}
               src={
                 isPredicted === false
