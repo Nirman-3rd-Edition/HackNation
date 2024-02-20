@@ -35,7 +35,7 @@ router.post('/addProfile', [
         // check if the user already exists
         const existingUser = await Profile.findOne({ uid: req.body.uid });
         if (existingUser) {
-            return res.status(400).json({ error: "Sorry, a user with this id already exists" });
+            return res.status(400).json({ message: "Sorry, a user with this id already exists" });
         }
 
         const { uid, name, email, location, type, role,phone } = req.body;

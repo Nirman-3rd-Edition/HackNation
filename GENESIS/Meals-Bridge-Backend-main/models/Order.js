@@ -25,6 +25,10 @@ const OrderSchema = new Schema({
         type: [String], // Change the type to an array of strings
         required: true
     },
+    location: {
+        type: String,
+        required: true
+    },
     status: {
         type: Boolean, // Change the type to an array of strings
         default: false

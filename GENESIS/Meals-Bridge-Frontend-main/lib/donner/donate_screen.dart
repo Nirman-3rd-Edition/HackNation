@@ -1,8 +1,15 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:meals_bridge_frontend/Services/shared_preference.dart';
 import 'package:meals_bridge_frontend/donner/donation_confirmation.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+import '../config.dart';
 
 class DonateScreen extends StatefulWidget {
   const DonateScreen({super.key});
@@ -13,6 +20,155 @@ class DonateScreen extends StatefulWidget {
 
 class _DonateScreenState extends State<DonateScreen> {
   List<CardData> cardsData = [];
+  bool isFetchingLocation = true;
+  double? lat;
+  double? long;
+  String? address;
+  List<String> locationData = [];
+  String oid = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getLatLong();
+  }
+
+  Future<void> getLatLong() async {
+    setState(() {
+      isFetchingLocation = true;
+    });
+
+    Position position;
+    try {
+      position = await _determinePosition();
+      lat = position.latitude;
+      long = position.longitude;
+      await updateText();
+
+      // Store lat and long in the array
+      locationData = [lat.toString(), long.toString()];
+    } catch (error) {
+      print("Error $error");
+    } finally {
+      // Existing code...
+    }
+  }
+
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      throw 'Location services are disabled.';
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.deniedForever) {
+        throw 'Location permissions are permanently denied, we cannot request permissions.';
+      }
+
+      if (permission == LocationPermission.denied) {
+        throw 'Location permissions are denied';
+      }
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
+  Future<void> updateText() async {
+    if (lat != null && long != null) {
+      List<Placemark> placemarks = await placemarkFromCoordinates(lat!, long!);
+      address =
+      '${placemarks[0].street} ${placemarks[0].subLocality}, ${placemarks[0]
+          .locality}, ${placemarks[0].administrativeArea}, PIN: ${placemarks[0]
+          .postalCode}';
+    }
+  }
+
+  Future<void> donateItems() async {
+    try {
+      String? uid = await SharedPreferenceService.getUidFromLocalStorage();
+
+      if (uid != null) {
+        List<String> foodNames = [];
+        List<String> quantity = [];
+        List<String> imagesBase64 = [];
+
+        for (CardData cardData in cardsData) {
+          foodNames.add(cardData.textField1Controller.text.trim());
+          quantity.add(cardData.textField2Controller.text.trim());
+
+          // Convert image to base64
+          if (cardData.image != null) {
+            List<int> imageBytes = await cardData.image!.readAsBytes();
+            String base64Image = base64Encode(imageBytes);
+            imagesBase64.add(base64Image);
+          }
+        }
+
+        // Prepare the request body
+        Map<String, dynamic> requestBody = {
+          "uid": uid,
+          "foodname": foodNames,
+          "image": imagesBase64,
+          "quantity": quantity,
+          "location": address,
+        };
+        //
+        // print(uid);
+        // print(imagesBase64);
+        // print(foodNames);
+        // print(quantity);
+        // print(address);
+
+        // Make the API request
+        var response = await http.post(
+          Uri.parse(Config.donateUrl),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: jsonEncode(requestBody),
+        );
+
+        if (response.statusCode == 200) {
+          // API call successful, handle the response as needed
+          // Extract the oid from the response body
+          Map<String, dynamic> responseBody = jsonDecode(response.body);
+          String oid = responseBody['oid'];
+
+          // Print the oid in the console
+          print("OID: $oid");
+
+          // Clear the cardsData list after successful donation
+          setState(() {
+            cardsData.clear();
+          });
+
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DonationConfirm(donationId: oid),
+            ),
+          );
+        }
+        else {
+          // API call failed, show an error message
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Failed to donate items. Please try again.'),
+            ),
+          );
+          print("API Error: ${response.statusCode} - ${response.body}");
+        }
+      }
+    } catch (e) {
+      print('Error donating items: $e');
+      // Handle the error as needed
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -167,12 +323,8 @@ class _DonateScreenState extends State<DonateScreen> {
                 .toList();
 
             if (nonEmptyCards.isNotEmpty) {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DonationConfirm(donationId: ''),
-                ),
-              );
+              await donateItems();
+
             } else {
               // Show an alert or snackbar to inform the user that at least one item is required.
               // You can customize this part based on your UI and error handling preferences.

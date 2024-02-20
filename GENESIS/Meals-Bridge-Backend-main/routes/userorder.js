@@ -38,7 +38,7 @@ router.get('/allOrder/:id', async (req, res) => {
 // send location and oid and uid
 router.get('/Orderloc', async (req, res) => {
     try {
-        const userorder = await UserOrder.find({ status: false }).select(" uid oid -_id ").sort({ createdAt: -1 }).limit(10).exec();
+        const userorder = await UserOrder.find({ status: false }).sort({ createdAt: -1 }).limit(10).exec();
         if (!userorder) {
             return res.status(404).send("Not Found");
         }
@@ -89,26 +89,28 @@ router.post('/addUserOrder',[
     body('image', 'Enter a valid image').isArray({ min: 1 }),
     body('foodname', 'Enter a valid foodname').isArray({ min: 1 }),
     body('quantity', 'Enter a valid quantity').isArray({ min: 1 }),
+    body('location', 'Enter a valid location').isLength({ min: 1 }),
     // body('status', 'Enter a valid status').isArray({ min: 0 }),
 ] ,async (req, res) => {
     try {
         // check if the user already exists
         const existingUser = await Profile.findOne({ uid: req.body.uid });
+        console.log(req.body.uid)
         if (!existingUser) {
             return res.status(400).json({ error: "Sorry, a user with this id does not exists" });
         }
-        const { uid, image, foodname, quantity, status } = req.body;
+        const { uid, image, foodname, quantity,location, status } = req.body;
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         const shortUuid= `GN${uuidv4()}`;
         const oid = shortUuid.substr(0, 6);
-        const userorder = new UserOrder({ uid,oid, image, foodname, quantity, status });
+        const userorder = new UserOrder({ uid,oid, image, foodname, quantity,location, status });
         const savedUserOrder = await userorder.save();
         res.json(savedUserOrder);
     } catch (error) {
-        console.error(error.message);
+        console.error(error);
         res.status(500).send("Internal Server Error");
     }
 })

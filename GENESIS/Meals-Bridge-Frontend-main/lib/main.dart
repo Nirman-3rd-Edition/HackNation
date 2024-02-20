@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_bridge_frontend/check_session.dart';
-import 'package:meals_bridge_frontend/user_registration.dart';
-
-import 'distributor/home_screen_distributor.dart';
-import 'donner/donate_screen.dart';
 
 void main() {
   runApp(const MyApp());
