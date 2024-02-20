@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Register.css'; 
-import { useNavigate } from 'react-router-dom';
 
 function Register() {
- // const navigate = useNavigate();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -97,8 +95,9 @@ function Register() {
             required
           />
         </div>
+        
         <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? 'Signing Up...' : 'REGISTER'}
+          {loading ? 'Registering...' : 'REGISTER'}
         </button>
       </form>
     </div>

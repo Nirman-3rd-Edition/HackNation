@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router'; // Importing useRouter from next/router
 import './Homepage.css';
-import f1 from './f1.jpg';
 
 function App() {
     const router = useRouter(); // Using useRouter hook
@@ -37,7 +36,7 @@ function App() {
                     </div>
                     <div>
                         {/* Using router.push to navigate to '/signin' */}
-                        <button className='sign' onClick={() => router.push('/Register')}>REGISTER</button>
+                        <button className='sign' onClick={() => router.push('/Login')}>LOGIN</button>
                     </div>
                 </nav>
                 <div className="l-header-content">
@@ -45,7 +44,7 @@ function App() {
                     <h3>The more you put in, the more you can take out.</h3>
                     <p>Ready to be Healthy?? </p>
                     <form className="l-email-signup">
-                        <input type="email" placeholder="Enter your email to start your 30 days free trail..." value="" onChange={handleOnChange} />
+                        <input type="text" placeholder="Enter your email to start your 30 days free trail..." value="" onChange={handleOnChange} />
                         <button><a href="/UserPortal">Get Started</a></button>
                     </form>
                 </div>
