@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- android_large___1 strings -->
+
+	<string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="quick_access_to_history_string">Quick Access to history</string>
+	<string name="latest_features_string">Latest Features</string>
+	<string name="topic_string">Topic</string>
+	<string name="description_string">description</string>
+	<string name="topic_ek1_string">Topic</string>
+	<string name="description_ek1_string">description</string>
+	<string name="topic_ek2_string">Topic</string>
+	<string name="description_ek2_string">description</string>
+	<string name="popular_picks_string">Popular Picks</string>
+	<string name="topic_ek3_string">Topic</string>
+	<string name="description_ek3_string">description</string>
+	<string name="topic_ek4_string">Topic</string>
+	<string name="description_ek4_string">description</string>
+	<string name="topic_ek5_string">Topic</string>
+	<string name="description_ek5_string">description</string>
+	<string name="charging_stations_string">Charging Stations</string>
+</resources>
