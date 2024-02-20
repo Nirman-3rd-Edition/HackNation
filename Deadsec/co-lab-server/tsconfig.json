@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"outDir": "dist",
+		"strict": true,
+		"target": "ES2017",
+		"module": "NodeNext",
+		"lib": ["esnext"],
+		"esModuleInterop": true,
+		"paths": {
+			"@/*": ["./*"],
+			"^/*": ["./src/*"]
+		}
+	}
+}
