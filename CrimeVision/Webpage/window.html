@@ -85,21 +85,19 @@
 
     
 
-    <!-- <div id="video-frame">
-        <iframe src="https://www.youtube.com/embed/your_video_code" allowfullscreen></iframe>
-    </div> -->
+    
     <div id="cameraContainer">
         <video id="cameraFeed" autoplay></video>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the video element
+            
             const video = document.getElementById('cameraFeed');
 
-            // Request access to the user's camera
+            
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then(function(stream) {
-                    // Assign the stream to the video element
+                    
                     video.srcObject = stream;
                 })
                 .catch(function(error) {
