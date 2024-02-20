@@ -1,45 +1,49 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Default Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
+    <title>Multiple Markers</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQeJmi6jy-mkhmC3tHeLZjwpc-zCpyT2U&callback=initMap" async defer></script>
     <style>
-        html,
-        body,
         #map {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
+          height: 100%;
         }
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
     </style>
-    <script
-        src="https://apis.mappls.com/advancedmaps/api/0190701c195cff6983e9b21e2506f7ff/map_sdk?layer=vector&v=3.0&callback=initMap1" defer async></script> // map API
 </head>
 <body>
     <div id="map"></div>
     <script>
-        var map;
-        function initMap1() {
-            // Rendering the map
-            map = new mappls.Map('map', {
-                center: [28.61, 77.23],
-                zoomControl: true,
-                location: true
-            });
+      let map;
+      let markers = [];
+      let directionsService;
+      let directionsRenderer;
 
-            // Getting geolocation and feeding to the map
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-                    map.setCenter(pos);
-                }, function (error) {
-                    console.error('Error in getting geolocation:', error);
-                });
-            } else {
-                console.error('Geolocation is not supported by this browser.');
-            }
-        }
-    </script>
+      function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 20.2817736, lng: 85.8007684},
+              zoom: 15,
+          });
+
+          directionsService = new google.maps.DirectionsService();
+          directionsRenderer = new google.maps.DirectionsRenderer();
+          directionsRenderer.setMap(map);
+
+
+          const stationSelect = document.getElementById("station-select");
+          stationSelect.addEventListener("change", () => {
+            const station = stationSelect.value;
+          });
+
+          map.addListener('click', (event) => {
+              calculateAndDisplayRoute(event.latLng);
+          });
+      }
+  </script>
 </body>
 </html>
