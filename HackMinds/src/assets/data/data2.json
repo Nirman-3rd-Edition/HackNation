@@ -1,0 +1,122 @@
+[
+  {
+    "id": "The_Presidency",
+    "username": "user@presidency",
+    "email": "userpresidency@gmail.com",
+    "password": "venue_owner_password",
+    "venueName": "The Presidency, Nayapalli, Bhubaneswar",
+    "venueType": ["Banquet Hall","Wedding Hotels","Cocktail Venues","Party Halls","Marriage Halls"],
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 200,
+    "location": "The Presidency, 1471/A, NH16, Near ISKON Temple, ESIC Quarters, Nayapalli, Bhubaneswar, Odisha 751015",
+    "availability": [
+      {
+        "date": "2024-02-10",
+        "status": "booked"
+      }
+    ],
+    "photos": ["https://image.wedmegood.com/resized/800X/uploads/vendor_cover_pic/20119/20303356-bc5a-4b81-9813-156ac22c0433.png", "https://image.wedmegood.com/resized/540X/uploads/member/19841/1442397299_hhi_bhubaneswar_banquet_crystal.jpg","https://media.weddingz.in/images/28e661f6d943f6d41c90f39d8f6932d7/the-presidency-nayapalli-bhubaneswar-1.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrF7Tn4MeJFJbTFgPwpKHs_Byg3rcckCoEuVOTk3rDw5NgdG1VCl-sAQzevqEI4lbkvg&usqp=CAU","https://image.wedmegood.com/resized/800X/uploads/member/122602/1573288476_23.jpg"],
+    "servicesOffered": ["catering", "photography", "decorator"],
+    "chatHistory": []
+  },
+  {
+    "id": "venue_owner_2",
+    "username": "elegant_venues",
+    "email": "elegant.venues@example.com",
+    "password": "venues_password",
+    "venueName": "Elegance Mansion",
+    "venueType": "Mansion",
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 300,
+    "location": "Suburbia",
+    "availability": [
+      {
+        "date": "2024-03-15",
+        "status": "available"
+      }
+    ],
+    "photos": ["venue1.jpg", "venue2.jpg"],
+    "servicesOffered": ["catering", "decorator"],
+    "chatHistory": []
+  },
+  {
+    "id": "venue_owner_3",
+    "username": "royal_events",
+    "email": "royal.events@example.com",
+    "password": "royal_events_password",
+    "venueName": "Royal Palace",
+    "venueType": "Palace",
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 500,
+    "location": "Downtown",
+    "availability": [
+      {
+        "date": "2024-04-20",
+        "status": "booked"
+      }
+    ],
+    "photos": ["venue3.jpg", "venue4.jpg"],
+    "servicesOffered": ["catering", "photography"],
+    "chatHistory": []
+  },
+  {
+    "id": "venue_owner_4",
+    "username": "majestic_halls",
+    "email": "majestic.halls@example.com",
+    "password": "majestic_halls_password",
+    "venueName": "Majestic Halls",
+    "venueType": "Hall",
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 150,
+    "location": "Uptown",
+    "availability": [
+      {
+        "date": "2024-05-10",
+        "status": "available"
+      }
+    ],
+    "photos": ["venue5.jpg", "venue6.jpg"],
+    "servicesOffered": ["decorator"],
+    "chatHistory": []
+  },
+  {
+    "id": "venue_owner_5",
+    "username": "celebration_zone",
+    "email": "celebration.zone@example.com",
+    "password": "celebration_zone_password",
+    "venueName": "Celebration Zone",
+    "venueType": "Venue",
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 250,
+    "location": "Midtown",
+    "availability": [
+      {
+        "date": "2024-06-05",
+        "status": "booked"
+      }
+    ],
+    "photos": ["venue7.jpg", "venue8.jpg"],
+    "servicesOffered": ["catering", "photography", "decorator"],
+    "chatHistory": []
+  },
+  {
+    "id": "venue_owner_6",
+    "username": "dreamy_resorts",
+    "email": "dreamy.resorts@example.com",
+    "password": "dreamy_resorts_password",
+    "venueName": "Dreamy Resorts",
+    "venueType": "Resort",
+"description":"sdfsdfsfwertwsdfertdfgdgdgfdgg",
+    "capacity": 400,
+    "location": "Countryside",
+    "availability": [
+      {
+        "date": "2024-07-01",
+        "status": "available"
+      }
+    ],
+    "photos": ["venue9.jpg", "venue10.jpg"],
+    "servicesOffered": ["catering", "photography", "decorator"],
+    "chatHistory": []
+  }
+]

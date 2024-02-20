@@ -1,0 +1,176 @@
+[
+  {
+      "id": "photographer_1",
+      "username": "photo_artist",
+      "email": "photo.artist@example.com",
+      "password": "photographer_password",
+      "style": "Modern",
+      "description": "kasbdjfbas",
+      "experienceYears": 5,
+      "availability": [
+          {
+              "date": "2024-02-10",
+              "status": "booked"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/676541/3_2/640/jpg/doublediamondxstyledshoot-wedding-doublediamondxranch6-26-2023-1468_51_2145676-169272224077547.webp",
+          "https://cdn0.weddingwire.com/vendor/676541/3_2/640/jpg/doublediamondxstyledshoot-wedding-doublediamondxranch6-26-2023-1427_51_2145676-169272224085273.webp",
+          "https://cdn0.weddingwire.com/vendor/697070/3_2/1280/jpg/1z6a8261_51_2070796-168325588956637.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 20,000 - ₹ 30,000"
+  },
+  {
+      "id": "photographer_2",
+      "username": "capturing_moments",
+      "email": "capturing.moments@example.com",
+      "password": "moments_password",
+      "style": "Vintage",
+      "description": "kasbdjfbas",
+      "experienceYears": 8,
+      "availability": [
+          {
+              "date": "2024-03-15",
+              "status": "available"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/676541/3_2/640/jpg/lavender_51_2145676-168606179183991.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/kristimichaelgoldenthefoundry-pittsburgh-jamesg-0030_51_1059299-169587925798485.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/png/tk-banner-2_51_1059299-170673002288539.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 25,000 - ₹ 35,000"
+  },
+  {
+      "id": "photographer_3",
+      "username": "eternal_lens",
+      "email": "eternal.lens@example.com",
+      "password": "eternal_lens_password",
+      "style": "Timeless",
+      "description": "kasbdjfbas",
+      "experienceYears": 10,
+      "availability": [
+          {
+              "date": "2024-04-20",
+              "status": "booked"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/373490/3_2/1920/jpg/20211002-morgantown-0786_51_2094373-165315223488020.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/png/tk-banner-2_51_1059299-170673002288539.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/png/tk-banner-2_51_1059299-170673002288539.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 30,000 - ₹ 40,000"
+  },
+  {
+      "id": "photographer_4",
+      "username": "fashion_flash",
+      "email": "fashion.flash@example.com",
+      "password": "fashion_flash_password",
+      "style": "Fashion",
+      "description": "kasbdjfbas",
+      "experienceYears": 6,
+      "availability": [
+          {
+              "date": "2024-05-10",
+              "status": "available"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/373490/original/1920/jpg/20211002-morgantown-0868_51_2094373-165315226972666.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/png/tk-banner-2_51_1059299-170673002288539.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 20,000 - ₹ 30,000"
+  },
+  {
+      "id": "photographer_5",
+      "username": "sunset_shutter",
+      "email": "sunset.shutter@example.com",
+      "password": "sunset_shutter_password",
+      "style": "Natural",
+      "description": "kasbdjfbas",
+      "experienceYears": 7,
+      "availability": [
+          {
+              "date": "2024-06-05",
+              "status": "booked"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/373490/original/1920/jpg/20211002-morgantown-0343_51_2094373-165315220216018.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 25,000 - ₹ 35,000"
+  },
+  {
+      "id": "photographer_6",
+      "username": "urban_frames",
+      "email": "urban.frames@example.com",
+      "password": "urban_frames_password",
+      "style": "Urban",
+      "description": "kasbdjfbas",
+      "experienceYears": 4,
+      "availability": [
+          {
+              "date": "2024-07-01",
+              "status": "available"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/373490/3_2/1920/jpg/20211002-morgantown-0786_51_2094373-165315223488020.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 15,000 - ₹ 25,000"
+  },
+  {
+      "id": "photographer_7",
+      "username": "dynamic_shots",
+      "email": "dynamic.shots@example.com",
+      "password": "dynamic_shots_password",
+      "style": "Dynamic",
+      "description": "kasbdjfbas",
+      "experienceYears": 9,
+      "availability": [
+          {
+              "date": "2024-08-15",
+              "status": "booked"
+          }
+      ],
+      "photos": [
+          "https://cdn0.weddingwire.com/vendor/373490/original/1920/jpg/20211002-morgantown-0868_51_2094373-165315226972666.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp",
+          "https://cdn0.weddingwire.com/vendor/992950/3_2/1280/jpg/laurennicholashess-pittsburgh-soldierssailorsmemorialhall-sarahc-22_51_1059299-169587925251609.webp"
+      ],
+      "servicesOffered": [
+          "photography"
+      ],
+      "chatHistory": [],
+      "pricing": "₹ 30,000 - ₹ 40,000"
+  }
+]

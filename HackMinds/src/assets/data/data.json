@@ -1,0 +1,69 @@
+{
+    "venues": [
+      {
+        "id": 1,
+        "imageLink": "https://static.toiimg.com/thumb/width-600,height-400,msid-42810873.cms",
+        "location": "City Center",
+        "occasion": "Wedding",
+        "date": "2024-05-15",
+        "capacity": 150
+      },
+      {
+        "id": 2,
+        "imageLink": "https://8f430952.rocketcdn.me/wp-content/uploads/2020/02/83736381_2807583289264771_3432305861714771968_o.jpg",
+        "location": "Waterfront",
+        "occasion": "Conference",
+        "date": "2024-06-20",
+        "capacity": 200
+      },
+      {
+        "id": 3,
+        "imageLink": "https://etagebanquethall.com/wp-content/uploads/etage-venue-birthday-img.webp",
+        "location": "Garden Estate",
+        "occasion": "Birthday Party",
+        "date": "2024-07-10",
+        "capacity": 100
+      },
+      {
+        "id": 4,
+        "imageLink": "https://www.jesvenues.com/blog/wp-content/uploads/2017/05/corporate-event1.jpg",
+        "location": "Sky Lounge",
+        "occasion": "Corporate Event",
+        "date": "2024-08-18",
+        "capacity": 300
+      },
+      {
+        "id": 5,
+        "imageLink": "https://ik.imagekit.io/pu0hxo64d/uploads/gallery/tr:w-450,h-250/interior-of-booze-on-moods---the-bistro-bar-lower-parel.PNG",
+        "location": "Mountain Retreat",
+        "occasion": "Family Reunion",
+        "date": "2024-09-05",
+        "capacity": 120
+      },
+      {
+        "id": 6,
+        "imageLink": "https://govindaresorts.com/wp-content/uploads/Wedding-destination-1024x723.jpg",
+        "location": "Beachfront Pavilion",
+        "occasion": "Beach Wedding",
+        "date": "2024-10-12",
+        "capacity": 180
+      },
+      {
+        "id": 7,
+        "imageLink": "https://cdn0.weddingwire.com/vendor/840214/3_2/960/jpg/cindy_51_412048-168730416989814.jpeg",
+        "location": "Historic Mansion",
+        "occasion": "Anniversary Celebration",
+        "date": "2024-11-28",
+        "capacity": 250
+      },
+      {
+        "id": 8,
+        "imageLink": "https://images.squarespace-cdn.com/content/v1/545070b7e4b03ea792c15d50/f177c98b-c1d1-49e8-a7a1-223d479dfc02/McLendon-Photography-D1-0006_websize+-+Kinsey+Murphy.jpg",
+        "location": "Tech Hub Auditorium",
+        "occasion": "Tech Summit",
+        "date": "2025-01-20",
+        "capacity": 300
+      }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+.image-container {
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+  }
+  
+  .image {
+    transition: opacity 0.5s ease; /* Smooth transform transition */
+  }
+  
+  .text-container {
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+  }
+  

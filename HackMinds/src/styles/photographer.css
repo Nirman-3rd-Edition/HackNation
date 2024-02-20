@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#main-div{
+    position: relative;
+}
+
+
+#color{
+    width: 98.8svw;
+    height: 45svh;
+    /* background-color: #d3e8e1; */
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    height: 50svh;
+    width: 80svw;
+    margin: 0 auto;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    gap: 2px;
+}
+
+#banner img{
+    flex-grow: 1;
+}
+
+#share {
+    position: absolute;
+    top: 23%;
+    left: 11%;
+}
+
+#about {
+    margin-top: 30svh;
+    display: grid;
+    grid-template-columns: 20svw 40svw 30svw;
+    color: #24327d;
+    margin-bottom: 20svh;
+}
+
+#about-body div{
+    margin-top: 5svh;
+}
+
+#floating-box {
+    margin: 30svh auto;
+    padding: 20px;
+    width: 20svw;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px rgba(36, 50, 125, 1);
+}
+
+#price {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+#g-i-t {
+    margin-bottom: 5svh;
+}
+#g-i-t h2{
+    border-radius: 5px;
+    background-color: #ffdc97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 5%;
+    text-align: center;
+}
+
+#con-btn {
+    margin: auto;
+    background-color: #fe0c6e;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5%;
+    box-shadow: 5px 5px 0px rgba(36, 50, 125, 1);
+}

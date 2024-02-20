@@ -1,0 +1,30 @@
+.slick-prev:before,
+.slick-next:before {
+  color:rgb(18, 94, 188)!important;
+}
+.buttons{
+    font-family: serif !important;
+    font-weight: bold !important;
+}
+.capacity{
+    font-size: 1.5rem;
+    font-family: serif;
+    font-weight: bolder;
+}
+.occasion{
+    font-family: serif;
+    font-weight: light;
+}
+.user_icon{
+    font-size: 1.5rem;
+    margin-top: 2px;
+    font-weight: bolder;
+}
+.loc{
+    /* style={{fontFamily:"fantasy",fontWeight:"semibold"}} */
+    font-family: fantasy;
+    font-weight: semibold;
+}
+.wishlist:hover{
+    transform: scale(1.3);;
+}

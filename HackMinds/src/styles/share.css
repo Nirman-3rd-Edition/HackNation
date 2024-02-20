@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#sr-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 0;
+    align-items: center;
+    width: fit-content;
+    background-color: #fedccc;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+
+#sr-container :hover{
+    cursor:pointer;
+}
+
+#sr-share {
+    padding: 2svh;
+    background-color: #fedccc;
+    color: #24327d;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+
+#sr-icons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #24327d;
+    color: white;
+    height: auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#sr-gmail, #sr-twitter, #sr-facebook, #sr-linkedin{
+    color: white;
+    margin: 0;
+    padding: 2svh;
+}
+
+#sr-icons :hover {
+    background-color: #3344aa;
+}
