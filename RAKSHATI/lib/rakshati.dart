@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:location/location.dart';
 
 
+
 void main() {
   runApp(SOSApp());
 }
@@ -35,6 +36,8 @@ class SOSApp extends StatelessWidget {
                 child: Text('Call Ambulance'),
               ),
               SizedBox(height: 20),
+ 
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _getCurrentLocation,
                 child: Text('Get Current Location'),
@@ -60,7 +63,7 @@ class SOSApp extends StatelessWidget {
     }
   }
 
-  
+
   }
 
   void _getCurrentLocation() async {
@@ -75,11 +78,10 @@ class SOSApp extends StatelessWidget {
   }
 
   void _openMap(double lat, double lng) async {
-    String url = 'https://www.google.com/maps/search/?api=1&query=$lat,$lng';
+    String url = 'https://www.google.com/maps/place/Silicon+University/@20.3506964,85.787882,15z/data=!3m1!4b1!4m6!3m5!1s0x3a1908e064769e73:0x9288172f3a98c7a4!8m2!3d20.3506773!4d85.806336!16s%2Fm%2F03qkxqw?entry=ttu';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not open map';
-      }
+    }
   }
-  

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "704045178310",
+    "project_id": "rakshati-29fe3",
+    "storage_bucket": "rakshati-29fe3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704045178310:android:818c815d342d5f3b42e6c7",
+        "android_client_info": {
+          "package_name": "com.example.rakshati"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-vzCUmmkI075mBNbDmHfl7ZC7pMF0cag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
