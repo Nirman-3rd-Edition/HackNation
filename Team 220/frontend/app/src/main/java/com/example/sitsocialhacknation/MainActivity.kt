@@ -1,46 +1,56 @@
-package com.example.sitsocialhacknation
+package com.example.sitsocialapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.sitsocialhacknation.ui.theme.SitsocialhacknationTheme
+import androidx.compose.runtime.MutableState
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import com.example.sitsocialapp.screens.LoginScreen
+import com.example.sitsocialapp.screens.SecondScreen
+import com.example.sitsocialapp.screens.SignupScreen
+import com.example.sitsocialapp.screens.SplashScreen
+import com.example.sitsocialapp.screens.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SitsocialhacknationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            MainScreen()
+//            val navController = rememberNavController()
+//            val rememberSplash = remember{ mutableStateOf(false) }
+//            Navigation(navController = navController, rememberSplash)
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun Navigation(navController: NavHostController, rememberSplash: MutableState<Boolean>){
+    NavHost(navController = navController, startDestination = if(!rememberSplash.value){"SplashScreen"}else{"HomeScreen"}){
+        composable("SplashScreen"){
+            SplashScreen(navController = navController) {
+                navController.popBackStack()
+                rememberSplash.value = true
+                navController.navigate("WelcomeScreen")
+            }
+        }
+        composable("WelcomeScreen"){
+            WelcomeScreen(navController = navController)
+        }
+        composable("LoginScreen"){
+            LoginScreen()
+        }
+        composable("SignupScreen"){
+            SignupScreen()
+        }
+        composable("HomeScreen"){
+//            HomeScreen(navController = navController)
+        }
+        composable("SecondScreen"){
+            SecondScreen()
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SitsocialhacknationTheme {
-        Greeting("Android")
     }
 }
