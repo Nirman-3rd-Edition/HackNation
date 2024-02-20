@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/vehicle"
+        android:title="vehicle"
+        android:icon="@drawable/baseline_electric_car_24" />
+
+    <item
+        android:id="@+id/floating"
+        android:title=""
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/add_location"
+        android:title="Timeline"
+        android:icon="@drawable/baseline_add_location_24"/>
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        android:icon="@drawable/baseline_person_24"/>
+
+</menu>
