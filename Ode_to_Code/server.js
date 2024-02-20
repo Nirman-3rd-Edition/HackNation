@@ -1,20 +1,20 @@
-const express = require("express");
-const connectDB = require("./config/db");
+//Modules
+const express = require('express')
+const cors = require('cors')
+const path = require('path')
+const colours = require('colors')
+const connectDB = require('./config/db.js')
+
+//Local Variables
+const app = express()
+
+//Configs
+connectDB()
+colours.enable()
+app.use(express.json())
+const port = 3000
 
 
-app.use(express.json());
 
-
-connectDB();
-
-
-
-//port
-const port =  process.env.PORT || 8080;
-//listen port
-app.listen(port, () => {
-  console.log(
-    `Server Running in ${process.env.NODE_MODE} Mode on port ${process.env.PORT}`
-      .bgCyan.white
-  );
-});
+// Port
+app.listen(port, () => { console.log(`Server Running on ${port}`.bgCyan.white) })
