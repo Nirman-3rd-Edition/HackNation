@@ -1,0 +1,122 @@
+/* .setting__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.setting__card{
+  flex: 1;
+   border: 1px solid #dddddd; 
+   border-radius: 4px; 
+   padding: 16px; 
+   background-color: #ffffff; 
+   box-sizing:content-box; 
+   box-shadow: 4px 4px rgba(150, 149, 149, 0.1);
+   /* } */
+.setting__card:hover {
+  background-color: rgb(45, 163, 45);
+  border-radius: 1rem;
+}
+
+.setting__card .setting__item {
+  cursor: pointer;
+}
+
+.setting__card .setting__item h2 {
+  font-size: 18px;
+  /* font-weight: 100; */
+}
+
+/* .settings__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10vh;
+} */
+
+.settings__row {
+  display: flex;
+  width: 90%;
+  height: 90%;
+}
+
+.__column {
+  display: flex;
+  flex-direction: column;
+  flex: 100%;
+  flex-direction: column;
+  padding: 20px 10px 20px 10px;
+}
+
+.settings__nav {
+  border: 1px solid #eae9e9;
+  border-radius: 8px;
+  padding: 20px 40px 10px 10px;
+  width: 30%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgb(232, 232, 232);
+}
+
+.setting__card {
+  /* flex: 1;
+  flex-direction: column;
+  padding: 20px 10px 20px 50px;
+  margin: 20px 10px 20px 5px;
+  background-color: #ebe9e9;
+  width: 50%;
+  height:10%;
+  border-radius: 1rem; */
+
+  flex: 1 1;
+  flex-direction: column;
+  padding: 30px 10px 20px 110px;
+  margin: 26px 37px -11px 15px;
+  background-color: #ebe9e9;
+  width: 50%;
+  height: 10%;
+  border-radius: 0.5rem;
+
+  box-shadow: 2px 4px rgba(184, 183, 183, 0.1);
+}
+
+.setting__item {
+  display: flex;
+  align-items: center;
+  margin: -10px 40px 140px -35px;
+  font-weight: bolder;
+}
+
+/* .setting__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+} */
+
+.setting__description {
+  font-size: 14px;
+  color: #c1c1c1;
+}
+
+.setting__input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.setting__button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.setting__button:hover {
+  background-color: #3e8e41;
+}

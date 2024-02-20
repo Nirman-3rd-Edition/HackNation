@@ -1,0 +1,15 @@
+.timeline{
+    display: flex;
+    flex-direction: row;
+}
+.timeline__postsContainer {
+    height: 90vh; /* adjust the height as needed */
+    overflow-y: scroll;
+     padding: 10px 0.5px 10px 30px ; 
+  }
+.timeline__left{
+    flex:0.7;
+}
+.timeline__right{
+    flex:0.3;
+}

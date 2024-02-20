@@ -1,4 +1,3 @@
-import './App.css';
 import Market from '../src/Pages/Market';
 import Weather from '../src/Pages/Weather';
 import Login from '../src/Pages/Login';
@@ -7,11 +6,13 @@ import Rentals from '../src/Pages/Rentals';
 import Tutorials from '../src/Pages/Tutorials';
 import Aboutus from '../src/Pages/Aboutus';
 import Home from '../src/Pages/Home';
+import Profile from '../src/Components/Profile';
+import Settings from '../src/Components/Settings';
 import { Route, Routes } from "react-router";
 import 'bootstrap/dist/css/bootstrap.css'
 import Signup from './Pages/Signup'
-
 function App() {
+
   return (
     <>
       <Routes>
@@ -20,11 +21,13 @@ function App() {
         <Route path='/Login' element={<Login />}></Route>
         <Route path='/about' element={<Aboutus />}></Route>
         <Route path='/Community' element={<Community />}></Route>
-        <Route path='/Market' element={<Market />}></Route>
+        <Route path='/Market' element={<Market  />}></Route>
         <Route path='/Rentals' element={<Rentals />}></Route>
+        <Route path='/Weather' element={<Weather />}></Route>
         <Route path='/Weather' element={<Weather />}></Route> 
         <Route path='/Signup' element={<Signup />}></Route> 
-
+        <Route path='/Community/Profile' element={<Profile />}></Route>
+        <Route path='/Community/Settings' element={<Settings />}></Route>
       </Routes>
     </>
   );
