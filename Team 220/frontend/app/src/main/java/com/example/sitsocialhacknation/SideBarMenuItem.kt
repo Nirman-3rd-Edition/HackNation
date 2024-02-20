@@ -1,4 +1,4 @@
-package com.example.sitsocialapp
+package com.example.sitsocialhacknation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

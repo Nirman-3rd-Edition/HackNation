@@ -1,4 +1,4 @@
-package com.example.sitsocialapp
+package com.example.sitsocialhacknation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background

@@ -1,4 +1,4 @@
-package com.example.sitsocialapp
+package com.example.sitsocialhacknation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle

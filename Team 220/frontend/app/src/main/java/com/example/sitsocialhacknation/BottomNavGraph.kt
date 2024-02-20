@@ -1,14 +1,14 @@
-package com.example.sitsocialapp
+package com.example.sitsocialhacknation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.sitsocialapp.screens.CommunityScreen
-import com.example.sitsocialapp.screens.CreatePostScreen
-import com.example.sitsocialapp.screens.HomeScreen
-import com.example.sitsocialapp.screens.NotificationScreen
-import com.example.sitsocialapp.screens.ProfileScreen
+import com.example.sitsocialhacknation.screens.CommunityScreen
+import com.example.sitsocialhacknation.screens.CreatePostScreen
+import com.example.sitsocialhacknation.screens.HomeScreen
+import com.example.sitsocialhacknation.screens.NotificationScreen
+import com.example.sitsocialhacknation.screens.ProfileScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController){

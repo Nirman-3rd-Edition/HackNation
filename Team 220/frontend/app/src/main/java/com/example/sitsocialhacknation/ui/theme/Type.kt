@@ -6,6 +6,28 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
+//font provider
+val provider = GoogleFont.Provider(
+    providerAuthority = "com.google.android.gms.fonts",
+    providerPackage = "com.google.android.gms",
+    certificates = R.array.com_google_android_gms_fonts_certs
+)
+
+//fonts
+val fontAccent = GoogleFont("Playball")
+val fontLogo = GoogleFont("Atma")
+val fontPrimary = GoogleFont("Poppins")
+//font family
+val fontAccentFamily = FontFamily(
+    Font(googleFont = fontAccent, fontProvider = provider)
+)
+val fontLogoFamily = FontFamily(
+    Font(googleFont = fontLogo, fontProvider = provider)
+)
+val fontPrimaryFamily = FontFamily(
+    Font(googleFont = fontPrimary, fontProvider = provider)
+)
+
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
