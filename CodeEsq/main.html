@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+       
+    </style>
+</head>
+<body>
+<header>
+    <p>BUSIFY-DASHBOARD</p>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="menu">
+<div id="book">
+    <div class="to">
+        <label for="inputField1">Choose or type an option:</label>
+        <input type="text" id="inputField1" list="options">
+        <datalist id="options">
+            <option value="Option 1"></option>
+            <option value="Option 2"></option>
+            <option value="Option 3"></option>
+        </datalist>
+    </div>
+    <button>change</button>
+    <div class="from">
+        <label for="inputField2">Choose or type an option:</label>
+        <input type="text" id="inputField2" list="options2">
+        <datalist id="options2">
+            <option value="Option 1"></option>
+            <option value="Option 2"></option>
+            <option value="Option 3"></option>
+        </datalist>
+    </div>
+    <div class="bustime">
+        <p>Select your bus timing:</p>
+        <input type="text" class="bustimeinput">
+    </div>
+  
+    <br>
+    <select class="available_buses">
+        <option>Bus1</option>
+        <option>Bus2</option>
+        <option>Bus3</option>
+        <option>Bus4</option>
+    </select>
+</div>
+<button class="submit">SUBMIT</button>
+</div>
+
+<div id="map"></div>
+
+<footer>
+    <p>Logo</p>
+</footer>
+<script>
+    function initMap() {
+        const myLatLng = { lat: 20.296239852905273, lng: 85.82453155517578 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: myLatLng,
+        });
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "My location",
+        });
+    }
+</script>
+<script>
+    const inputFields = document.querySelectorAll('.to input[type="text"]'); // Select all input fields
+    const dataList = document.querySelectorAll('.to datalist'); // Select all datalists
+
+    inputFields.forEach((inputField, index) => {
+        inputField.addEventListener('input', function() {
+            const enteredValue = this.value;
+            const options = dataList[index].querySelectorAll('option');
+            let optionExists = false;
+
+            options.forEach(option => {
+                if (option.value === enteredValue) {
+                    optionExists = true;
+                }
+            });
+
+            if (!optionExists) {
+                dataList[index].innerHTML += `<option value="${enteredValue}">`;
+            }
+        });
+    });
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwOi6CfAIkg1Y7DxDXf7Ffee57VS9lnlY&callback=initMap"></script>
+</body>
+</html>
