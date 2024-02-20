@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- android_large___4 strings -->
+
+	<string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="_2024_string">2024</string>
+	<string name="feb_string">Feb</string>
+	<string name="gathering_usage_information_for_analysis_and_optimization_of_electric_vehicle_performance__string">Gathering usage information for analysis and optimization of electric vehicle performance.</string>
+	<string name="download_data_string">Download Data</string>
+	<string name="ola_s1_string">Ola S1</string>
+	<string name="recent_orders_string">Recent Orders</string>
+	<string name="order____87654321_string">Order #: 87654321</string>
+	<string name="february_10__2024___2_00_pm_string">February 10, 2024 - 2:00 PM</string>
+	<string name="suji_ka_halwa_charging_station_iter_square__bhubneshwar__odisha_string">Suji Ka Halwa Charging StationITER square, Bhubneshwar, Odisha</string>
+	<string name="success_string">SUCCESS</string>
+	<string name="rs_700_string">Rs.700</string>
+	<string name="order____87654321_ek1_string">Order #: 87654321</string>
+	<string name="february_10__2024___2_00_pm_ek1_string">February 10, 2024 - 2:00 PM</string>
+	<string name="suraj_prem_charging_station_jio_nagar__bhubneshwar__odisha_string">Suraj Prem Charging  StationJio Nagar, Bhubneshwar, Odisha</string>
+	<string name="success_ek1_string">SUCCESS</string>
+	<string name="rs_126_string">Rs.126</string>
+	<string name="order____12348765_string">Order #: 12348765</string>
+	<string name="february_18__2024___1_30_pm_string">February 18, 2024 - 1:30 PM</string>
+	<string name="indhar_ka_ev_charging_station_saheed_nagar__bhubneshwar__odisha_string">indhar Ka EV Charging  StationSaheed nagar, Bhubneshwar, Odisha</string>
+	<string name="rs_537_string">Rs.537</string>
+	<string name="terminated_string">TERMINATED</string>
+	<string name="order____12345678_string">Order #: 12345678</string>
+	<string name="february_21__2024___5_30_pm_string">February 21, 2024 - 5:30 PM</string>
+	<string name="gajar_ka_halwa_charging_station_khao_gali__bhubneshwar__odisha_string">Gajar Ka Halwa Charging StationKhao gali, Bhubneshwar, Odisha</string>
+	<string name="charging____string">Charging...</string>
+	<string name="on_hold_string">ON HOLD</string>
+</resources>
