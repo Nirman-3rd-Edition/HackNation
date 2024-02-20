@@ -6,29 +6,12 @@ import cors from "cors";
 import session from "express-session";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import {
+	CreateTeamRequest,
+	LoginRequest,
+	RegisterRequest,
+} from "./serverTypes";
 config();
-
-interface LoginRequest extends express.Request {
-	body: {
-		email: string;
-		password: string;
-	};
-}
-interface RegisterRequest extends express.Request {
-	body: {
-		name: string;
-		email: string;
-		password: string;
-		loginDirectly: boolean;
-	};
-}
-
-// setting session types
-declare module "express-session" {
-	export interface SessionData {
-		userId: string;
-	}
-}
 
 const app = express();
 const db = new PrismaClient();
@@ -149,6 +132,82 @@ app.post("/register", async (req: RegisterRequest, res) => {
 
 	return res.status(201).json({
 		msg: "Registered successfully",
+		success: true,
+	});
+});
+
+// logout user
+app.post("/logout", async (req, res) => {
+	if (!req.session.userId) {
+		return res.status(404).json({
+			msg: "No session found",
+			success: false,
+		});
+	}
+
+	req.session.destroy((err) => {
+		if (err) {
+			console.log(err);
+			return;
+		}
+	});
+	res.clearCookie("qid");
+
+	return res.json({
+		msg: "User logged out",
+		success: true,
+	});
+});
+
+// me
+app.get("/me", async (req, res) => {
+	if (!req.session.userId) {
+		return res.json({
+			msg: "No session found",
+			success: false,
+		});
+	}
+
+	const user = await db.user.findUnique({ where: { id: req.session.userId } });
+
+	return res.json({
+		data: {
+			id: user?.id,
+			name: user?.name,
+			email: user?.email,
+		},
+		success: true,
+	});
+});
+
+// create team
+app.post("/create-team", async (req: CreateTeamRequest, res) => {
+	if (!req.session.userId) {
+		return res.json({
+			msg: "No session found",
+			success: false,
+		});
+	}
+	const currentUser = await db.user.findUnique({
+		where: {
+			id: req.session.userId,
+		},
+	});
+
+	const newTeam = await db.team.create({
+		data: {
+			name: req.body.name,
+			creatorId: req.session.userId,
+			members: {
+				connect: {
+					id: req.session.userId,
+				},
+			},
+		},
+	});
+
+	return res.json({
+		msg: "Team created",
 		success: true,
 	});
 });
