@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+*{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.error{
+    color:red;
+    margin-top: 2;
+    font-size: 12px;
+}
+
+.bg-pri{
+    background-color: #001431 !important;
+}
+
+.bg-box{
+    position:fixed;
+    right: 0px;
+    top: 0px;
+    z-index: -100;
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f8f2e2;
+  }
+  
+  .text-white{
+    /* text-transform:uppercase; */
+    font-family:monospace;
+  }
+  

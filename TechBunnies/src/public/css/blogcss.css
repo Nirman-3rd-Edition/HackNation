@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+*{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.card {
+	width: 18rem;
+    margin: 5px 22px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px -1px grey;
+    background: white;
+}
+
+.main-wrapper {
+  background-color: white
+}
+
+.main-container {
+  margin-top: 10px;    
+  padding: 10px
+}
+
+.row.main-row {
+  background-color: white;
+  padding: 10px;  
+  margin: 10px; 
+  border: 1px solid #000;
+  border-radius: 10px
+}
+
+.row.main-row-col {
+  background-color: white;
+  padding: 10px;  
+  margin: 10px; 
+
+}
+
+.mainDiv {
+  margin-top:220px;
+}
+
+.error{
+  color:red;
+  margin-top: 2;
+  width: max-content;
+  font-size: 12px;
+  text-overflow:unset;
+}
+
+/* added custum styling */
+.text-white{
+  /* text-transform:uppercase; */
+  font-family:monospace;
+}
+
+.bg-pri{
+  background-color: #001431 !important;
+}
+
+.btn-pri{
+  background-color: #e73232 !important;
+  color: white !important;
+}
+.btn-grn{
+  background-color: green !important;
+  color: white !important;
+}
+
+.bg-box{
+  position:fixed;
+  right: 0px;
+  top: 0px;
+  z-index: -100;
+  width: 30%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f8f2e2;
+}
+
+.bg-trans{
+  background-color: transparent !important;
+}
+
+.box-design{
+  /* background-color: lightblue !important; */
+  box-shadow: 0px 0px 7.5px grey;
+  border: 0px !important;
+}
+
+.subtitle{
+  color: grey;
+}
