@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- android_large___8 strings -->
+
+	<string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="charging_string">Charging</string>
+	<string name="for_ola_s1_string">for Ola S1</string>
+	<string name="_0_00_string">0.00</string>
+	<string name="tot__kwh_string">Tot. kwh</string>
+	<string name="rs_0_00_string">Rs.0.00</string>
+	<string name="expend_string">Expend</string>
+	<string name="_00_00_00_string">00:00:00</string>
+	<string name="duration_string">Duration</string>
+	<string name="recharging_electric_vehicle_for_extended_range_and_eco_friendly_transportation__string">Recharging electric vehicle for extendedrange and eco-friendly transportation.</string>
+	<string name="tap_to_stop_string">Tap to stop</string>
+	<string name="_75_string">75</string>
+	<string name="___string">%</string>
+</resources>

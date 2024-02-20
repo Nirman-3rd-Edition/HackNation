@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ellipse_5_ek4 from your XD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="oval" >
+	<stroke android:color="#0d1823" android:width="12dp" />
+	<solid android:color="@color/rectangle_1_color" />
+</shape>
+
