@@ -10,7 +10,7 @@ export default function Home() {
             {/* <h1>Farm Guru Project</h1> */}
             <div className="header-cont">
                 <div className="img-cont">
-                    <a href="#home"><img className='h-img' src={logo} alt="logo" /></a>
+                    <NavLink to="/"><a href="#home"><img className='h-img' src={logo} alt="logo" /></a></NavLink>                    
                 </div>
                 <div className="link-cont">
                     <ul>
