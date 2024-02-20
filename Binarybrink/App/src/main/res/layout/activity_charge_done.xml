@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TimelineFragment">
+
+    <ScrollView android:id="@+id/android_large___5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View   android:id="@+id/rectangle_1"
+                android:background="#010C15"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp" />
+
+
+            <RelativeLayout android:id="@+id/battery_back_button"
+                android:layout_marginTop="48dp"
+                android:layout_marginStart="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView android:id="@+id/vector_ek7"
+                    android:src="@drawable/back_arrow"
+                    android:contentDescription="vector_ek7"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="7.24dp"
+                    android:layout_height="14.28dp" />
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/travel_history"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="94dp"
+                android:layout_width="wrap_content"
+                android:layout_height="24.7dp"
+                android:text="Charge Done"
+                />
+
+
+            <RelativeLayout android:id="@+id/group_19"
+                android:layout_marginTop="600dp"
+                android:layout_marginStart="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+
+                <RelativeLayout android:id="@+id/group_16"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/_3"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24.7dp"
+                        android:text="23.01"
+                        />
+
+                    <TextView android:id="@+id/stops"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20.4dp"
+                        android:text="Tot. kwh"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/group_17"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="122dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/_32"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24.7dp"
+                        android:text="Rs156.00"
+                        />
+
+                    <TextView android:id="@+id/tot__km"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20.4dp"
+                        android:text=" Expend"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/group_18"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView android:id="@+id/_15hrs"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="55.7dp"
+                        android:layout_height="24.7dp"
+                        android:text="  00:35"
+                        />
+
+                    <TextView android:id="@+id/tot__time"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="65.4dp"
+                        android:layout_height="20.4dp"
+                        android:paddingLeft="10dp"
+                        android:text="Duration"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/graph"
+                android:layout_width="326dp"
+                android:layout_height="282dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/payment_amt"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="Tap to Pay"
+                android:id="@+id/login_button"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="700dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/icon"
+                app:cornerRadius = "50dp"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>
