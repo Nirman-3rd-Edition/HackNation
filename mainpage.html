@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <style>
+        /* Basic styling for the whole page */
+        
+        body {
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        } 
+
+        /* Header styles */
+        header {
+            background-color:#011e37;  ;
+            color:black;
+            text-align: center;
+            padding: 30px;
+            text-shadow: #011e37;
+        }
+
+        .logo {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            margin-top: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        /* Main content styles */
+        .calculator {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #011e37;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body background="https://3.bp.blogspot.com/-ZCyiZWciH-w/UIWUl3ErKLI/AAAAAAAAAGw/syncjt210VA/s1600/wet-footprints.jpg">
+    <header>
+        <a href="#" class="logo">WATER FOOTPRINT CALCULATOR</a>
+        <nav>
+            
+            <a href="#">About</a>
+            <a href="#">Calculator</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="calculator">
+            <h1>WELCOME TO TECHEYES WATER-FOOTPRINT CALCULATOR</h1>
+            <h2>Discover how much water you consume in your daily life. Use our calculator to estimate your water footprint based on your lifestyle, diet, and habits.</h2>
+            <br>
+            <img src="data:image/jpeg;base64,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" alt="Water Footprint">
+            <br>
+            <h2>“कब तक यो पानी बचाओ का बैनर लेके घूमोगे?” 🌊💧,Let’s embark on a practical journey to quantify our daily water footprint and seek solutions to this recurring water challenge. 🌊💧</h2>
+            <br>
+            <h3>In the delicate dance of conservation, we waltz with droplets, measure our ripples, and choreograph a sustainable future—one sip, one shower, one conscious choice at a time. 🌎✨</h3>
+            <h1>Ready to embark! Click that start button. 🚀</h1>
+            <a href="C:\Users\hp\oops\M1.P1\login.html">
+            <button style="font-size: 30px;background-color: #15e754;color: #032f54; border-radius: 25px;" >Get Started</button>
+        </a>
+            
+        
+        </div></main>
+        
+    </main>
+
+    <footer>
+        © 2024 Water Footprint Calculator | Contact: TechEyes@example.com 
+    </footer>
+</body>
+</html>
