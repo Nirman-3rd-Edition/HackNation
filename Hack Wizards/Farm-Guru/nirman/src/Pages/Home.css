@@ -1,0 +1,200 @@
+.mainSection {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background-image: linear-gradient(115deg, rgba(24, 208, 116, 0.658), rgba(10, 82, 127, 0.616)), url(https:w0.peakpx.com/wallpaper/469/26/HD-wallpaper-tractor-field-art-agriculture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0%;
+    padding: 0%;
+     
+    }
+    .heading {
+      justify-content: right;
+      text-align: center;
+
+    }
+    
+    .contentBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .header {
+      width: 90vw;
+      height: 95vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0%;
+      padding: 0%;
+    }
+    .side-heading{
+      position: relative;
+      top: 50px;
+      left: 50px;
+      width: 50px;
+      height: 400px;
+      color: aliceblue;
+      font-size: 55px;
+      font-weight: bolder;
+      line-height: 90px;
+      text-align: right;
+  }
+  
+  .main-heading {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .white-background {
+    background-color: hwb(309 69% 23%);
+    padding: '20px';
+  }
+  .section-white {
+
+    background: whitesmoke;
+    padding: 10px 0;
+
+  }
+  .team-item {
+    background:white;
+    text-align: center;
+    margin: 20px 0;
+    padding: 50px 20px 40px 20px;
+    border-radius: 8px 8px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition:all 0.25s ease-in-out;
+  }
+  .team-item:hover {
+    background: rgb(14, 181, 92);
+    color: white
+  }
+  .team-item h3 {
+    margin: 20px 0 1px 0 !important;
+    color:#454545;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform:uppercase;
+    height: 100px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+  }
+  .section-subtitle {
+    white-space: pre-line ;
+  }
+  .team-item:hover {
+    color: white;
+  }
+  .team-info {
+    display: block;
+    margin-bottom: 0;
+
+  }
+  .team-info p {
+    color: #acacac;
+    font-style: italic;
+  }
+  .team-info ::after {
+    background: #008aff;
+    background: -webkit-linear-gradient(135deg,#6B02FF 0%,#985BEF 100%);
+    background: -o-linear-gradient(135deg,#6B02FF 0%,#985BEF 100%);
+    background: -moz-linear-gradient(135deg,#6B02FF 0%,#985BEF 100%);
+    background: linear-gradient(135deg,#6B02FF 0%,#985BEF 100%);
+    display: inline-block;
+    
+  }
+  .team-img{
+    max-width:  140px;
+    padding: 6px 6px;
+    background-color: #dedede;
+    -webkit-border-radius: 50% ;
+    -moz-border-radius: 50% ;
+     border-radius: 50% ;
+
+  }
+  .-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .containerSlider {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  /*.side-heading { font-size: 1.5rem; font-weight: bold; color: #333; text-align: center; margin-top: 20px; }/*/
+  .side-heading { position: center;
+     top: 150px; 
+    left: 950px;
+     width: 450px;
+     height: 400px; color:
+     rgb(25, 3, 3); 
+    font-size: 55px; 
+    font-weight: bolder; line-height: 90px;
+  }
+  /*.form{
+    position: top right;
+    width: 400px;
+    height: auto;
+    top: -480px;
+    left: 170px;
+    background-color: #acacac;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 25px;
+}*/
+/*.sub-heading {
+  margin-left:50px  ;
+}*/
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+  margin: left -50px;;
+  margin-right:100px;
+}
+
+.section-title:after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  background-color:black;
+  margin: 20px auto;
+}
+.equal-width {
+  width: 25%;
+  float: left;
+}
+.centered-heading {
+  text-align: center;
+  white-space: nowrap;
+}
+.sub-heading-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.section{
+  background-color:rgba(233, 234, 233, 0.784);
+}
+.text-center{
+  align-items: flex-start;
+
+}

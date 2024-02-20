@@ -8,6 +8,8 @@ import Tutorials from '../src/Pages/Tutorials';
 import Aboutus from '../src/Pages/Aboutus';
 import Home from '../src/Pages/Home';
 import { Route, Routes } from "react-router";
+import 'bootstrap/dist/css/bootstrap.css'
+import Signup from './Pages/Signup'
 
 function App() {
   return (
@@ -20,10 +22,15 @@ function App() {
         <Route path='/Community' element={<Community />}></Route>
         <Route path='/Market' element={<Market />}></Route>
         <Route path='/Rentals' element={<Rentals />}></Route>
-        <Route path='/Weather' element={<Weather />}></Route>
+        <Route path='/Weather' element={<Weather />}></Route> 
+        <Route path='/Signup' element={<Signup />}></Route> 
+
       </Routes>
     </>
   );
 }
 
 export default App;
+
+
+
