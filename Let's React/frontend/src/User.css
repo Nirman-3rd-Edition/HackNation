@@ -1,0 +1,181 @@
+.head{
+    background-color: #051e3e;
+    text-align: center;
+    height: 50px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* .hommies{
+    /* background-color: #A2D2FF; */
+
+/* } */ 
+body{
+    background-color: #A2D2FF;
+}
+.div_line{
+    background-color: #70a5b5;
+    /* display: flex; */
+    text-align: center;
+    height: 30px;
+}
+.Log{
+    padding: 80px;
+}
+.Sign{
+    padding: 80px;
+}
+.box1{
+    background-color: white;
+    
+    padding: 10px;
+    margin: 50px;
+    background-image: url('https://images.unsplash.com/photo-1579037005241-a79202c7e9fd?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YW1idWxhbmNlfGVufDB8fDB8fHww');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 0 20px #4a2929;
+    transition: all 1s;
+    /* background-position: center; */
+    height: 400px;
+    width: 500px;
+    border-radius: 20px;
+}
+.wrap1{
+    display: flex;
+    margin-left: 130px;
+}
+.abt{
+    text-align: center;
+}
+.box2{
+    background-color: white;
+    box-shadow: 0 0 20px #4a2929;
+    padding: 10px;
+    margin: 50px;
+    height: 400px;
+    width: 500px;
+    background-image: url('https://news.uchicago.edu/sites/default/files/styles/full_width/public/images/2022-08/stethoscope.jpg?itok=PbySpDQp');
+    transition: all 1s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+/* .wrap2{
+    display: flex;
+} */
+.wrap3{
+    display: flex;
+    margin-left: 130px;
+}
+.box3{
+    background-color: white;
+    box-shadow: 0 0 20px #4a2929;
+    padding: 10px;
+    margin: 50px;
+    height: 500px;
+    width: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('https://wp02-media.cdn.ihealthspot.com/wp-content/uploads/sites/621/2023/08/iStock-1342134425.jpg');
+    border-radius: 20px;
+    transition: all 1s;
+}
+.box4{
+    background-color: white;
+    box-shadow: 0 0 20px #4a2929;
+    padding: 10px;
+    margin: 50px;
+    height: 400px;
+    width: 500px;
+    background-image: url('https://media.istockphoto.com/id/482858629/photo/doctors-hospital-corridor-nurse-pushing-gurney-stretcher-bed.jpg?s=612x612&w=0&k=20&c=unfa1VMpYQGt3PyrkuvxN1JkX7FRk-w0knEFCqjTugg=');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    transition: all 1s;
+}
+.box5{
+    background-color: white;
+    box-shadow: 0 0 20px #4a2929;
+    padding: 10px;
+    margin: 50px;
+    height: 400px;
+    width: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    transition: all 1s;
+    background-image: url('https://img.freepik.com/free-photo/abstract-blur-hospital-clinic-interior_74190-4854.jpg?size=626&ext=jpg&ga=GA1.1.1222169770.1703289600&semt=ais');
+}
+.box6{
+    background-color: rgb(21, 52, 93);
+    box-shadow: 0 0 20px #4a2929;
+    padding: 10px;
+    margin: 50px;
+    height: 400px;
+    width: 500px;
+    /* padding: 50px; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    background-image: url('https://cdn.create.vista.com/api/media/small/632104982/stock-photo-cheerful-patient-gown-looking-blurred-doctor-paper-folder-hospital-ward');
+    transition: all 1s;
+}
+.write{
+    text-align: center;
+    color: white;
+    padding: 50px;
+}
+.Buton{
+    text-align: center;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    background-color: rgb(3, 3, 91);
+    color: #fcfcfc;
+    width: 90px;
+    height: 20px;
+    margin: auto;
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan;
+}
+.Buton:hover{
+    color: rgb(188, 205, 218);
+    box-shadow:  0 0 5px cyan,
+    0 0 5px cyan, 0 0 5px cyan,
+    0 0 5px cyan, 0 0 5px cyan;
+    transition: 5sec ease;
+    
+    /* z-index: 2; */
+    /* background-size: 110px; */
+    background-color: #A2D2FF;
+    color: rgb(3, 12, 56);
+    
+}
+.box1:hover{
+    transform: scale(1.1);
+
+    /* transition: 30s; */
+}
+.box2:hover{
+    transform: scale(1.1);
+} 
+.box3:hover{
+    /* background-size: 110%;
+    transition: 30s; */
+    transform: scale(1.1);
+}
+.box4:hover{
+    /* background-size: 110%;
+    transition: 30s; */
+    transform: scale(1.1);
+}
+.box5:hover{
+    /* background-size: 110%;
+    transition: 30s; */
+    transform: scale(1.1);
+}
+.box6:hover{
+    /* background-size: 110%;
+    transition: 30s; */
+    transform: scale(1.1);
+}
