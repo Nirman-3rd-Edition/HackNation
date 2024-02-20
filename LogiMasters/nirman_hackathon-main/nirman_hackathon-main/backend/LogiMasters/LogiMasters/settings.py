@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['logimasterssilicon.onrender.com','*']
 
 INSTALLED_APPS = [
     # 'django.contrib.gis',
+    'Users',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
@@ -41,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fleet',
-    'Users',
+    
 ]
 
 MIDDLEWARE = [
@@ -137,7 +137,7 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
-DATABASES["default"]=dj_database_url.parse("postgres://logimasters_user:gyGXdciIp6Hd7c9e9kpMZhQP4dsWIDlU@dpg-cn5qko7109ks73a0coog-a.oregon-postgres.render.com/logimasters")
+# DATABASES["default"]=dj_database_url.parse("postgres://logimasters_user:gyGXdciIp6Hd7c9e9kpMZhQP4dsWIDlU@dpg-cn5qko7109ks73a0coog-a.oregon-postgres.render.com/logimasters")
 
 
 # Password validation
