@@ -1,0 +1,30 @@
+.but {
+    text-align: center;
+    /* background-color: rgb(179, 30, 30); */
+  }
+  .emergency:hover {
+    background-color: rgb(174, 13, 13);
+    box-shadow: 0 0 5px rgb(53, 36, 36), 0 0 5px rgb(53, 36, 36),
+      0 0 5px rgb(53, 36, 36), 0 0 5px rgb(53, 36, 36), 0 0 5px rgb(53, 36, 36);
+    transition: 5sec ease;
+  }
+  .title {
+    text-align: center;
+  }
+  body {
+    background-image: url("https://www.shutterstock.com/image-photo/long-hospital-bright-corridor-rooms-600nw-1898750647.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  .emergency {
+    border-radius: 50%;
+    background-color: rgb(228, 54, 54);
+    color: white;
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  }
