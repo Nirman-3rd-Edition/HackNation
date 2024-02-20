@@ -8,11 +8,11 @@ import androidx.compose.runtime.MutableState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.sitsocialapp.screens.LoginScreen
-import com.example.sitsocialapp.screens.SecondScreen
-import com.example.sitsocialapp.screens.SignupScreen
-import com.example.sitsocialapp.screens.SplashScreen
-import com.example.sitsocialapp.screens.WelcomeScreen
+import com.example.sitsocialhacknation.screens.LoginScreen
+import com.example.sitsocialhacknation.screens.SecondScreen
+import com.example.sitsocialhacknation.screens.SignupScreen
+import com.example.sitsocialhacknation.screens.SplashScreen
+import com.example.sitsocialhacknation.screens.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
