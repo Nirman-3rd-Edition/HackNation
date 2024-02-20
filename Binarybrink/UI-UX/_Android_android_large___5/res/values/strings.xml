@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- android_large___5 strings -->
+
+	<string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="_2024_string">2024</string>
+	<string name="february_string">February</string>
+	<string name="today_string">Today</string>
+	<string name="travel_history_string">Travel History</string>
+	<string name="_3_string">3</string>
+	<string name="stops_string">Stops</string>
+	<string name="_32_string">32</string>
+	<string name="tot__km_string">Tot. km</string>
+	<string name="_15hrs_string">15hrs</string>
+	<string name="tot__time_string">Tot. time</string>
+	<string name="gathering_usage_information_for_analysis_and_optimization_of_electric_vehicle_performance__string">Gathering usage information for analysis and optimization of electric vehicle performance.</string>
+	<string name="download_data_string">Download Data</string>
+</resources>
