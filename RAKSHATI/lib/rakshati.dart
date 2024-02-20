@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:location/location.dart';
-import 'package:sms/sms.dart';
+
 
 void main() {
   runApp(SOSApp());
@@ -36,11 +36,6 @@ class SOSApp extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _sendSmsAlert,
-                child: Text('Send SMS Alert'),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
                 onPressed: _getCurrentLocation,
                 child: Text('Get Current Location'),
               ),
@@ -65,13 +60,7 @@ class SOSApp extends StatelessWidget {
     }
   }
 
-  void _sendSmsAlert() {
-    String message = 'I need help! Please contact me ASAP.';
-    List<String> recipients = ['1234567890', '0987654321']; // Add your emergency contacts here
-    recipients.forEach((recipient) {
-      SmsSender sender = new SmsSender();
-      sender.sendSms(new SmsMessage(recipient, message));
-    });
+  
   }
 
   void _getCurrentLocation() async {
@@ -91,6 +80,6 @@ class SOSApp extends StatelessWidget {
       await launch(url);
     } else {
       throw 'Could not open map';
-    }
-  }
-}
+      }
+  }
+  
