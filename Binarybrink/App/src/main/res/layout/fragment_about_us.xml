@@ -3,12 +3,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#010C15"
     tools:context=".AboutUsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp" />
+
+            <!-- Company Description -->
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor ultricies tellus, vel hendrerit arcu dignissim sit amet. Nulla facilisi."
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_below="@id/textViewTitle"
+                android:layout_marginTop="16dp" />
+
+            <!-- Milestones Section -->
+            <TextView
+                android:id="@+id/textViewMilestonesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Milestones"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_below="@id/textViewDescription"
+                android:layout_marginTop="24dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutMilestones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/textViewMilestonesTitle"
+                android:background="@color/icon"
+                android:layout_marginTop="8dp">
+
+                <!-- Milestone Item -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2023 - Company Founded"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:padding="8dp" />
+
+                <!-- Add more milestones as needed -->
+
+            </LinearLayout>
+
+            <!-- Team Section -->
+            <TextView
+                android:id="@+id/textViewTeamTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our Team"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_below="@id/linearLayoutMilestones"
+                android:layout_marginTop="24dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutTeam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/textViewTeamTitle"
+                android:layout_marginTop="8dp">
+
+                <!-- Team Member Item -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:background="@drawable/white_border">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        app:cardCornerRadius="50dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/thunder"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aryeen Balaji Singh"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="16dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        app:cardCornerRadius="50dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/thunder"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Anirban Bose"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="16dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        app:cardCornerRadius="50dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/thunder"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prabyasachi"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="16dp" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        app:cardCornerRadius="50dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/thunder"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Freak"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="16dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Contact Us Section -->
+            <TextView
+                android:id="@+id/textViewContactTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@id/linearLayoutTeam"
+                android:textColor="@color/white"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:id="@+id/textViewContactInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: email@gmail.com\nPhone: +1234567890"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_below="@id/textViewContactTitle"
+                android:layout_marginTop="8dp" />
+
+            <!-- Add more contact information as needed -->
+
+        </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

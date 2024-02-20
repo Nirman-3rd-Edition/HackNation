@@ -63,6 +63,7 @@
                 app:borderWidth="0dp"
                 app:layout_anchor="@+id/bottomAppBar"
                 app:layout_anchorGravity="top|center"
+
                 app:maxImageSize="40dp" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
