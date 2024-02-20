@@ -1,2 +1,1 @@
-# Ultimate Haxor
-This is the README file for Ultimate Haxor.
+-> The android file contains the backend code including the google maps platform integration
