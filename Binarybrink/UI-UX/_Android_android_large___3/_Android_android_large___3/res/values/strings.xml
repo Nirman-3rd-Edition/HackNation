@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- android_large___3 strings -->
+
+	<string name="app_name">Page 1</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="_2024_string">2024</string>
+	<string name="february_string">February</string>
+	<string name="charging_stations_visited_string">Charging Stations Visited</string>
+	<string name="gathering_usage_information_for_analysis_and_optimization_of_electric_vehicle_performance__string">Gathering usage information for analysis and optimization of electric vehicle performance.</string>
+	<string name="download_data_string">Download Data</string>
+	<string name="gajar_ka_halwa_charging_station_string">Gajar Ka Halwa Charging Station</string>
+	<string name="february_21__2024___5_30_pm_string">February 21, 2024 - 5:30 PM</string>
+	<string name="khao_gali__bhubneshwar__odisha_string">Khao gali, Bhubneshwar, Odisha</string>
+	<string name="indhar_ka_ev_charging_station_string">indhar Ka EV Charging Station</string>
+	<string name="february_18__2024___1_30_pm_string">February 18, 2024 - 1:30 PM</string>
+	<string name="saheed_nagar__bhubneshwar__odisha_string">Saheed nagar, Bhubneshwar, Odisha</string>
+	<string name="suji_ka_halwa_charging_station_string">Suji Ka Halwa Charging Station</string>
+	<string name="february_10__2024___2_00_pm_string">February 10, 2024 - 2:00 PM</string>
+	<string name="iter_square__bhubneshwar__odisha_string">ITER square, Bhubneshwar, Odisha</string>
+	<string name="suraj_prem_charging_station_string">Suraj Prem Charging Station</string>
+	<string name="february_29__2024___7_00_pm_string">February 29, 2024 - 7:00 PM</string>
+	<string name="jio_nagar__bhubneshwar__odisha_string">Jio Nagar, Bhubneshwar, Odisha</string>
+</resources>
