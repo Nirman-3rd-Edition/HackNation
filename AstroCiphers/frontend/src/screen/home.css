@@ -11,7 +11,12 @@
 }
 
 .hello-hello {
-  margin-top:120%;
+  margin-top:110%;
+  background-color: rgba(0, 0, 0, 0);
+  
+}
+.hello-hello-1 {
+ 
   background-color: rgba(0, 0, 0, 0);
   
 }
@@ -22,6 +27,7 @@
   background-color: white;
   color: red;
   animation: glow 2s ease-in-out infinite;
+  
 }
 
 @keyframes glow {
@@ -42,6 +48,7 @@
   border-radius: 30px;
   width: 150px;
   height: 60px;
+  margin-top: 20px;
 }
 
 .rounded-full {
@@ -53,25 +60,27 @@
   background-size: cover;
   background-position: center;
   background-color: gray;
+  margin-left: 17px;
 }
 
 .second-second-second {
   border-radius: 35px;
   width: 65px;
   height: 150px;
-  margin-right: -43px;
-  margin-left: -423px;
+  /* margin-right: -43px; */
+  margin-left: -330px;
+
 }
 .third-second-second {
   border-radius: 35px;
-  width: 65px;
-  height: 150px;
-  margin-left: -32px;
-  margin-right: -401px;
+    width: 65px;
+    height: 150px;
+    /* margin-left: -32px; */
+    margin-right: -320px;
 }
 .helo-helo-helo-helo {
   border-radius: 30px;
   width: 150px;
   height: 60px;
-  margin-top: -43px;
+  
 }

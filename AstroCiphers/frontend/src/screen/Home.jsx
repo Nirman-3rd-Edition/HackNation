@@ -451,7 +451,7 @@ export default function Home() {
               className={`h-7 w-7 ${trafficLightColor[3].green} m-2 rounded-full`}
             ></div>
           </div>
-          <div className="p-2 hello-hello  mx-4 mt-6">
+          <div className="p-2 hello-hello-1  mx-4 mt-6">
             <div className="mx-auto mb-70 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
                 {trafficLightTimer[3]}
