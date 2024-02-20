@@ -168,7 +168,7 @@ const Lsplist = () => {
                     desc={
                       "A legal professional dedicated to representing clients in court, providing expert advice, and advocating for their interests to ensure fair legal outcomes."
                     }
-                    specification={"Criminal"}
+                    specification={""}
                     winRatio={"90%"}
                     casehandled={200}
                     rating={4.3}

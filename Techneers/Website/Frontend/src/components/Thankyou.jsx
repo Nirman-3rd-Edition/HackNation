@@ -209,7 +209,10 @@ function Thankyou() {
             <h1 align={"center"}>
               <u>
                 <b> Token Number : </b>
-                <b style={{ backgroundColor: "yellow" }}> # {token}</b>
+                <b style={{ backgroundColor: "yellow", color: "black" }}>
+                  {" "}
+                  # {token}
+                </b>
               </u>
             </h1>
 

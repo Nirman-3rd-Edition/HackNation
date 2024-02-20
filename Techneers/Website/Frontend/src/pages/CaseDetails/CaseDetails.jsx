@@ -116,10 +116,13 @@ const CaseDetails = () => {
           <div className="date">15 Dec 2023</div>
           <i className="icon fa fa-home"></i>
           <div className="content">
-            <h2>Lorem ipsum dolor sit amet</h2>
+            <h2>Case Title: Sharma v. State of Uttar Pradesh & Others</h2>
             <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
+              The appellant, Rakesh Sharma, has filed a criminal appeal
+              challenging his conviction and sentencing in the lower court for
+              alleged involvement in a rioting incident. He contends that there
+              were procedural irregularities during the trial, leading to a
+              miscarriage of justice.
             </p>
           </div>
         </div>
