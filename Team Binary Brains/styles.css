@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://experiencekerala.in/kerala-tourism-blog/wp-content/uploads/2017/12/cats.jpg');
+    background-position: 0vmin;
+    background-size: cover;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    bottom: 50px;
+    border: 1px solid #e00000;
+    border-radius: 5px;
+    text-align: center;
+    backdrop-filter:blur(5px);
+
+    
+    
+}
+
+.trip-form, .pin-form, #message {
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.hidden {
+    display: none;
+}
