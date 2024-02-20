@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="_30sdp">39.00dp</dimen>
-    <dimen name="_42sdp">54.60dp</dimen>
+    <dimen name="_42sdp">54.600dp</dimen>
     <dimen name="_260sdp">338.00dp</dimen>
     <dimen name="_52sdp">67.60dp</dimen>
     <dimen name="_15sdp">19.50dp</dimen>

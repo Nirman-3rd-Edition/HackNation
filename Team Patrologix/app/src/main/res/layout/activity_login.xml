@@ -7,6 +7,7 @@
     android:background="@drawable/gradient_background"
     tools:context=".login">
 
+
     <TextView
         android:id="@+id/logonameimg"
         android:layout_width="295dp"
