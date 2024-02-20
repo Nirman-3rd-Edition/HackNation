@@ -9,6 +9,7 @@ import Home from '../src/Pages/Home';
 import Profile from '../src/Components/Profile';
 import Settings from '../src/Components/Settings';
 import { Route, Routes } from "react-router";
+import TutorialVdo from './Pages/Tutorial_Vdo';
 import 'bootstrap/dist/css/bootstrap.css'
 import Signup from './Pages/Signup'
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/Market' element={<Market  />}></Route>
         <Route path='/Rentals' element={<Rentals />}></Route>
         <Route path='/Weather' element={<Weather />}></Route>
+        <Route path='/Tutorials/videos' element={<TutorialVdo />}></Route >
         <Route path='/Weather' element={<Weather />}></Route> 
         <Route path='/Signup' element={<Signup />}></Route> 
         <Route path='/Community/Profile' element={<Profile />}></Route>

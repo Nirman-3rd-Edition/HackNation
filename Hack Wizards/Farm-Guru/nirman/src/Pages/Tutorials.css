@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.market-cont {
+    font-family: Poppins, sans-serif;
+}
+
+.side-bar-l ul {
+    margin-top: 16px;
+    list-style: none;
+    padding: 0px;
+
+
+}
+
+.side-bar-l ul li {
+    padding: 7px 0px;
+    text-align: center;
+    margin: 7px auto;
+}
+
+.side-bar-l ul li button {
+    width: 60%;
+}
+
+.hr {
+    border-top: 3px solid black;
+    margin: auto;
+}
+.sidebar-scroll {
+    overflow-y: auto;
+    max-height: calc(100vh - 100px); /* Adjust height as needed */
+}
+.thumbnail-col {
+    padding: 10px;
+  }
+  
+  .thumbnail img {
+    width: 200%;
+    height: auto;
+  }
+  
+  .thumbnail p {
+    margin-top: 30px;
+  }
+  .thumbnail {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 50%;
+     /* Adjust the value as needed */
+  }
+  
+  .thumbnail-col {
+    display: grid;
+    justify-content: center;
+  }
+  
+  
+  .link:hover{
+    cursor: pointer;
+  }
+ 
+  .details{
+   align-items:flex-start;
+   margin-left: 100px;
+   margin-right: 75px;
+   font-size: 20px;
+
+  }
+  .image_div{
+    margin-bottom:50px;
+    margin-left: 40px;
+    border-radius: 100px;
+    margin-top: 20px;
+
+
+  }
+  .button_class{
+    width: 500px;
+    margin-left:150px ;
+    margin-top: 0;
+  } 
+  
