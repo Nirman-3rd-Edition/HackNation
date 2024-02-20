@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.market-cont {
+    font-family: Poppins, sans-serif;
+}
+
+.side-bar-l ul {
+    margin-top: 16px;
+    list-style: none;
+    padding: 0px;
+
+
+}
+
+.side-bar-l ul li {
+    padding: 7px 0px;
+    text-align: center;
+    margin: 7px auto;
+}
+
+.side-bar-l ul li button {
+    width: 60%;
+}
+
+.hr {
+    border-top: 3px solid black;
+    margin: auto;
+}
+
+.weather-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin-top: 0px; 
+    padding-top: 20px; 
+    margin-bottom: 0px;
+  }
+.weather-card {
+    background-color: rgba(255, 255, 255, 0.7); 
+    border: none; 
+    margin-bottom: 20px; 
+    padding: 20px;
+}
