@@ -1,0 +1,89 @@
+{% include 'common/head.html' %}
+
+{% include 'common/top.html' %}
+{% include 'common/left.html' %}
+
+{% load static %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Profile
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Profile</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+       <div class="row">
+           <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="{% static 'dist/img/profile.png' %}" alt="User profile picture">
+
+              <h3 class="profile-username text-center">{{ request.user }}</h3>
+
+              <p class="text-muted text-center">Administrator</p>
+
+               <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputName" placeholder="Username" value="{{ user.username }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">First Name</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputName" placeholder="First Name" value="{{ user.first_name }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-2 control-label">Last Name</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputName" placeholder="Last Name" value="{{ user.last_name }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{ user.email }}">
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                    <label for="inputText" class="col-sm-2 control-label">Date of Join</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputText" placeholder="Date of Join" value="{{ user.date_joined }}" disabled>
+                    </div>
+                  </div>
+
+                  <input type="submit" class="btn btn-primary btn-block" value="Update">
+                </form>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+       </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% include 'common/foot.html' %}
+
+</body>
+</html>

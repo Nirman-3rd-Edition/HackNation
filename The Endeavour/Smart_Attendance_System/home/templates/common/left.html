@@ -1,0 +1,34 @@
+{% load static %}
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="{% static 'dist/img/user.png' %}" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{ request.user }}</p>
+          <!-- Status -->
+          <i class="fa fa-circle text-success"></i> Admin
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Controls</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="{% url 'addstudent' %}"><i class="fa fa-user-plus"></i> <span>Add Student</span></a></li>
+        <li><a href="{% url 'train' %}"><i class="fa fa-database"></i> <span>Train Database</span></a></li>
+        <li><a href="{% url 'takeattendance' %}"><i class="fa fa-mouse-pointer"></i> <span>Take Attendance</span></a></li>
+        <li><a href="{% url 'view' %}"><i class="fa fa-bar-chart"></i> <span>View Attendance</span></a></li>
+        <li><a href="{% url 'sendmail' %}"><i class="fa fa-send"></i> <span>Send Mail</span></a></li>
+        <li><a href="http://127.0.0.1:8000/admin/" target="_blank"><i class="fa fa-gear"></i> <span>Settings</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
