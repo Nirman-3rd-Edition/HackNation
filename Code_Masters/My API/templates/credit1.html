@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 450px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+    <title>Credit Card Fraud Detection</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Card Information</h1>
+        <form action="/predict_fraud" method="post">
+
+             <div class="form-group">
+                <label for="Time">Time</label>
+                <input type="text" id="Time" name="Time" placeholder="Enter prev year transaction" required>
+            </div>
+
+            <div class="form-group">
+                <label for="V1">V1</label>
+                <input type="text" id="V1" name="V1" placeholder="Enter prev year transaction" required>
+            </div>
+            <div class="form-group">
+                <label for="V2">V2</label>
+                <input type="text" id="V2" name="V2" placeholder="Enter prev year transaction" required>
+            </div>
+            <div class="form-group">
+                <label for="V3">V3</label>
+                <input type="text" id="V3" name="V3" placeholder="Enter prev year transaction" required>
+            </div>
+            <div class="form-group">
+                <label for="V4">V4</label>
+                <input type="text" id="V4" name="V4" placeholder="Enter prev year transaction" required>
+            </div>
+            <div class="form-group">
+                <label for="V5">V5</label>
+                <input type="text" id="V5" name="V5" placeholder="Enter prev year transaction" required>
+            </div>
+            <div class="form-group">
+                <label for="cc_num">cc_num</label>
+                <input type="text" id="cc_num" name="cc_num" placeholder="Enter the cc_num" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="zip">zip</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter the zip code" required>
+            </div>
+            <div class="form-group">
+                <label for="lat">latitude</label>
+                <input type="text" id="lat" name="lat" placeholder="Enter the latitude" required>
+            </div>
+            <div class="form-group">
+                <label for="long">longitude</label>
+                <input type="text" id="long" name="long" placeholder="Enter the longitude" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="unix_time">unix time</label>
+                <input type="text" id="unix_time" name="unix_time" placeholder="Enter the Unix time" required>
+            </div>
+
+            <button onclick="predict()">Predict</button>
+        </form>
+        <div class="result" id="result">
+            <h3>Prediction Result</h3>
+            <p id="predictionResult"></p>
+        </div>
+    </div>
+<script>
+     function predict() {
+         // Add your prediction logic here
+         // For demonstration, just displaying a generic result
+         var input_data = {
+             'Time': document.getElementById('Time').value,
+             'V1': document.getElementById('V1').value,
+             'V2': document.getElementById('V2').value,
+             'V3': document.getElementById('V3').value,
+             'V4': document.getElementById('V4').value,
+             'V5': document.getElementById('V5').value,
+             'cc_num': document.getElementById('cc_num').value,
+             'zip': document.getElementById('zip').value,
+             'lat': document.getElementById('lat').value,
+             'long': document.getElementById('long').value,
+             'unix_time': document.getElementById('unix_time').value,
+             'Amount': document.getElementById('Amount').value // Assuming you have an input field for Amount
+         };
+         document.getElementById('result').style.display = 'block';
+         document.getElementById('predictionResult').innerHTML = 'Predicted result: fraud Transaction';
+     }
+</script>
+<body>
+
+    <br>
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</body>
+</html>
