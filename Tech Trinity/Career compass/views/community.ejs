@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media_queries.css">
+    <link rel="stylesheet" href="./assets/css/animation.css">
+
+    <!--
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #F8F8F8;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        section.chat__section {
+            width: 800px;
+            max-width: 90%;
+            background: #fff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand {
+            padding: 20px;
+            background: #7f6efc9c;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand h1 {
+            text-transform: uppercase;
+            font-size: 20px;
+            color: #444;
+            margin-left: 10px;
+        }
+
+        .message__area {
+            height: 500px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding-top: 40px;
+        }
+
+        textarea {
+            width: 100%;
+            border: none;
+            padding: 20px;
+            font-size: 16px;
+            outline: none;
+            background: #FBFBFB;
+        }
+
+        .message {
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+            max-width: 300px;
+            position: relative;
+        }
+
+        .incoming {
+            background: #8F8BE8;
+            color: #fff;
+        }
+
+        .outgoing {
+            background: #e9eafd;
+            color: #787986;
+            margin-left: auto;
+        }
+
+        .message h4 {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        #logoutbtn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            /* box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.353); */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn1" id="logoutbtn">
+        <a href="logout">
+            <button><span>LOGOUT</span></button>
+        </a>
+    </div>
+    <h1> <span> Welcome</span> <span id="nameVar">
+            <%=yourName%>
+        </span></h1>
+    <div class="outerBox">
+        <section class="gidelines_section">
+            <li><p>The name of our contributers are mentioned in all capital in the format <b>ADMIN_XYZ</b></p></li>
+            
+        </section>
+        <section class="chat__section">
+            <div class="brand">
+                <img height="40" src="./assets/images/logo.png" alt="">
+                <h1>CAREER COMPASS COMMUNITY</h1>
+            </div>
+            <div class="message__area"></div>
+            <div>
+                <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+            </div>
+        </section>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="public/js/client.js"></script> -->
+    <script>
+        const socket = io()
+
+        let name = document.getElementById("nameVar").innerHTML;;
+        let textarea = document.querySelector('#textarea')
+        let messageArea = document.querySelector('.message__area')
+        // do {
+        //     name = prompt('Please enter your name: ')
+        // } while (!name)
+
+        textarea.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage(e.target.value)
+            }
+        })
+
+        function sendMessage(message) {
+            let msg = {
+                user: name,
+                message: message.trim()
+            }
+            // Append 
+            appendMessage(msg, 'outgoing')
+            textarea.value = ''
+            scrollToBottom()
+
+            // Send to server 
+            socket.emit('message', msg)
+
+        }
+
+        function appendMessage(msg, type) {
+            let mainDiv = document.createElement('div')
+            let className = type
+            mainDiv.classList.add(className, 'message')
+
+            let markup = `
+            <h4>${msg.user}</h4>
+            <p>${msg.message}</p>
+        `
+            mainDiv.innerHTML = markup
+            messageArea.appendChild(mainDiv)
+        }
+
+        // Recieve messages 
+        socket.on('message', (msg) => {
+            appendMessage(msg, 'incoming')
+            scrollToBottom()
+        })
+
+        function scrollToBottom() {
+            messageArea.scrollTop = messageArea.scrollHeight
+        }
+    </script>
+</body>
+
+</html>

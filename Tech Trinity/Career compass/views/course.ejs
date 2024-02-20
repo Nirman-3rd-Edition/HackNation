@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <!--
+
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/media_queries.css">
+  <link rel="stylesheet" href="./assets/css/animation.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .container {
+      width: 1530px;
+      margin-top: 110px;
+      padding-top: 40px;
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(152, 152, 152, 0.219);
+    }
+
+    .courseTextDiv,
+    .courseImgDiv {
+      width: 600px;
+    }
+
+    .classSelect-outer {
+      text-align: center;
+    }
+
+    .classSelect {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 50px auto;
+      /* padding: 10px 20px; */
+    }
+
+    .classCard {
+      height: 250px;
+      width: 200px;
+      border-radius: 10px;
+      border: 1px solid black;
+      box-shadow: 2px 2px 10px rgba(100, 100, 100, 0.262);
+      /* background-color: #28b687c7; */
+      background: linear-gradient(160deg, #7f6efc1e 14.29%, #ffffff33);
+      margin: 10px 10px;
+      
+    }
+
+    .classCard p {
+      text-align: justify;
+      padding: 5px 10px;
+    }
+
+    .classCard h2 {
+      margin: 10px;
+    }
+
+    .classCard button {
+      padding: 3px 6px;
+      background-color: #7F6EFC;
+      margin: 5px auto;
+      
+    }
+
+    .classCard button:hover {
+      background-color: #6f5cff;
+      box-shadow: 0px 0px 5px grey;
+    }
+    .classCard div :nth-child(1):hover {
+      border-top-right-radius: 10px;
+      background-color: #6f5cff;
+      box-shadow: 0px 0px 5px grey;
+    }
+    .classCard div :nth-child(5):hover {
+      border-bottom-right-radius: 10px;
+      background-color: #6f5cff;
+      box-shadow: 0px 0px 5px grey;
+    }
+
+    .slick-next:before {
+      content: '→';
+    }
+
+    .slick-next:before,
+    .slick-prev:before {
+      font-family: slick;
+      font-size: 20px;
+      line-height: 1;
+      opacity: .75;
+      color: #7F6EFC;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .courseTextDiv{
+      position: relative;
+      top: 3.35rem;
+    }
+    .courseTextDiv h1 {
+      color: #08bd80;
+      font-size: 3rem;
+      text-shadow: 1px 1px 3px rgba(169, 169, 169, 0.495);
+    }
+
+    .courseTextDiv p {
+      margin: 20px 20px;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!--
+      - #HEADER
+    -->
+
+  <header>
+
+    <nav class="navbar">
+
+      <div class="navbar-brand">
+        <span><img src="./assets/images/logo.png" height="75em" alt="Educator Logo"></span>
+        <span>
+          <h1>CAREER COMPASS</h1>
+        </span>
+      </div>
+
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="course">Exams</a>
+        </li>
+        <li class="nav-item">
+          <a href="community">Community</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact">Contact Us</a>
+        </li>
+
+      </ul>
+
+      <!-- <button class="btn btn-primary">
+            <p class="btn-text">Try for free</p>
+            <span class="square"></span>
+          </button> -->
+
+      <div class="btn1">
+        <a href="login">
+          <button><span>LOGIN</span></button>
+        </a>
+      </div>
+
+      <button class="nav-toggle-btn">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
+
+    </nav>
+
+  </header>
+
+  <div class="outer-main-container">
+    <div class="container">
+      <div class="courseTextDiv">
+        <div class="innerBox">
+          <h1>Start your career with us</h1>
+          <p>
+
+            Worried about Carreer related doubts where to go , what to ask , what to reach for ?? <br><br>
+            NO ISSUES ...WE GOT YOUR BACK ! <br><br>
+
+            Welcome to Abhudaya.
+
+            We will help you sail through this messy stuff.
+            Just select your class and you'll know what treasures we are hiding . We aim to serve you the best , hope it
+            helps !!</p>
+        </div>
+      </div>
+      <div class="courseImgDiv">
+        <img src="../public/images/Digital nomad-cuate.png" height="500px" alt="">
+      </div>
+    </div>
+
+    <div class="classSelect-outer">
+      <h1 style="text-align:center;">Select Your Class</h1>
+      <div class="classSelect slider">
+
+        <div class="classCard">
+          <h2>CLASS 6th</h2>
+          <p>
+          
+          <b><i>Popular Exams : </i></b>National Science Olympiad , National Cyber Olympiad , International English Olympiad, etc. 
+        </p> <br><br>
+          <a href="class6"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 7th</h2>
+          <p>
+            <b><i>Popular Exams : </i></b>International Talent Hunt Olympiad, International Olympiad of Science, International Cyber Olympiad, etc. </p><br>
+          <a href="class7"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 8th</h2>
+          <p><b><i>Popular Exams : </i></b>Unified Cyber Olympiad, International Informatics Olympiad, National Social science Olympiad, etc. </p> <br>
+          <a href="class8"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 9th</h2>
+          <p><b><i>Popular Exams : </i></b>National Interactive Science Olympiad, International Cyber Olympiad, International Social Sciences Olympiad, etc.</p><br>
+          <a href="class9"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 10th</h2>
+          <p><b><i>Popular Exams : </i></b>National Science Olympiad, International Mathematics Olympiad, International Olympiad of Science, etc. </p><br>
+          <a href="class10"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 11th</h2>
+          <p><b><i>Popular Exams : </i></b>National talent Search Examination, Kishore Vaigyanik Protsahan Yojana, Unified Cyber Olympiad, etc. </p><br>
+          <a href="class11"><button>SHOW MORE</button></a>
+        </div>
+        <div class="classCard">
+          <h2>CLASS 12th</h2>
+          <p><b><i>Popular Exams : </i></b>NDA Exam, Joint Entrance Exam, National Elegibility cum Entrancec Test, Common Law Admission Test, Chartered Accountant, etc. </p><br>
+          <a href="class12"><button>SHOW MORE</button></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--
+        - #COURSE CATEGORY SECTION
+      -->
+
+  <section class="category">
+
+    <div class="overlay"></div>
+
+    <div class="catdiv">
+      <h2 class="section-title">Explore Popular Exams</h2>
+
+      <ul class="course-item-group">
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <ion-icon name="book-outline" class="icn"></ion-icon>
+
+            <img src="./assets/images/course-category-icon-1-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">JEE</a>
+            </h3>
+
+            <p class="category-subtitle">Joint Entrance Exam</p>
+          </div>
+
+        </li>
+
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <img src="./assets/images/course-category-icon-2.png" alt="category icon" class="category-icon default">
+
+            <img src="./assets/images/course-category-icon-2-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">NEET</a>
+            </h3>
+
+            <p class="category-subtitle">National Eligibility cum Entrance Test</p>
+          </div>
+
+        </li>
+
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <img src="./assets/images/course-category-icon-3.png" alt="category icon" class="category-icon default">
+
+            <img src="./assets/images/course-category-icon-3-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">CLAT</a>
+            </h3>
+
+            <p class="category-subtitle">Common Law Admission Test </p>
+          </div>
+
+        </li>
+
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <img src="./assets/images/course-category-icon-4.png" alt="category icon" class="category-icon default">
+
+            <img src="./assets/images/course-category-icon-4-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">NDA</a>
+            </h3>
+
+            <p class="category-subtitle">National Defence Academy</p>
+          </div>
+
+        </li>
+
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <img src="./assets/images/course-category-icon-5.png" alt="category icon" class="category-icon default">
+
+            <img src="./assets/images/course-category-icon-5-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">CA</a>
+            </h3>
+
+            <p class="category-subtitle">Chartered Accountant</p>
+          </div>
+
+        </li>
+
+
+        <li class="course-category-item">
+
+          <div class="wrapper">
+            <img src="./assets/images/course-category-icon-6.png" alt="category icon" class="category-icon default">
+
+            <img src="./assets/images/course-category-icon-6-w.png" alt="category icon white"
+              class="category-icon hover">
+          </div>
+
+          <div class="course-category-content">
+            <h3 class="category-title">
+              <a href="#">NIFT</a>
+            </h3>
+
+            <p class="category-subtitle">National Institute of Fashion Technology</p>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $('.slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 2,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  </script>
+</body>
+
+</html>
