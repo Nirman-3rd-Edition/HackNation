@@ -1,0 +1,80 @@
+/* Navbar */
+.navbar {
+  padding: 10px;
+  transition: 1s;
+  background: #f99890;
+}
+
+.navbar-brand {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 150px;
+  font-size: 50px;
+  color: #000000 !important;
+  text-transform: capitalize;
+}
+.navbar-nav {
+  padding-left: 300px;
+}
+.nav-link {
+  font-weight: bold;
+  font-style: italic;
+  color: #000000 !important;
+  margin-left: 5px;
+  transition: 0.65;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+.nav-link:hover {
+  transform: translateY(-5px);
+  background: #fdbfb9;
+}
+
+/* Portfolio Section Styles */
+.portfolio-section {
+  background-color: #ffdad8;
+  padding: 30px 0;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px 0;
+  text-align: center;
+  margin: 0px;
+  max-height: 500px;
+}
+
+/* Vertical Navigation */
+.vertical-nav{
+  text-align: center;
+  padding: 50px 0;
+  padding-right: 100px;
+}
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+/* Footer */
+.footer {
+  background: #f99890;
+  color: #000000;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
