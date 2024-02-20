@@ -1,0 +1,49 @@
+{
+  "name": "travel-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@zegocloud/zego-uikit-prebuilt": "^1.8.15",
+    "axios": "^1.6.2",
+    "axois": "^0.0.1-security",
+    "buffer": "^6.0.3",
+    "emoji-picker-react": "^4.5.16",
+    "framer-motion": "^10.16.16",
+    "grapheme-splitter": "^1.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.20.1",
+    "react-scroll": "^1.8.9",
+    "react-toastify": "^9.1.3",
+    "react-type-animation": "^3.2.0",
+    "recharts": "^2.12.0",
+    "socket.io-client": "^4.7.2",
+    "styled-components": "^6.1.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.5"
+  }
+}
