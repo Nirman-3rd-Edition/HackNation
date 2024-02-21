@@ -1,0 +1,24 @@
+.cart-cont {
+    height: auto;
+}
+
+.side-ht-up {
+    height: 35vh;
+}
+
+.side-ht-dn {
+    height: auto;
+}
+
+.coupon-cont {
+    height: 80%;
+    border-radius: 20px;
+}
+
+.total-cont {
+    border-radius: 20px;
+}
+
+.total-cont ul {
+    list-style: none;
+}
