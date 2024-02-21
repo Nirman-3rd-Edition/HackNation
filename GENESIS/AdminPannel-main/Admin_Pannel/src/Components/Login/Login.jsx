@@ -4,7 +4,9 @@ import { Container, Card, Form, Button, Spinner } from "react-bootstrap";
 import axios from "axios";
 // import bglog2 from "../../assets/bglog2.jpg";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState(null);
   const [otp, setOtp] = useState(null);
   const [showotp, setShowotp] = useState(false);
@@ -18,7 +20,7 @@ export default function Login() {
     if (phone) {
         setSpinner(true);
         axios
-          .post(`${import.meta.env.VITE_APP_API}otp/sendotp`, { phone: phone })
+          .post("http://localhost:3000/api/otp/sendotp", { phone: phone })
           .then((res) => {
             console.log(res.data);
             setShowotp(true);
@@ -37,12 +39,12 @@ export default function Login() {
   const handleotp =()=>{
     setSpinner(true);
     axios
-      .post(`${import.meta.env.VITE_APP_API}otp/verifyotp`, { phone: phone , otp:otp })
+      .post("http://localhost:3000/api/otp/verifyotp", { phone: phone , otp:otp })
       .then((res) => {
-        console.log(res.data.uid);
+        console.log(res.data);
         login(res.data.uid);
-
         setSpinner(false);
+        navigate("/profile");
       })
       .catch((err) => {
         console.log(err);
@@ -73,7 +75,7 @@ export default function Login() {
             }}
           >
             <Card.Body>
-              <Card.Title style={{ fontSize: "3rem" }}>
+              <Card.Title className="py-3" style={{ fontSize: "3rem" }}>
                 Welcome to <span style={{ color: "#05FA16" }}>MealsBridge</span>
               </Card.Title>
             </Card.Body>

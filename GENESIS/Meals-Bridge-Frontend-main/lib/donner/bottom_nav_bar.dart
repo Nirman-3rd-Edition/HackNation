@@ -12,7 +12,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xFF04FC10),
+          color: Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(50),
           boxShadow: [
             BoxShadow(
@@ -27,15 +27,15 @@ class BottomNavigationBarWidget extends StatelessWidget {
           children: [
             // First and Third Icons Row
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: Icon(CupertinoIcons.home, color: Colors.white, size: 38,),
+                        icon: Icon(CupertinoIcons.home, color: Colors.black, size: 30,),
                         onPressed: () {
                           // Navigate to HomeScreenDonner when home icon is pressed
                           Navigator.pushReplacement(
@@ -44,16 +44,17 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           );
                         },
                       ),
-                      Text('Home', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      Text('Home', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: Icon(CupertinoIcons.cube_box, color: Colors.white, size: 40,),
+                        icon: Icon(CupertinoIcons.cube_box, color: Colors.black, size: 30,),
                         onPressed: () {
                           // Navigate to DonateScreen when donate icon is pressed
                           Navigator.push(
@@ -77,17 +78,17 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           );
                         },
                       ),
-                      Text('Donate', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      Text('Donate', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.timelapse, color: Colors.white, size: 40,),
+                        icon: Icon(Icons.timelapse, color: Colors.black, size: 30,),
                         onPressed: () {
                           // Navigate to ArchiveScreen when archive icon is pressed
                           Navigator.pushReplacement(
@@ -96,7 +97,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
                           );
                         },
                       ),
-                      Text('Archives', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      Text('Archives', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
