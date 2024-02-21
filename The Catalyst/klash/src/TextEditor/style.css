@@ -1,0 +1,14 @@
+.ContainerEditor{
+    margin : 2rem 0;
+    width : 100%;
+}
+
+.dropdown{
+    z-index: 5;
+    width : 40%;
+    margin-bottom: 1rem;
+}
+
+.AceEdit{
+    z-index:0;
+}
