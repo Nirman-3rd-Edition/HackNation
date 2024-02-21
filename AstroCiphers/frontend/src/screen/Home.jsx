@@ -552,7 +552,7 @@ export default function Home() {
                     title: 'Safe Mode On',
                     description: "The Signal will change after constant time",
                     status: 'success',
-                    duration: 9000,
+                    duration: 5000,
                     isClosable: true,
                   })
                 }
@@ -562,7 +562,7 @@ export default function Home() {
                     title: 'Safe Mode Off',
                     description: "The Signal will adapt with the traffic load",
                     status: 'success',
-                    duration: 9000,
+                    duration: 5000,
                     isClosable: true,
                   })
                 }
