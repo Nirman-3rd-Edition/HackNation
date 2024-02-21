@@ -26,6 +26,12 @@ body {
   background: #F2C501;
   transition: all 0.2s ease;
 }
+.chatbox .bot-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
 body.show-chatbot .chatbot-toggler {
   transform: rotate(90deg);
 }
@@ -89,11 +95,11 @@ header h2 {
   width: 6px;
 }
 .chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #202327;
   border-radius: 25px;
 }
 .chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
-  background: #cccccc;
+  background: #F2C501;
   border-radius: 25px;
 }
 .chatbox .chat {
