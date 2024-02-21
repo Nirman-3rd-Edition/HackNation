@@ -4,9 +4,9 @@ import Img from "../Image/img.jpg";
 import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from "@chakra-ui/react";
 export default function Home() {
-  const toast = useToast()
+  const toast = useToast();
   const djangoUrl = "http://127.0.0.1:8000/";
   const [selectedCamera, setSelectedCamera] = useState(null);
   const [x, setX] = useState(0);
@@ -362,7 +362,7 @@ export default function Home() {
         setClickButton("Capture");
 
         let TotalDyanamic = 0;
-        let density = 0;
+        let density1 = 0;
         // console.log("inside dynamic");
         for (const k in dynamicQueue) {
           if (k !== presentActive) TotalDyanamic += dynamicQueue[k];
@@ -371,11 +371,13 @@ export default function Home() {
         console.log("inside data");
         for (const k in data) {
           // console.log(data[k]);
-          if (k !== presentActive) density += data[k].actualVehicles;
+          if (k !== presentActive) density1 += data[k].actualVehicles;
         }
-        let x1 = TotalDyanamic / (3 * density);
+        let x1;
+        if (density1 === 0) x1 = 0;
+        else x1 = TotalDyanamic / (3 * density1);
         setX(x1);
-        console.log("density", density);
+        console.log("density", density1);
         console.log("x", x1);
         webcamRef1.current = null;
         webcamRef2.current = null;
@@ -547,24 +549,24 @@ export default function Home() {
             <button
               className="text-white bg-red-500 rounded-xl p-4"
               onClick={() => {
-                if(safeValue!==true){
+                if (safeValue === true) {
                   toast({
-                    title: 'Safe Mode On',
+                    title: "Safe Mode Off",
                     description: "The Signal will change after constant time",
-                    status: 'success',
+                    status: "success",
                     duration: 9000,
                     isClosable: true,
-                  })
+                  });
                 }
-                if(safeValue){
+                if (!safeValue) {
                   toast({
-                    containerStyle:{backgroundColor:'black'},
-                    title: 'Safe Mode Off',
+                    containerStyle: { backgroundColor: "black" },
+                    title: "Safe Mode On",
                     description: "The Signal will adapt with the traffic load",
-                    status: 'success',
+                    status: "success",
                     duration: 9000,
                     isClosable: true,
-                  })
+                  });
                 }
                 console.log("safe mode to enable");
                 safeMode();
