@@ -337,9 +337,9 @@ class _DonateScreenState extends State<DonateScreen> {
           },
           label: Text(
             'Donate',
-            style: TextStyle(color: Color(0xFF04FC10), fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
-          icon: Icon(Icons.upload, color: Color(0xFF04FC10)),
+          icon: Icon(Icons.upload, color: Colors.black),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -1,0 +1,66 @@
+.details-container {
+    padding: 20px;
+  }
+  
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .order-card {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .order-id {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .order-date {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .food-items {
+    margin-top: 20px;
+  }
+  
+  .food-card {
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .food-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .food-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .food-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#05FA16;
+    
+  }
+  
+  .food-quantity {
+    color: #666666;
+    font-size: 20px;
+  }
+  
