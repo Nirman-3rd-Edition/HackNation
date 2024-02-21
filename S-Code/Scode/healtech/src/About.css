@@ -1,0 +1,39 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-us-container h1 {
+    color: #333;
+    font-size: 36px;
+  }
+  
+  .about-us-container p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .about-us-container h2 {
+    color: #007bff;
+    font-size: 24px;
+  }
+  
+  .team-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .team-list li {
+    margin-bottom: 10px;
+  }
+  
+  .contact-info {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .contact-info li {
+    margin-bottom: 5px;
+  }

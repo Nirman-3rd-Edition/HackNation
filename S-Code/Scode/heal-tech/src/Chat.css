@@ -1,0 +1,42 @@
+.chat{
+    display: flex;
+    flex-direction: column;
+    flex: 0.65;
+}
+.chat__header{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-color: 1px solid gray;
+}
+.chat__headerInfo{
+    flex: 1;
+    padding-left: 20px;
+    
+}
+
+.chat__headerInfo > h3{
+margin-bottom: 3px;
+font-weight: 500;
+}
+
+.chat__headerInfo >p{
+    color: gray;
+
+}
+
+.chat__headerRight
+{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100px;
+}
+
+.chat_body{
+    flex:1;
+    background-image: url(https://www.google.com/imgres?imgurl=https://img.freepik.com/free-vector/sustainability-environmental-logo-vector-with-text_53876-112074.jpg&tbnid=4XQd0PE7Q6hPNM&vet=1&imgrefurl=https://www.freepik.com/free-vector/sustainability-environmental-logo-vector-with-text_16267848.htm&docid=yEIB9Yb6AvhMtM&w=626&h=626&source=sh/x/im/m1/2&kgs=bd6edcaece041200);
+    background-repeat: repeat;
+    background-position: center;
+    padding: 30px;
+    overflow: scroll;
+}
