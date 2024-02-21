@@ -1,0 +1,157 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+
+  <%- include('../views/partials/links'); %>
+
+</head>
+
+<body>
+
+  <% function getOverallSatisfaction(starsInt) {
+    switch (starsInt) {
+      case 5:
+        return 'Very Satisfied';
+      case 4:
+        return 'Satisfied';
+      case 3:
+        return 'Neutral';
+      case 2:
+        return 'Poor';
+      case 1:
+        return 'Very Poor';
+      default:
+        return 'Unknown';
+    }
+  } %>
+
+  <!-- header part -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/mycases" class="nav-link text-white"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/addcase" class="nav-link text-white"> ADD CASE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/accept" class="nav-link text-white"> ONGOING CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/customerProfile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- page content -->
+
+    <div class="main-wrapper mt-0">
+      <div class="container main-container">
+        
+        <h6 class="subtitle">Customer/ List of Legal Experts available </h6>
+        <% if (volunteers.length === 0) { %>
+          <div class="text-center mt-4">
+            <!-- Replace with your desired image source -->
+            <img src="/img/Binary code-amico.png" style="width: 25%; height: auto; opacity: 0.8; margin-top: 20px;">
+            <h4 style="color: lightslategrey;">NO LEGAL EXPERTS AVAILABLE</h4>
+          </div>
+        <% } else { %>
+        <!-- <% volunteers.forEach(volunteer => { %>
+          <div class="row main-row mt-4 box-design">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-5 align-middle">
+
+                  <h5><a href="/profil/<%= volunteer._id %>"  style="text-transform: capitalize;color: #e73232 !important;">
+                    <%= volunteer.username %>
+                  </a></h5>
+                    Phone: <%= volunteer.phone %> <br>
+                    Email ID: <%= volunteer.emailID %><br>
+                    City : <%= volunteer.city %> <br>
+                </div>
+
+                <div class="col-5 align-middle mt-4">
+                  Experience : <%= volunteer.experience %> Years <br>
+                    Specialization : <%= volunteer.specialization %> <br>
+                    Fees : <%= volunteer.fees %> 
+                  
+                </div>
+
+                <div class="col-2 mt-5">
+
+                  <a href="/request/<%= volunteer._id %>" class="btn btn-pri btn-block">Connect</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %> -->
+
+          <% volunteers.forEach(volunteer => { %>
+            <!-- Display LSP details -->
+            <div class="row main-row mt-4 box-design">
+              <div class="col-12 align-center">
+                <div class="row p-3">
+                  <div class="col-5 align-middle">
+                    <h5>
+                      <a href="/profil/<%= volunteer._id %>" style="text-transform: capitalize;color: #e73232 !important;">
+                        <%= volunteer.username %>
+                      </a>
+                    </h5>
+                    Phone: <%= volunteer.phone %> <br>
+                    Email ID: <%= volunteer.emailID %><br>
+                    City : <%= volunteer.city %> <br>
+                  </div>
+                  <div class="col-5 align-middle mt-4">
+                    Experience : <%= volunteer.experience %> Years <br>
+                    Specialization : <%= volunteer.specialization %> <br>
+                    Fees : <%= volunteer.fees %> 
+                  </div>
+                  <div class="col-2 mt-5">
+                    <a href="/request/<%= volunteer._id %>" class="btn btn-pri btn-block">Connect</a>
+                  </div>
+                </div>
+              </div>
+            
+  
+            <!-- Display comments for this LSP -->
+              <!-- <h5>Comments for <%= volunteer.username %>:</h5> -->
+              <div class="col-12 align-center">
+                <% comments.filter(comment => comment.lspId.toString() === volunteer._id.toString()).forEach(comment => { %>
+                  <div class="row p-3">
+                    <div class="col-5 align-middle">Stars Rating: <%= comment.overall_stars %> </div>
+                    <div class="col-5 align-middle"> Satisfaction: <%= getOverallSatisfaction(comment.overall_stars_int) %> </div>
+                    <div class="col-2 "></div>
+                  </div>
+                <% }) %>
+              </div>
+          </div>
+          <% }) %>
+          
+          <% } %>
+      </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

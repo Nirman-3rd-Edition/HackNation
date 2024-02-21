@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+  <%- include('../views/partials/links'); %>
+
+</head>
+
+<body>
+
+  <!-- header part -->
+
+    <nav class="navbar navbar-expand-lg bg-danger navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">HELPING HAND</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/reques" class="nav-link text-white"> NEW REQUESTS </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/profile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <!-- page content -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+
+    <div class="main-wrapper mt-0">
+      <div class="container main-container">
+        <% exams.forEach(exam=> { %>
+          <% if(exam.text !== '') { %>
+          <div class="row main-row mt-4">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-12 align-middle">
+
+                  <h5>
+                    <%= formatDate(exam.date) %>
+                  </h5>
+                  Student Name : <%= exam.studentId.username %> <br><br>
+                  <%= exam.text %><br><br>
+                      
+                </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <% } %>
+          <% }) %>
+      </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

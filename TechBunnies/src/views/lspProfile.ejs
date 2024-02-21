@@ -1,0 +1,201 @@
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/blogcss.css" />
+  <%- include('../views/partials/links'); %>
+
+
+</head>
+
+<body>
+
+  <% function getOverallSatisfaction(starsInt) {
+    switch (starsInt) {
+      case 5:
+        return 'Very Satisfied';
+      case 4:
+        return 'Satisfied';
+      case 3:
+        return 'Neutral';
+      case 2:
+        return 'Poor';
+      case 1:
+        return 'Very Poor';
+      default:
+        return 'Unknown';
+    }
+  } %>
+
+  <!-- header part -->
+
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/mycases" class="nav-link text-white"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/addcase" class="nav-link text-white"> ADD CASE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/accept" class="nav-link text-white"> ONGOING CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/customerProfile" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <!-- page content -->
+  <div class="container mt-3">
+    <div class="d-flex justify-content-center">
+      <form class="col-md-6" id="profile" action="/profile" method="post">
+
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" class="form-control" id="username" name="username" value="<%= users.username %>" required>
+        </div>
+
+        <!--to shows ml ratings  -->
+        <div class="row mx-md-n2">
+          <div class="col px-md-2">
+            <label for="city">Star rating</label>
+            <input type="text" class="form-control" id="star" name="stars" value="<%= ratings.overall_stars %>" required>
+
+          </div>
+          <div class="col px-2">
+            <label for="state">Overall Satifaction</label>
+            <input type="text" class="form-control" id="state" name="state" value="<%= getOverallSatisfaction(ratings.overall_stars_int) %>" required>
+          </div>
+        </div> <!--Finish ml ratings  -->
+
+        <div class="form-group">
+          <label for="emailID">Email ID</label>
+          <input type="text" class="form-control" id="emailID" name="emailID" value="<%= users.emailID %>" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone No</label>
+          <input type="text" class="form-control" id="phone" name="phone" value="<%= users.phone %>" required>
+        </div>
+
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" name="address" value="<%= users.address %>" required>
+        </div>
+
+        <div class="row mx-md-n2">
+          <div class="col px-md-2">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" value="<%= users.city %>" required>
+          </div>
+          <div class="col px-2">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" value="<%= users.state %>" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="licenceNumber">licence Number</label>
+          <input type="text" class="form-control" id="licenceNumber" name="licenceNumber"
+            value="<%= users.licenceNumber %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="specialization">Specialization</label>
+          <input type="text" class="form-control" id="fees" name="fees" value="<%= users.specialization %>" required>
+        </div>
+
+        <div class="row mx-md-n2">
+          <div class="col px-md-2">
+            <label for="practiceLocation">Practice Location</label>
+            <input type="text" class="form-control" id="practiceLocation" name="practiceLocation"
+              value="<%= users.practiceLocation %>" required>
+          </div>
+          <div class="col px-2">
+            <label for="experience">Experience</label>
+            <input type="text" class="form-control" id="experience" name="experience" value="<%= users.experience %>"
+              required>
+          </div>
+        </div>
+
+        <div class="row mx-md-n2">
+          <div class="col px-md-2">
+            <label for="college">College</label>
+            <input type="text" class="form-control" id="college" name="college" value="<%= users.college %>" required>
+          </div>
+          <div class="col px-2">
+            <label for="fees">Fees</label>
+            <input type="text" class="form-control" id="fees" name="fees" value="<%= users.fees %>" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="shortIntro">Short Intro</label>
+          <input type="text" class="form-control" id="fees" name="fees" value="<%= users.shortIntro %>" required>
+        </div>
+
+    </div>
+    </form>
+  </div>
+  <h2 class="text-center">Previous Cases & Reviews</h2>
+  <div class="main-wrapper mt-0">
+    <div class="container main-container">
+      <% if (exams.length === 0) { %>
+        <div class="text-center mt-4">
+          <!-- Replace with your desired image source -->
+          <img src="/img/Binary code-amico.png" style="width: 25%; height: auto; opacity: 0.8; margin-top: 20px;">
+          <h4 style="color: lightslategrey;">NO REVIEWS YET...</h4>
+        </div>
+      <% } else { %>
+      <% exams.forEach(exam=> { %>
+        <div class="row main-row mt-4 box-design">
+          <div class="col-12 align-center">
+            <div class="row p-3">
+              <div class="col-6 align-middle">
+  
+                <h5>
+                  Type : <%= exam.type %>
+                </h5>
+                Name : <%= exam.costumerId.username %> <br>
+                  Email Id : <%= exam.costumerId.emailID %> <br>
+                    Phone : <%= exam.costumerId.phone %> <br>
+              </div>
+  
+              <div class="col-6 align-middle mt-4">
+                Location : <%= exam.costumerId.city %> <br>
+                  Description: <%= exam.description %> <br>
+                    Review : <%= exam.text %>
+  
+              </div>
+  
+            </div>
+          </div>
+        </div>
+        <% }) %>
+        <% } %>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+</body>
+
+</html>

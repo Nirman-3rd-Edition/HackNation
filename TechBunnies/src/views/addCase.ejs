@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <%- include('../views/partials/links'); %>
+    <link rel="stylesheet" href="/css/validation.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/mycases" class="nav-link text-white"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/addcase" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> ADD CASE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/accept" class="nav-link text-white"> ONGOING CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/customerProfile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+                    <!-- page content -->
+                    <div class="bg-box"></div>
+                    <div class="container mt-5 bg-trans">
+                      <h2 class="text-center">Add New Case Here</h2>
+                      <div class="d-flex justify-content-center">                 
+                        <form class="mt-3 col-md-6" id="addcase" action="/case" method="post">
+                          
+                        <div class="form-group">
+                          <label for="specialization">Type</label>
+                          <!-- <select name="specialization" class="form-control" id="specialization">
+                            <option value="Family/Divorce Cases">Family/Divorce Cases</option>
+                            <option value="Civil Cases">Civil Cases</option>
+                            <option value="Consumer Cases">Consumer Cases</option>
+                            <option value="Women Issues">Women Issues</option>
+                            <option value="Medico legal Cases">Medico legal Cases</option>
+                            <option value="Finance Cases">Finance Cases</option>
+                            <option value="Legal environmental Cases">Legal environmental Cases</option>
+                            <option value="Criminal Cases">Criminal Cases</option>
+                            <option value="Intellectual Issues">Intellectual issues</option>
+                            <option value="Business Issue">Business Issue</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                          </select> -->
+
+                          
+                          <!-- changes start -->
+                          <select name="specialization" class="form-control" id="specialization">
+                            <option value="Arbitration Cases">Arbitration Cases</option>
+                            <option value="Contract Cases">Contract Cases</option>
+                            <option value="Tax Matters">Tax Matters</option>
+                            <option value="Land Acquistion and Requisition Matters">Land Acquistion and Requisition Matters</option>
+                            <option value="Letter petitions and PIL Matters">Letter petitions and PIL Matters</option>
+                            <option value="Election Matters">Election Matters</option>
+                            <option value="Criminal Matters">Criminal Matters</option>
+                            <option value="Company related Matters">Company related Matters</option>
+                            <option value="Compensation Matters">Compensation Matters</option>
+                            <option value="Personal Law Matters">Personal Law Matters</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+                          </select>
+                          <!-- changes end -->
+
+                        </div>
+
+                          <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control z-depth-1" id="description" name="description" rows="3"
+                              placeholder="Write something here..." required></textarea>
+                          </div>
+                          <div class="form-group">
+                            
+                              <label for="location">Location</label>
+                              <input type="text" class="form-control" id="location" name="location" placeholder="Location">
+                            
+                          </div>
+                          
+                          <div class="form-group">
+                            <div class="container ">
+                              <input type="submit" class="btn btn-primary btn-info mt-2" value="ADD">
+                              <button class="btn btn-danger mt-2 ml-2"><a href="/mycases" class="text-light"> CANCEL </a></button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div style="margin-top: 40px; ">
+                        <h6 style="text-align: center;">Not such which case to select 🤔</h6>
+                        <h6 style="text-align: center;">Ask to our <a href="/chatbot">CHATBOT</a></h6>
+                      </div>
+
+                    </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+</body>
+
+</html>
