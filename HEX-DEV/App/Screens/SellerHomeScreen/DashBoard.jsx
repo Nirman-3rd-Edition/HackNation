@@ -29,7 +29,7 @@ export default function DashBoard({ sellerList }) {
             renderItem={({ item }) => (
                 <View style={styles.itemContainer}>
                     {item.bookings.map((booking, bookingIndex) => {
-                        if (booking.date === getCurrentDate()) {
+                        if (booking.date === getCurrentDate() &&  booking.bookingStatus === "Booked") {
                             return (
                                 <TouchableOpacity key={bookingIndex} style={styles.bookingItem} onPress={() => { navigation.navigate('user-profile', { booking: booking, item: item }) }}>
                                     <Image source={{ uri: booking.userImage }} style={styles.userImage} />

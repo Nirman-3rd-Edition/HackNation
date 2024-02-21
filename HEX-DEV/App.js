@@ -56,6 +56,9 @@ const [fontsLoaded, fontError] = useFonts({
       <View style={styles.container}>
         <SignedIn>
          <CheckNavigation/>
+         {/* <NavigationContainer>
+         <TabNavigation/>
+         </NavigationContainer> */}
         </SignedIn>
         <SignedOut>
           <AppNavigation/>
@@ -72,7 +75,7 @@ const [fontsLoaded, fontError] = useFonts({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 40,
   },
 });
