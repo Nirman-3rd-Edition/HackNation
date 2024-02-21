@@ -88,17 +88,13 @@ public class UploadActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Create a new report object with description, location, and time
                 Report report = new Report(description, location, time);
 
-                // Push the report to Firebase Realtime Database
                 reportsRef.push().setValue(report);
 
-                // Clear EditText fields
                 descriptionEditText.setText("");
                 locationEditText.setText("");
 
-                // Upload the selected document to Firebase Storage (if available)
                 if (documentUri != null) {
                     uploadDocumentToFirebaseStorage(documentUri);
                 }
@@ -113,7 +109,6 @@ public class UploadActivity extends AppCompatActivity {
 
 
         if (requestCode == PICK_DOCUMENT_REQUEST && resultCode == RESULT_OK && data != null) {
-            // Get the selected document's URI
             documentUri = data.getData();
         }
     }
@@ -124,7 +119,6 @@ public class UploadActivity extends AppCompatActivity {
         StorageReference storageRef = storage.getReference();
         StorageReference documentRef = storageRef.child("documents/" + System.currentTimeMillis());
 
-        // Upload the document to Firebase Storage
         documentRef.putFile(documentUri)
 
 
@@ -139,7 +133,6 @@ public class UploadActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.e("Firebase", "Error: " + e.getMessage(), e);
-                        // Display an error message or update UI accordingly
                     }
                 });
 
@@ -147,7 +140,6 @@ public class UploadActivity extends AppCompatActivity {
 
     }
 
-    // Method to get current time in a desired format (e.g., "HH:mm:ss")
     private String getCurrentTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
         Date currentTime = Calendar.getInstance().getTime();
