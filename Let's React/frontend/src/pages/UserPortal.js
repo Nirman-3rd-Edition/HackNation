@@ -1,6 +1,5 @@
 import React from 'react';
 import './User.css'; 
-import { LayoutRouter } from 'next/dist/server/app-render/entry-base';
 
 
 
@@ -8,7 +7,6 @@ class UserPortal extends React.Component {
   render() {
     return (
       <div>
-        <LayoutRouter>
       <div className="hommies">
         <div className="head">
           <h1> USER PORTAL</h1>
@@ -55,7 +53,7 @@ class UserPortal extends React.Component {
               <p>Let our platform Guide you to beds ,where doctors can treat you the best.cutting the Hassle off searching for places with best treatment and hygiene .Search the suitable and comfortable beds and Book them fast.</p>
             </div>
             <div className="Buton">
-              <a href=''>VISIT</a>
+              <a href='/Hospitallist'>VISIT</a>
             </div>
           </div>
           {/* Uncomment below to enable additional boxes */}
@@ -79,7 +77,6 @@ class UserPortal extends React.Component {
           </div>
         </div>
       </div>
-      </LayoutRouter>
       </div>
     );
   }

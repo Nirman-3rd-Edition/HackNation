@@ -14,6 +14,7 @@ class DoctorInfo extends React.Component {
               <h3 className="tittle">DOCTOR INFO</h3>
               <p className="sub_tittle">Dr Aakash</p>
               <p className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vitae fugit recusandae aperiam voluptates sit, inventore error ratione, deleniti quod quas natus possimus velit temporibus non ducimus rem, minima sint!</p>
+              <button><a href='/BookingPage'>BOOK APPOINTMENT</a></button>
             </div>
 
           </div>
