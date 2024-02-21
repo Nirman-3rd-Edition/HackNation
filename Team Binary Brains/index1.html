@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Splitter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Splitter</h1>
+        <div class="trip-form">
+            <h2>Create Trip</h2>
+            <form id="tripForm">
+                <label for="source">Source:</label>
+                <input type="text" id="source" name="source" required>
+                <label for="destination">Destination:</label>
+                <b><input type="text" id="destination" name="destination" required></b>
+                <button type="submit">Create Trip</button>
+            </form>
+        </div>
+        <div class="pin-form hidden">
+            <h2>Generate PIN</h2>
+            <p>Your trip details:</p>
+            <p id="tripDetails"></p>
+            <button id="generatePinBtn">Generate PIN</button>
+        </div>
+        <div class="pin-form hidden">
+            <h2>Enter PIN</h2>
+            <form id="enterPinForm">
+                <label for="pin">Enter PIN:</label>
+                <input type="text" id="pin" name="pin" required>
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+        <div id="message" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
