@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media_queries.css">
+    <link rel="stylesheet" href="./assets/css/animation.css">
+
+    <!--
+  - google font link
+-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .classContent {
+            margin-top: 150px;
+        }
+
+        .classOuterDiv {
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+
+        .examcard {
+            width: 45%;
+            margin: 20px 20px;
+        }
+
+        .examcard h2 {
+            text-align: center;
+        }
+
+        .examcard p {
+            text-align: justify;
+        }
+
+        .examHead {
+            background-color: #08bd80;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+            padding: 10px 10px;
+        }
+
+        .examInfo {
+            background-color: rgba(182, 182, 182, 0.162);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            padding: 30px 30px;
+            box-shadow: 0px 2px rgba(128, 128, 128, 0.759);
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+        }
+
+        .examcard ol li {
+            list-style: decimal;
+        }
+
+        .examcard ul li {
+            list-style: disc;
+
+            /* padding-left: 15px; */
+        }
+
+        user agent stylesheet ul li::marker {
+            unicode-bidi: isolate;
+            font-variant-numeric: tabular-nums;
+            text-transform: none;
+            text-indent: 0px !important;
+            text-align: start !important;
+            text-align-last: start !important;
+            padding-left: 15px;
+        }
+
+        .examcard a {
+            display: inline;
+        }
+
+        .examcard{
+            height: 600px;
+        }
+        .examcard button {
+            width: 130px;
+            text-align: center;
+            padding: 5px 10px;
+            margin: 0px auto;
+            margin-top: 20px;
+            background-color: #7F6EFC;
+        }
+
+        .examcard button:hover {
+            background-color: #5c4adf;
+            color: white;
+        }
+
+
+        .subNav {
+            /* height: 200px ;
+            width: 200px; */
+            position: fixed;
+            top: 17rem;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            left: 0px;
+            font-size: 1.5rem;
+            background-color: #7F6EFC;
+            z-index: 10;
+        }
+
+        .subNavList {
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .subNavList:hover {
+            background-color: hsl(216, 98%, 52%);
+        }
+        .whichsubject{
+            width: 100%;
+            background: url(../public/images/parallex-2.jpg);
+            text-align: center;
+            background-attachment: fixed;
+            font-weight: 800;
+            color: #7F6EFC;
+            text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.342);
+            background-size: 100%;
+            background-repeat: repeat-y;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 110px;
+            box-shadow: 0px 2px 5px rgba(128, 128, 128, 0.527);
+        }
+        /* .whichsubject .overlay2{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.178);
+        } */
+    </style>
+</head>
+
+<body>
+    <!--
+      - #HEADER
+    -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="navbar-brand">
+                <span><img src="./assets/images/logo.png" height="75em" alt="Educator Logo"></span>
+                <span>
+                    <h1>CAREER COMPASS</h1>
+                </span>
+            </div>
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="course">Exams</a>
+                </li>
+                <li class="nav-item">
+                    <a href="community">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact">Contact Us</a>
+                </li>
+
+            </ul>
+
+            <!-- <button class="btn btn-primary">
+            <p class="btn-text">Try for free</p>
+            <span class="square"></span>
+          </button> -->
+
+            <div class="btn1">
+                <a href="login">
+                    <button><span>LOGIN</span></button>
+                </a>
+            </div>
+
+            <button class="nav-toggle-btn">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- <div class="navbarC">
+            <ul class="navbarC-list">
+                <li><a class="navbarC-link" href="#">Home</a></li>
+                <li><a class="navbarC-link" href="#">About Us</a></li>
+                <li><a class="navbarC-link" href="#">MAterials</a></li>
+                <li><a class="navbarC-link" href="#">Contact </a></li>
+            </ul>
+        </div> -->
+
+    <div class="subNav">
+        <a href="#math">
+            <div class="subNavList">MATHS</div>
+        </a>
+        <a href="#computer">
+            <div class="subNavList">COMPUTER</div>
+        </a>
+        <a href="#science">
+            <div class="subNavList">SCIENCE</div>
+        </a>
+        <a href="#english">
+            <div class="subNavList">ENGLISH</div>
+        </a>
+    </div>
+
+    <div class="classContent">
+        <h1 style="text-align: center; margin: 20px;">CLASS 6th EXAMS</h1>
+        <div class="whichsubject">
+            <div class="overlay2"></div>
+            <h1 id="math">MATHS</h1>
+        </div>
+        <div class="classOuterDiv">
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL OLYMPIAD OF MATHEMATICS</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conudcted by: SilverZone </p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            Syllabus
+                            <ul>
+                                <li>Number Systems</li>
+                                <li>Parts and Wholes</li>
+                                <li>Algebra, Ratio and Proportion</li>
+                                <li>Geometry and Mensuration</li>
+                                <li>Graphical Representation of Data</li>
+                                <li>Sets and Their Representations</li>
+                                <li>Reasoning and Aptitude</li>
+                                <li>Scholars Zone</li>
+                            </ul>
+                        </li>
+                        <li>Total questions: 35</li>
+                        <li>Total Marks: 100</li>
+                        <li>Total Duration: 40 mins</li>
+                        <li>Exam Dates: <a href="https://www.silverzone.org/olympiadsdates">CLICK
+                                HERE</a></li>
+                        <li>Reference books :
+                            <a href="https://www.silverzone.org/iom/studyMaterial">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.silverzone.org/iom/about"><button>CLICK HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL MATHEMATICS OLYMPIAD</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conudcted by: Science Olympiad Foundation (SOF) </p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            The question paper consists of four sections:
+                            <ul>
+                                <li>Section-1: Logical Reasoning</li>
+                                <li>Section-2: Mathematical Reason</li>
+                                <li>Section-3: Everyday Mathematics</li>
+                                <li>Section-4: Achievers Section</li>
+                            </ul>
+                        </li>
+                        <li>Total questions: 50</li>
+                        <li>Total Duration: 60 mins</li>
+                        <li>Exam Dates: <a href="https://sofworld.org/imo/about-imo-exam/imo-exam-dates">CLICK
+                                HERE</a></li>
+                        <li>Reference books :
+                            <a href="https://sofworld.org/imo/class-6/books-and-additional-reference-books-class-6">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://sofworld.org/imo"><button>CLICK HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="whichsubject">
+                <div class="overlay2"></div>
+                <h1 id="computer">COMPUTER</h1>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL COMPUTER OLYMPIAD</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conducted by: Indian Talent Olympiad</p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            The question paper consists of three sections:
+                            <ul>
+                                <li>Section-1: Subjective Exercise</li>
+                                <li>Section-2: Mental Ability Exercise</li>
+                                <li>Section-3: Answers and Explanation</li>
+
+                            </ul>
+                        </li>
+                        <li>Total questions: 50</li>
+                        <li>Total Duration: 45 mins</li>
+                        <li>Exam Dates: December</li>
+                        <li>Reference books :
+                            <a href="https://www.indiantalent.org/olympiad-books">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.indiantalent.org/international-computer-olympiad/class-6"><button>CLICK
+                            HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL INFORMATICS OLYMPIAD</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conudcted by: SilverZone </p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            Syllabus:
+                            <ul>
+                                <li>Computer Languages</li>
+                                <li>Small Basics</li>
+                                <li>Algorithm and flow chart</li>
+                                <li>Mail Merge/MS-Word</li>
+                                <li>MS-Excel/MS-PowerPoint</li>
+                                <li>Internet</li>
+                            </ul>
+                        </li>
+                        <li>Total questions: 35</li>
+                        <li>Total Marks: 100</li>
+                        <li>Total Duration: 40 mins</li>
+                        <li>Exam Dates: <a href="https://www.silverzone.org/olympiadsdates">CLICK
+                                HERE</a></li>
+                        <li>Reference books :
+                            <a href="https://www.silverzone.org/iio/studyMaterial">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.silverzone.org/iio/about"><button>CLICK HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="whichsubject">
+                <div class="overlay2"></div>
+                <h1 id="science">SCIENCE</h1>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL OLYMPIAD OF SCIENCE</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conudcted by:/p> <br>
+                    <p>
+
+                        Exam Details
+                    <ol>
+                        <li>
+                            Syllabu
+                            <ul>
+                                <li>Food</li>
+                                <li>Materials</li>
+                                <li>Living World</li>
+                                <li>Motion And Measurement</li>
+                                <li>How Things work</li>
+                                <li>Environment</li>
+                            </ul>
+                        </li>
+                        <li>Total questions: 35</li>
+                        <li>Total Marks: 100</li>
+                        <li>Total Duration: 40 mins</li>
+                        <li>Exam Dates: <a href="https://www.silverzone.org/olympiadsdates">CLICK
+                                HERE</a></li>
+                        <li>Reference books :
+                            <a href="https://www.silverzone.org/ios/studyMaterial">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.silverzone.org/ios/about"><button>CLICK HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>INTERNATIONAL SCIENCE OLYMPIAD</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conudcted by: Indian Talent Olympiad </p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            The question paper consists of three sections:
+                            <ul>
+                                <li>Section-1: Subjective</li>
+                                <li>Section-2: High Order Thinking Section</li>
+                                <li>Section-3: Logical Reasoning</li>
+
+                            </ul>
+                        </li>
+                        <li>Total questions: 50</li>
+                        <li>Total Duration: 65 mins</li>
+                        <li>Exam Dates: December and February</li>
+                        <li>Reference books :
+                            <a href="https://www.indiantalent.org/olympiad-exam-registration-student">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.indiantalent.org/international-science-olympiad"><button>CLICK
+                            HERE</button></a>
+                    </p>
+                </div>
+            </div>
+            <div class="whichsubject">
+                <div class="overlay2"></div>
+                <h1 id="english">ENGLISH</h1>
+            </div>
+            <div class="examcard">
+                <div class="examHead">
+                    <h2>ENGLISH INTERNATIONAL OLYMPIAD</h2>
+                </div>
+                <div class="examInfo">
+                    <p>Conducted by: Indian Talent Olympiad</p> <br>
+                    <p>
+
+                        Exam Details:
+                    <ol>
+                        <li>
+                            The question paper consists of three sections:
+                            <ul>
+                                <li>Section-1: Subjective</li>
+                                <li>Section-2: Logical Reasoning</li>
+                                <li>Section-3: High Order Thinking</li>
+
+                            </ul>
+                        </li>
+                        <li>Total questions: 50</li>
+                        <li>Total Duration: 45 mins</li>
+                        <li>Exam Dates: December and February</li>
+                        <li>Reference books :
+                            <a href="https://www.indiantalent.org/olympiad-books">CLICK
+                                HERE</a>
+                        </li>
+                    </ol>
+                    <a href="https://www.indiantalent.org/english-international-olympiad/class-6"><button>CLICK
+                            HERE</button></a>
+                    </p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    </header>
+</body>
+
+</html>
