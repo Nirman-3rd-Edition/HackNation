@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Default Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        html,
+        body,
+        #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    <script
+        src="https://apis.mappls.com/advancedmaps/api/0190701c195cff6983e9b21e2506f7ff/map_sdk?layer=vector&v=3.0&callback=initMap1" defer async></script> // map API
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map;
+        function initMap1() {
+            // Rendering the map
+            map = new mappls.Map('map', {
+                center: [28.61, 77.23],
+                zoomControl: true,
+                location: true
+            });
+
+            // Getting geolocation and feeding to the map
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+                    map.setCenter(pos);
+                }, function (error) {
+                    console.error('Error in getting geolocation:', error);
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
