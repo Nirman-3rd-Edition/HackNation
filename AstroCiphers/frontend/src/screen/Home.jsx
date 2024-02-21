@@ -8,10 +8,12 @@ import axios from "axios";
 export default function Home() {
   const djangoUrl = "http://127.0.0.1:8000/";
   const [selectedCamera, setSelectedCamera] = useState(null);
+  const [x, setX] = useState(0);
   const webcamRef1 = useRef(null);
   const webcamRef2 = useRef(null);
   const webcamRef3 = useRef(null);
   const webcamRef4 = useRef(null);
+  const [density, setDensity] = useState({});
   const [capturedImage, setCapturedImage] = useState({});
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [isPredicted, setIsPredicted] = useState(false);
@@ -23,6 +25,13 @@ export default function Home() {
   const yellow = "bg-yellow-500";
   const green = "bg-green-500";
   const black = "bg-black";
+
+  const [dynamicQueue, setDynamicQueue] = useState({
+    1: 0,
+    2: 80,
+    3: 100,
+    4: 120,
+  });
   const [trafficLightColor, setTrafficLightColor] = useState({
     1: { red: black, yellow: black, green: black },
     2: { red: black, yellow: black, green: black },
@@ -30,15 +39,16 @@ export default function Home() {
     4: { red: black, yellow: black, green: black },
   });
   const [trafficLightTimer, setTrafficLightTimer] = useState({
-    1: 5,
-    2: 5,
-    3: 5,
-    4: 5,
+    1: 20,
+    2: 20,
+    3: 20,
+    4: 20,
   });
   const greenDic = { red: black, yellow: black, green: green };
   const redDic = { red: red, yellow: black, green: black };
   const yellowDic = { red: black, yellow: yellow, green: black };
   const [presentActive, setPresentActive] = useState(1);
+
   function yellowBlink() {
     if (presentActive === 1) {
       setTrafficLightColor((prev) => ({
@@ -136,6 +146,7 @@ export default function Home() {
               ...prevData,
               3: trafficLightTimer[3] - 1,
             }));
+            setDynamicQueue((el) => ({ ...el, 3: 0 }));
           } else if (presentActive === 4) {
             setTrafficLightColor((prev) => ({
               ...prev,
@@ -152,13 +163,100 @@ export default function Home() {
         }
       }, 1000);
     } else {
-      setTrafficLightTimer({
-        1: 5,
-        2: 5,
-        3: 5,
-        4: 5,
-      });
+      if (presentActive === 1)
+        setTrafficLightTimer((el) => ({
+          ...el,
+          1: 20,
+          4: 20,
+          3: 20,
+          2: 20 + density[2] * x,
+        }));
+      else if (presentActive === 2)
+        setTrafficLightTimer((el) => ({
+          ...el,
+          1: 20,
+          4: 20,
+          2: 20,
+          3: 20 + density[3] * x,
+        }));
+      else if (presentActive === 3)
+        setTrafficLightTimer((el) => ({
+          ...el,
+          1: 20,
+          2: 20,
+          3: 20,
+          4: 20 + density[4] * x,
+        }));
+      else if (presentActive === 4)
+        setTrafficLightTimer((el) => ({
+          ...el,
+          4: 20,
+          2: 20,
+          3: 20,
+          1: 20 + density[1] * x,
+        }));
       let nextActive = (presentActive % 4) + 1;
+      let nextActive2 = (presentActive % 4) + 2;
+      let nextActive3 = (presentActive % 4) + 3;
+      if (presentActive === 1) setDynamicQueue((el) => ({ ...el, 1: 120 }));
+      else if (presentActive === 2)
+        setDynamicQueue((el) => ({ ...el, 2: 120 }));
+      else if (presentActive === 3)
+        setDynamicQueue((el) => ({ ...el, 3: 120 }));
+      else if (presentActive === 4)
+        setDynamicQueue((el) => ({ ...el, 4: 120 }));
+
+      if (nextActive === 1) {
+        setDynamicQueue((el) => ({ ...el, 1: 0 }));
+      } else if (nextActive === 2) {
+        setDynamicQueue((el) => ({ ...el, 2: 0 }));
+      } else if (nextActive === 3) {
+        setDynamicQueue((el) => ({ ...el, 3: 0 }));
+      } else if (nextActive === 4) {
+        setDynamicQueue((el) => ({ ...el, 4: 0 }));
+      }
+
+      if (nextActive2 === 1)
+        setDynamicQueue((el) => ({
+          ...el,
+          1: dynamicQueue[1] - density[1] * x,
+        }));
+      else if (nextActive2 === 2)
+        setDynamicQueue((el) => ({
+          ...el,
+          2: dynamicQueue[2] - density[2] * x,
+        }));
+      else if (nextActive2 === 3)
+        setDynamicQueue((el) => ({
+          ...el,
+          3: dynamicQueue[3] - density[3] * x,
+        }));
+      else if (nextActive2 === 4)
+        setDynamicQueue((el) => ({
+          ...el,
+          4: dynamicQueue[4] - density[4] * x,
+        }));
+
+      if (nextActive3 === 1)
+        setDynamicQueue((el) => ({
+          ...el,
+          1: dynamicQueue[1] - density[1] * x,
+        }));
+      else if (nextActive3 === 2)
+        setDynamicQueue((el) => ({
+          ...el,
+          2: dynamicQueue[2] - density[2] * x,
+        }));
+      else if (nextActive3 === 3)
+        setDynamicQueue((el) => ({
+          ...el,
+          3: dynamicQueue[3] - density[3] * x,
+        }));
+      else if (nextActive3 === 4)
+        setDynamicQueue((el) => ({
+          ...el,
+          4: dynamicQueue[4] - density[4] * x,
+        }));
       if (nextActive) setPresentActive((presentActive % 4) + 1);
     }
   });
@@ -236,11 +334,37 @@ export default function Home() {
       .then((res) => {
         console.log(JSON.parse(res.data));
         setPredicted(JSON.parse(res.data));
+        let data = JSON.parse(res.data);
+        console.log("data", data);
+        let temp = {};
+        for (const k in data) {
+          temp[k] = data[k].actualVehicles / 2;
+        }
+        console.log("temp", temp);
+        setDensity(temp);
         setIsPredicted(true);
         setClickButton("Capture");
+
+        let TotalDyanamic = 0;
+        let density = 0;
+        // console.log("inside dynamic");
+        for (const k in dynamicQueue) {
+          if (k !== presentActive) TotalDyanamic += dynamicQueue[k];
+        }
+        // console.log(TotalDyanamic);
+        console.log("inside data");
+        for (const k in data) {
+          // console.log(data[k]);
+          if (k !== presentActive) density += data[k].actualVehicles;
+        }
+        let x1 = TotalDyanamic / (3 * density);
+        setX(x1);
+        console.log("density", density);
+        console.log("x", x1);
       })
       .catch((err) => console.log(err));
   };
+
   // const predict = () => {
   //   setIsPredicted(true);
   //   setClickButton("Capture");
@@ -255,7 +379,7 @@ export default function Home() {
             <Webcam
               key={videoDevices[0] ? videoDevices[0].deviceId : null}
               audio={false}
-              ref={(el) => (webcamRef1.current = el)}
+              ref={(el) => (webcamRef2.current = el)}
               screenshotFormat="image/jpeg"
               videoConstraints={{
                 deviceId: videoDevices[0] ? videoDevices[0].deviceId : null,
@@ -263,7 +387,8 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
             />
           ) : (
@@ -271,17 +396,18 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
               src={
                 isPredicted === false
-                  ? capturedImage[1]
-                  : predicted[1].actualVehicles !== 0 ||
+                  ? capturedImage[2]
+                  : predicted[2].actualVehicles !== 0 ||
                     predicted.invalidVehicles !== 0
-                  ? predicted[1].predictedUrl
-                  : capturedImage[3]
+                  ? predicted[2].predictedUrl
+                  : capturedImage[2]
               }
-              alt="1st camera"
+              alt="2nd camera"
             />
           )}
         </div>
@@ -290,7 +416,7 @@ export default function Home() {
           <div className="p-2 hello-hello  mx-4">
             <div className="mx-auto mt-40 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
-                {trafficLightTimer[1]}
+                {trafficLightTimer[1]} 1
               </h1>
             </div>
           </div>
@@ -312,7 +438,7 @@ export default function Home() {
             <Webcam
               key={videoDevices[2] ? videoDevices[2].deviceId : null}
               audio={false}
-              ref={(el) => (webcamRef2.current = el)}
+              ref={(el) => (webcamRef3.current = el)}
               screenshotFormat="image/jpeg"
               videoConstraints={{
                 deviceId: videoDevices[2] ? videoDevices[2].deviceId : null,
@@ -320,7 +446,8 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-               
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
             />
           ) : (
@@ -328,7 +455,8 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
               src={
                 isPredicted === false
@@ -338,7 +466,7 @@ export default function Home() {
                   ? predicted[3].predictedUrl
                   : capturedImage[3]
               }
-              alt="2nd camera"
+              alt="3rd camera"
             />
           )}
         </div>
@@ -348,7 +476,7 @@ export default function Home() {
         <div className="w-1/2 p-4 text-white flex second-second mr-7">
           <div className="Hello-hello-hello mx-auto my-10">
             <h1 className="bg-white text-5xl py-3 px-3">
-              {trafficLightTimer[4]}
+              {trafficLightTimer[4]} 4
             </h1>
           </div>
 
@@ -390,7 +518,7 @@ export default function Home() {
           </div>
           <div className="Hello-hello-hello mx-auto my-10">
             <h1 className="bg-white text-5xl py-3 px-3">
-              {trafficLightTimer[2]}
+              {trafficLightTimer[2]} 2
             </h1>
           </div>
         </div>
@@ -402,7 +530,7 @@ export default function Home() {
             <Webcam
               key={videoDevices[1] ? videoDevices[1].deviceId : null}
               audio={false}
-              ref={(el) => (webcamRef3.current = el)}
+              ref={(el) => (webcamRef1.current = el)}
               screenshotFormat="image/jpeg"
               videoConstraints={{
                 deviceId: videoDevices[1] ? videoDevices[1].deviceId : null,
@@ -410,7 +538,8 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-               
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
             />
           ) : (
@@ -418,17 +547,18 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-                
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
               src={
                 isPredicted === false
-                  ? capturedImage[2]
-                  : predicted[2].actualVehicles !== 0 ||
+                  ? capturedImage[1]
+                  : predicted[1].actualVehicles !== 0 ||
                     predicted.invalidVehicles !== 0
-                  ? predicted[2].predictedUrl
-                  : capturedImage[2]
+                  ? predicted[1].predictedUrl
+                  : capturedImage[1]
               }
-              alt="3rd camera"
+              alt="1st camera"
             />
           )}
         </div>
@@ -445,10 +575,10 @@ export default function Home() {
               className={`h-7 w-7 ${trafficLightColor[3].green} m-2 rounded-full`}
             ></div>
           </div>
-          <div className="p-2 hello-hello-1  mx-4 mt-6">
+          <div className="p-2 hello-hello  mx-4 mt-6">
             <div className="mx-auto mb-70 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
-                {trafficLightTimer[3]}
+                {trafficLightTimer[3]} 3
               </h1>
             </div>
           </div>
@@ -457,17 +587,18 @@ export default function Home() {
         <div className="w-1/2 p-4 text-white">
           {imgShow === false ? (
             <Webcam
-              key={videoDevices[2] ? videoDevices[2].deviceId : null}
+              key={videoDevices[3] ? videoDevices[3].deviceId : null}
               audio={false}
               ref={(el) => (webcamRef4.current = el)}
               screenshotFormat="image/jpeg"
               videoConstraints={{
-                deviceId: videoDevices[2] ? videoDevices[2].deviceId : null,
+                deviceId: videoDevices[3] ? videoDevices[3].deviceId : null,
               }}
               style={{
                 width: "74rem",
                 height: "39rem",
-               
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
             />
           ) : (
@@ -475,15 +606,16 @@ export default function Home() {
               style={{
                 width: "74rem",
                 height: "39rem",
-               
+                paddingLeft: "8rem",
+                paddingRight: "8rem",
               }}
               src={
                 isPredicted === false
-                  ? capturedImage[3]
-                  : predicted[3].actualVehicles !== 0 ||
+                  ? capturedImage[4]
+                  : predicted[4].actualVehicles !== 0 ||
                     predicted.invalidVehicles !== 0
-                  ? predicted[3].predictedUrl
-                  : capturedImage[3]
+                  ? predicted[4].predictedUrl
+                  : capturedImage[4]
               }
               alt="4th camera"
             />
