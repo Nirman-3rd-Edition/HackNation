@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,20 +17,46 @@
         android:theme="@style/Theme.BinaryBrink"
         tools:targetApi="31">
         <activity
+            android:name=".TransactionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChargeDoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChargingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChargeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChargingStationsVisitedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BatteryActivity"
+            android:exported="false" />
+        <activity
             android:name=".VehicleDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapActivity"
+            android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".SignupActivity"
             android:exported="false" />
+        <activity
+            android:name=".Map"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQeJmi6jy-mkhmC3tHeLZjwpc-zCpyT2U" />
+
         <activity
             android:name=".SplashScreen"
             android:exported="true">

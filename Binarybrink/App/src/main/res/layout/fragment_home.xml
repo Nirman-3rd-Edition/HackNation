@@ -40,7 +40,7 @@
             android:rowCount="1">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardLabTest"
+                android:id="@+id/cardTransactions"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_row="0"
@@ -68,7 +68,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardBuyMedicine"
+                android:id="@+id/cardBattery"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_row="0"
@@ -88,22 +88,15 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/baseline_person_24" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/baseline_battery_alert_24" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CHARGES DONE"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardOrderDetails"
+                android:id="@+id/cardCharging"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_row="0"
@@ -125,12 +118,12 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/baseline_travel_explore_24" />
+                        android:src="@drawable/baseline_battery_charging_full_24" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardDoctorsList"
+                android:id="@+id/cardChargingStationsVisited"
                 android:layout_width="0dp"
                 android:layout_height="90dp"
                 android:layout_row="0"
@@ -150,17 +143,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/baseline_remove_circle_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LAST ARTICLES"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="3dp"
+                        android:src="@drawable/rcs" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </GridLayout>

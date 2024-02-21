@@ -22,22 +22,6 @@
                 android:layout_height="1000dp" />
 
 
-            <RelativeLayout android:id="@+id/battery_back_button"
-                android:layout_marginTop="48dp"
-                android:layout_marginStart="11dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView android:id="@+id/vector_ek7"
-                    android:src="@drawable/back_arrow"
-                    android:contentDescription="vector_ek7"
-                    android:layout_marginStart="9dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_width="7.24dp"
-                    android:layout_height="14.28dp" />
-
-            </RelativeLayout>
-
             <TextView android:id="@+id/travel_history"
                 android:textStyle="bold"
                 android:textSize="17sp"
@@ -166,7 +150,7 @@
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:text="Tap to Pay"
-                android:id="@+id/login_button"
+                android:id="@+id/Pay_button"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:layout_marginTop="700dp"

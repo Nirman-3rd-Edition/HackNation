@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int itemId = item.getItemId();
                 if(itemId == R.id.home){
                     openFragment(new HomeFragment());
+                    Fragment fragment = new MapFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
                     return true;
                 } else if (itemId == R.id.vehicle) {
                     openFragment(new VehicleFragment());
@@ -72,7 +74,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     openFragment(new TimelineFragment());
                     return true;
                 }else if (itemId == R.id.profile) {
-                    openFragment(new ProfileFragment());
+                    Intent intent = getIntent();
+                    String nameUser = intent.getStringExtra("name");
+                    String emailUser = intent.getStringExtra("email");
+                    String usernameUser = intent.getStringExtra("username");
+                    String passwordUser = intent.getStringExtra("password");
+
+                    // Creating a new instance of Profile Fragment
+                    ProfileFragment profileFragment = new ProfileFragment();
+
+                    // Creating a Bundle object
+                    Bundle args = new Bundle();
+                    args.putString("name", nameUser);
+                    args.putString("email", emailUser);
+                    args.putString("username", usernameUser);
+                    args.putString("password", passwordUser);
+
+                    // Setting the arguments bundle to the Profile Fragment
+                    profileFragment.setArguments(args);
+
+                    // Adding the ProfileFragment to main activity
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, profileFragment)
+                            .commit();
                     return true;
                 }
                 return false;
@@ -90,6 +114,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        Fragment fragment = new MapFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
+
+
+        //adding name and email to the nav_header
+
+        // Fetching user details from intent
+        Intent intent = getIntent();
+        String nameUser = intent.getStringExtra("name");
+        String emailUser = intent.getStringExtra("email");
+
+        // Finding TextView elements in nav header and set text
+        View headerView = navigationView.getHeaderView(0);
+        TextView textViewName = headerView.findViewById(R.id.textViewName);
+        TextView textViewEmail = headerView.findViewById(R.id.textViewEmail);
+        textViewName.setText(nameUser);
+        textViewEmail.setText(emailUser);
+
     }
 
     @Override
@@ -97,6 +139,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int itemId = item.getItemId();
         if(itemId == R.id.nav_home) {
             openFragment(new HomeFragment());
+            Fragment fragment = new MapFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,fragment).commit();
         } else if (itemId == R.id.nav_settings) {
             openFragment(new SettingsFragment());
         } else if (itemId == R.id.nav_share) {
@@ -104,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == R.id.nav_about) {
             openFragment(new AboutUsFragment());
         }else if (itemId == R.id.nav_logout) {
-            openFragment(new LogoutFragment());
+            logout();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -180,6 +224,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    private void logout() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish(); // Close the current activity to prevent back navigation to MainActivity
     }
 
 }

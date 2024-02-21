@@ -10,6 +10,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="_bg__android_large___2_color">#FFFFFF</color>
+    <color name="rectangle_1_color">#ffffff</color>
+    <color name="_bg__group_13_ek1_color">#000000</color>
     <color name="icon">#FF0D1823</color>
     <color name="background">#FF020E19</color>
 </resources>
