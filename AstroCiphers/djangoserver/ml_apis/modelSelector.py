@@ -89,7 +89,7 @@ from inference import get_roboflow_model
 
 # # Replace 'path_to_your_image.jpg' with the path to the image you want to test
 # image_path = 'path_to_your_image.jpg'
-rf = Roboflow(api_key="ZL1FPZ5KWA67VOUO9Pzx")
+rf = Roboflow(api_key="WqouNvqN4PDm4o4neKWg")
 import cv2
 import numpy as np
 
@@ -149,7 +149,7 @@ project = rf.workspace().project("test-2-g3mkp")
 # detect_objects(image_path)
 
 # print()
-livemodel = get_roboflow_model(model_id="test-2-g3mkp/18",api_key="ZL1FPZ5KWA67VOUO9Pzx")
+livemodel = get_roboflow_model(model_id="test-2-g3mkp/18",api_key="WqouNvqN4PDm4o4neKWg")
 # print("Total Weight Fulfilled = ",initCap)
 # print("Total cost Expend = ",totalCost)
 import numpy as np
@@ -171,7 +171,7 @@ class ObjectDetection:
     
     def load_model(self):
         #loading a pretrained model
-        rf = "ZL1FPZ5KWA67VOUO9Pzx"
+        rf = "WqouNvqN4PDm4o4neKWg"
         project = rf.workspace().project("test-2-g3mkp")
         model = project.version(18).model
         return model

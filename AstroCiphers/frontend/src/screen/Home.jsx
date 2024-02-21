@@ -106,7 +106,7 @@ export default function Home() {
   function getTime(num) {
     if (safeValue === true) return 60;
     if (density !== null && density.length !== 0 && x !== 0) {
-      return 20 + density[num] * x;
+      return 20 + Math.floor(density[num] * x);
     } else return 20;
   }
 
@@ -396,7 +396,7 @@ export default function Home() {
   const [toCapture, setToCapture] = useState(false);
   useEffect(() => {
     if (safeValue === false) {
-      if (trafficLightTimer[presentActive] == 10) {
+      if (trafficLightTimer[presentActive] == 15) {
         capture();
       }
     }
@@ -554,7 +554,7 @@ export default function Home() {
                     title: "Safe Mode Off",
                     description: "The Signal will change after constant time",
                     status: "success",
-                    duration: 5000,
+                    duration: 9000,
                     isClosable: true,
                   });
                 }
@@ -564,7 +564,7 @@ export default function Home() {
                     title: "Safe Mode On",
                     description: "The Signal will adapt with the traffic load",
                     status: "success",
-                    duration: 5000,
+                    duration: 9000,
                     isClosable: true,
                   });
                 }
