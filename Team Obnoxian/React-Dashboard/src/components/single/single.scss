@@ -1,0 +1,130 @@
+@import "../../styles/responsive.scss";
+
+.single {
+  display: flex;
+
+  @include xl {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .view {
+    flex: 1;
+
+    .info {
+      .topInfo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: 20px;
+          object-fit: cover;
+        }
+
+        h1 {
+          font-weight: 500;
+        }
+      }
+      .details {
+        font-size: 18px;
+
+        .item {
+          margin: 30px 0px;
+
+          .itemTitle {
+            font-weight: 600;
+            margin-right: 10px;
+            text-transform: capitalize;
+          }
+        }
+      }
+
+      // Button styling
+      button {
+        padding: 10px 20px; /* Adjust padding as needed */
+        background-color: #202327; /* Background color */
+        color: #f2c501; /* Text color */
+        border: 2px solid #f2c501; /* Border */
+        cursor: pointer; /* Change cursor to pointer */
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transition effect */
+
+        &:hover {
+          background-color: #f2c501; /* Background color on hover */
+          color: #202327; /* Text color on hover */
+          border-color: #202327; /* Border color on hover */
+        }
+      }
+    }
+
+    hr {
+      width: 90%;
+      height: 0;
+      border: 0.5px solid #F2C501;
+      margin: 20px 0px;
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .chart {
+      margin-top: 50px;
+      width: 80%;
+      height: 400px;
+
+      @include md {
+        display: none;
+      }
+    }
+  }
+  .activities {
+    flex: 1;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      li {
+        list-style-type: none;
+        position: relative;
+        width: 1px;
+        padding-top: 50px;
+        background-color: #f45b69;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #f45b69;
+          transform: translateX(-50%);
+        }
+
+        div {
+          min-width: 480px;
+          padding: 15px;
+          background-color: #e0001310;
+
+          @include md {
+            min-width: 250px;
+          }
+
+          p {
+            margin-bottom: 5px;
+          }
+
+          time {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
