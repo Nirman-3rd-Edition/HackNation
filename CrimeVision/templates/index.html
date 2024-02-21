@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance Window</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #background-rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #333;
+            color: #fff; /* Text color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem; /* Adjust font size as needed */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing for style */
+            z-index: -1;
+        }
+
+        h1 {
+            color: #892222;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        #video-frame {
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #video-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    #cameraContainer {
+        position: relative;
+        width: 80%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    #cameraFeed {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
+<body>
+
+
+    <div id="background-rectangle">SURVEILLANCE WINDOW</div>
+    <div id="cameraContainer">
+        <img id="cameraFeed" src="{{ url_for('video_feed') }}" alt="Camera Feed">
+    </div>
+</body>
+</html>

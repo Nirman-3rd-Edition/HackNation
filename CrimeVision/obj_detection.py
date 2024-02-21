@@ -1,7 +1,10 @@
+from flask import Flask, render_template, Response
 import cv2
 from ultralytics import YOLO
 import cvzone
 import math
+
+app = Flask(__name__)
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 480)
@@ -9,7 +12,6 @@ cap.set(4, 1280)
 
 model = YOLO("../Yolo-Weights/yolov8l.pt")
 
-# this class is defined in YOLO to define the object names which is detected in camera
 classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
               "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
@@ -22,32 +24,40 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
               "teddy bear", "hair drier", "toothbrush"
               ]
 
-while True:
-    success, img = cap.read()
-    results = model(img, stream=True)
-    for r in results:
-        boxes = r.boxes
-        for box in boxes:
+
+def detect_objects():
+    while True:
+        success, img = cap.read()
+        results = model(img, stream=True)
+        for r in results:
+            boxes = r.boxes
+            for box in boxes:
+                conf = math.ceil((box.conf[0] * 100))
+                cls = int(box.cls[0])
+                currentClass = classNames[cls]
+
+                if currentClass == "knife" or currentClass == "scissors" and conf > 30:
+                    x3, y3, x4, y4 = box.xyxy[0]
+                    x3, y3, x4, y4 = int(x3), int(y3), int(x4), int(y4)
+
+                    cv2.rectangle(img, (x3, y3), (x4, y4), (0, 255, 0), 4)
+                    cvzone.putTextRect(img, f'{currentClass, "Detected"}{conf}', (max(0, x3), max(35, y3)))
+
+        ret, jpeg = cv2.imencode('.jpg', img)
+        frame = jpeg.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 
-
-            # Confidence Level
-            conf = math.ceil((box.conf[0] * 100))  # will show confidence level in between 0 - 100
-            print(conf)
-
-            # class creation
-            cls = int(box.cls[0])
-            currentClass = classNames[cls]
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
-            if currentClass == "knife" or currentClass == "scissors" and conf > 30:
-                x3, y3, x4, y4 = box.xyxy[0]
-                x3, y3, x4, y4 = int(x3), int(y3), int(x4), int(y4)
+@app.route('/video_feed')
+def video_feed():
+    return Response(detect_objects(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-                cv2.rectangle(img, (x3, y3), (x4, y4), (0, 255, 0), 4)
 
-                cvzone.putTextRect(img, f'{currentClass, "Detected"}{conf}', (max(0, x3), max(35, y3)))
-
-    cv2.imshow("Image", img)
-
-    cv2.waitKey(1)
+if __name__ == '__main__':
+    app.run(debug=True)

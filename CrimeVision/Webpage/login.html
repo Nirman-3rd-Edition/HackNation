@@ -1,0 +1,110 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo login Page</title>
+    <style>
+        body {
+            overflow-y: hidden;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('webpage.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo{
+            width: 90px;
+            margin: 0 auto;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 65px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 18%;
+        }
+
+        .login-container img {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            color: #333;
+        }
+
+        .login-form {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="cv logo.png" alt="Logo" class="logo">
+        <h1>Login</h1>
+        <form class="login-form" onsubmit="login(event)">
+            <div class="form-group">
+                <input type="text" name="" placeholder="Email" id="email">
+            </div>
+            <div class="form-group">
+                <input type="password" name="" placeholder="Password" id="password">
+            </div>
+            <div class="form-group"> <button  id="signupinp" value="Sign Up">Sign In</button> </div>
+            <div class="member">
+               Not A Memeber?<a href="signup.html">Signup Here!</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script type="module" src="login.js"></script>
+</html> 
+
+
+
+
+
+
