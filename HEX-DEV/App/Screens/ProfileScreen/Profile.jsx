@@ -50,8 +50,6 @@ export default function Profile (){
         onPress={()=>logoutBtnClick()}
         ><Text style={styles.text}>Logout</Text></TouchableOpacity>
 
-
-       
       </View>
       </View>
     )

@@ -40,7 +40,7 @@ export default function SearchResult() {
 
     const generateSuggestions = (text) => {
         const suggestions = [
-            'Decoration', 'Decorators', 'Wedding decoration', 'Marriage decoration', 'Marriage decorators', 'Tents', 'Tent', 'Tents for marriage', 'Tents for wedding', 'Tent decoration', 'Mandap', 'Mandap for marriage', 'Mandap for wedding', 'Marriage Mandap', 'Mandap Services', 'Photography', 'Photographer', 'Videography', 'Videographer', 'Marriage Photography', 'Wedding Photography', 'Marriage Album', 'Marriage Video', 'Catering', 'Caterers', 'Marriage catering', 'Catering for marriage', 'Marriage Food', 'Food for marriage'
+            'Decoration', 'Decorators', 'Wedding decoration', 'Marriage decoration', 'Marriage decorators', 'Tents', 'Tent', 'Tents for marriage', 'Tents for wedding', 'Tent decoration', 'Mandap', 'Mandap for marriage', 'Mandap for wedding', 'Marriage Mandap', 'Mandap Services', 'Photography', 'Photographer', 'Videography', 'Videographer', 'Marriage Photography', 'Wedding Photography', 'Marriage Album', 'Marriage Video', 'Catering', 'Caterers', 'Marriage catering', 'Catering for marriage', 'Marriage Food', 'Food for marriage', 'Hotels', 'Hotel reservation', 'Ressort', 'Hotel for weddings'
         ];
         const searchText = text.toLowerCase(); // Convert search text to lowercase for case-insensitive search
     return suggestions.filter(suggestion => suggestion.toLowerCase().includes(searchText));
