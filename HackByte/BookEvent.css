@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* Navbar */
+.navbar {
+  padding: 10px;
+  transition: 1s;
+  background: #f99890;
+}
+.navbar-brand {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 150px;
+  font-size: 50px;
+  color: #000000 !important;
+  text-transform: capitalize;
+}
+.navbar-nav {
+  padding-left: 300px;
+}
+.nav-link {
+  font-weight: bold;
+  font-style: italic;
+  color: #000000 !important;
+  margin-left: 5px;
+  transition: 0.65;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+.nav-link:hover {
+  transform: translateY(-5px);
+  background: #fdbfb9;
+}
+
+/* BookEvent */
+.container {
+  width: 100%;
+  min-height: 155vh;
+  background-color: #f4e6e4;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .event-box {
+  position: absolute;
+  width: 420px;
+  height: 875px;
+  background-color: transparent;
+  border: 2px solid rgba(31, 31, 31, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+
+.event-box h2 {
+  font-size: 28px;
+  color: #000000;
+  text-align: center;
+}
+
+.event-box .input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 2px solid #000000;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #000000;
+  padding: 0 35px 0 5px;
+}
+
+.input-box input::placeholder {
+    color: #000000;
+  }
+  
+  .input-box i {
+    position: absolute;
+    right: 8px;
+    color: #000000;
+    font-size: 18px;
+    line-height: 50px;
+  }
+  
+  .event-box button {
+    width: 100%;
+    height: 40px;
+    background: #ffaca4;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    transition: all 0.3s;
+  }
+  
+  .event-box button:hover {
+    background: #ffaca4;
+    color: #000000;
+  }
+  
+  .event-box .register-link {
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    margin: 20px 0px 10px;
+  }
