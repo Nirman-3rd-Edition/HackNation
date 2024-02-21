@@ -1,0 +1,31 @@
+{
+	"name": "co-lab-server",
+	"version": "1.0.0",
+	"description": "HackNation co-lab server",
+	"main": "src/index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsx watch ./src/index.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@prisma/client": "^5.9.1",
+		"@types/bcryptjs": "^2.4.6",
+		"@types/cors": "^2.8.17",
+		"@types/dotenv-safe": "^8.1.6",
+		"@types/express-session": "^1.17.10",
+		"@types/node": "^20.11.19",
+		"bcryptjs": "^2.4.3",
+		"connect-redis": "^7.1.1",
+		"cors": "^2.8.5",
+		"dotenv-safe": "^9.0.0",
+		"express": "^4.18.2",
+		"express-sesssion": "^1.15.5",
+		"ioredis": "^5.3.2",
+		"prisma": "^5.9.1",
+		"tsx": "^4.7.1",
+		"typescript": "^5.3.3"
+	}
+}
