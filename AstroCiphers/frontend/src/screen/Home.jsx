@@ -547,7 +547,7 @@ export default function Home() {
             <button
               className="text-white bg-red-500 rounded-xl p-4"
               onClick={() => {
-                if(safeValue===true){
+                if(safeValue!==true){
                   toast({
                     title: 'Safe Mode On',
                     description: "The Signal will change after constant time",
@@ -556,7 +556,7 @@ export default function Home() {
                     isClosable: true,
                   })
                 }
-                if(!safeValue){
+                if(safeValue){
                   toast({
                     containerStyle:{backgroundColor:'black'},
                     title: 'Safe Mode Off',
