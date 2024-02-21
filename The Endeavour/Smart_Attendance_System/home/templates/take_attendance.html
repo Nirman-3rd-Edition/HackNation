@@ -1,0 +1,81 @@
+{% include 'common/head.html' %}
+
+{% load static %}
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}">
+
+{% include 'common/top.html' %}
+{% include 'common/left.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Take Attendance
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active">Take Attendance</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+
+        <div class="container theme-showcase">
+          <div class="jumbotron text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+          <!-- Application buttons -->
+          <div class="box box-info">
+            <div class="box-header">
+              <i class="fa fa-hand-pointer-o"></i>
+              <h3 class="box-title">Click To Take Attendance</h3>
+            </div>
+            <div class="box-body">
+              <form method="post">{% csrf_token %}
+                  <button class="btn btn-app" style="width: 80%; height: auto" type="submit">
+                    <i class="fa fa-play" style="font-size: 50px; padding-top:10px"></i> <span style="font-size: 30px">Start</span>
+                  </button>
+              </form>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+             {% if messages %}
+                {% for msg in messages %}
+                    <div class="alert alert-{{msg.level_tag}}" role="alert" style="font-size: 16px">
+                    {{msg.message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{% include 'common/foot.html' %}
+
+
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{% static 'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}"></script>
+
+<script>
+  $(function () {
+    //Add text editor
+    $("#compose-textarea").wysihtml5();
+  });
+</script>
+
+</body>
+</html>
