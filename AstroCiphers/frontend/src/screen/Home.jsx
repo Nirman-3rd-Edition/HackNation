@@ -4,8 +4,9 @@ import Img from "../Image/img.jpg";
 import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
-
+import { useToast } from '@chakra-ui/react'
 export default function Home() {
+  const toast = useToast()
   const djangoUrl = "http://127.0.0.1:8000/";
   const [selectedCamera, setSelectedCamera] = useState(null);
   const [x, setX] = useState(0);
@@ -418,7 +419,7 @@ export default function Home() {
   };
   return (
     <>
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between bg-black">
         <div className="w-1/2 p-4 text-white">
           {imgShow === false ? (
             <Webcam
@@ -520,7 +521,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between bg-black">
         <div className="w-1/2 p-4 text-white flex second-second mr-7">
           <div className="Hello-hello-hello mx-auto my-10">
             <h1 className="bg-white text-5xl py-3 px-3">
@@ -546,6 +547,25 @@ export default function Home() {
             <button
               className="text-white bg-red-500 rounded-xl p-4"
               onClick={() => {
+                if(safeValue===true){
+                  toast({
+                    title: 'Safe Mode On',
+                    description: "The Signal will change after constant time",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                  })
+                }
+                if(!safeValue){
+                  toast({
+                    containerStyle:{backgroundColor:'black'},
+                    title: 'Safe Mode Off',
+                    description: "The Signal will adapt with the traffic load",
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true,
+                  })
+                }
                 console.log("safe mode to enable");
                 safeMode();
               }}
@@ -575,7 +595,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-between bg-black">
         <div className="w-1/2 p-4 text-white">
           {imgShow === false ? (
             <Webcam
