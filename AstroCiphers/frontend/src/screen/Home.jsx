@@ -416,7 +416,7 @@ export default function Home() {
           <div className="p-2 hello-hello  mx-4">
             <div className="mx-auto mt-40 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
-                {trafficLightTimer[1]} 1
+                {trafficLightTimer[1]}
               </h1>
             </div>
           </div>
@@ -476,7 +476,7 @@ export default function Home() {
         <div className="w-1/2 p-4 text-white flex second-second mr-7">
           <div className="Hello-hello-hello mx-auto my-10">
             <h1 className="bg-white text-5xl py-3 px-3">
-              {trafficLightTimer[4]} 4
+              {trafficLightTimer[4]}
             </h1>
           </div>
 
@@ -518,7 +518,7 @@ export default function Home() {
           </div>
           <div className="Hello-hello-hello mx-auto my-10">
             <h1 className="bg-white text-5xl py-3 px-3">
-              {trafficLightTimer[2]} 2
+              {trafficLightTimer[2]}
             </h1>
           </div>
         </div>
@@ -578,7 +578,7 @@ export default function Home() {
           <div className="p-2 hello-hello  mx-4 mt-6">
             <div className="mx-auto mb-70 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
-                {trafficLightTimer[3]} 3
+                {trafficLightTimer[3]}
               </h1>
             </div>
           </div>
