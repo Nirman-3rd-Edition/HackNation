@@ -1,0 +1,23 @@
+.products {
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 5px;
+      cursor: pointer;
+      background-color: #202327;
+      color: #F2C501;
+      border: 2px solid #F2C501;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      
+      &:hover {
+        background-color: #F2C501;
+        color: #202327;
+        border-color: #202327;
+      }
+    }
+  }
+}
