@@ -1,0 +1,95 @@
+/* styles.css */
+.carousel{
+  display: flex;
+  justify-content:space-around;
+  align-items: space-around;
+  /* height: 100vh; Ensure the carousel is centered vertically */
+  margin: 0;
+}
+.venue-carousel {
+  max-width: 80%; /* Set width of carousel container */
+  /* margin: 0 auto; Center the carousel */
+
+
+}
+
+.venue-carousel {
+  text-align: center; /* Center the venue name */
+  margin-bottom: 20px; /* Add some space between carousels */
+}
+
+.slide {
+  width: 100px; /* Set width of each slide */
+  height:  500px; /* Set height of each slide */
+  text-align: center;
+}
+
+.slide img {
+  width: 100%; /* Ensure images fill the entire slide */
+  height: 100%; /* Ensure images fill the entire slide */
+   object-fit: cover; /*Maintain aspect ratio and cover entire slide */
+}
+
+.slick-dots {
+  position: relative;
+  bottom: -0px; /* Adjust position of dots */
+}
+
+.slick-dots li button::before {
+  font-size: 12px; /* Adjust dot size */
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 20px; /* Adjust arrow size */
+  z-index: 1; /* Ensure arrows are on top of slides */
+}
+
+.slick-prev {
+  left: -40px; /* Adjust position of previous arrow */
+}
+
+.slick-next {
+  right: -40px; /* Adjust position of next arrow */
+}
+
+.desc1 h2{
+  display: flex;
+  justify-content: left;
+  padding: 5px;
+}
+.desc1 h4{
+  display: flex;
+  justify-content: left;
+  padding: 5px;
+}
+.desc2 {
+  display: inline-block;
+  margin: 5px;
+  justify-content: left;
+  
+}
+.desc2 p{
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 9px;
+}
+.desc4, .desc1{
+  background-color: aliceblue;
+}
+.desc4 h2{
+  display: flex;
+  justify-content: left;
+  padding: 5px;
+}
+.desc4 p{
+  display: flex;
+  justify-content: left;
+  padding: 5px;
+  text-align: left;
+}
+.desc3{
+  position: fixed;
+  top:25rem;
+  left:58rem;
+}
