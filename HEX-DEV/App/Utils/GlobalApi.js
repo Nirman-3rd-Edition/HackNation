@@ -66,7 +66,7 @@ try {
 const BusinessName=async()=>{
   const query = gql`
  query GetBusinessList {
-  businessLists {
+  businessLists (where: {verification: "Verified"}) {
     bannerUrl
     id
     about
@@ -381,6 +381,40 @@ try {
     throw error; // Rethrow the error or handle it as needed
   }
 }
+
+const  SellerVerification=async()=>{
+const mutationQuery=gql`
+query MyQuery {
+  businessLists(where: {verification: "NotVerified"}) {
+    address
+    category {
+      ... on Category {
+        id
+        name
+      }
+    }
+    owner
+    name
+    contact
+    email
+    gstImageUrl
+    panNumber
+    userPhotoUrl
+    aadharNumber
+    aadharImageUrl
+  }
+}
+`
+try {
+    const result = await request(MASTER_URL, mutationQuery);
+    return result;
+  } catch (error) {
+    console.error("Error fetching sliders:", error);
+    throw error; // Rethrow the error or handle it as needed
+  }
+}
+
+
 export default {getSlider,
   getCategories,
   BusinessName,
@@ -391,5 +425,6 @@ export default {getSlider,
   SellerDetails,
   SearchQuery,
   createBusines,
-  updateBooking
+  updateBooking,
+  SellerVerification
 }

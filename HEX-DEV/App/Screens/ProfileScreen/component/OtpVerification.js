@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Button } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Button,ActivityIndicator } from 'react-native';
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha'
 import { useRoute } from "@react-navigation/native"
 import { firebaseConfig } from '../../../../firebaseConfig'
@@ -126,6 +126,7 @@ const VerificationCodePage = ({ navigation }) => {
     );
     firebase.auth().signInWithCredential(credential)
       .then(() => {
+        setLoading(false);
         Alert.alert('OTP verification is Sucesssful.');
     navigation.replace('PenddingScreen', { photoUri: photoUri, 
       companyName: companyName,
@@ -141,6 +142,7 @@ const VerificationCodePage = ({ navigation }) => {
          catId:catId });
       })
       .catch((error) => {
+        setLoading(false);
         //show an alert in case of error
         alert(error);
       })
@@ -159,6 +161,7 @@ const VerificationCodePage = ({ navigation }) => {
       />
       <Text style={styles.title}>Verification Code Sent To {phoneNumber}</Text>
       <View style={styles.container}>
+      {loading && <ActivityIndicator size={45} color="#3CB371" style={styles.load} />}
         <View style={styles.inputContainer}>
           {renderInput(0)}
           {renderInput(1)}

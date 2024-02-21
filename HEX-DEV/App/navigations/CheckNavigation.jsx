@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import GlobalApi from '../Utils/GlobalApi';
 import SellerNavigation from './SellerNavigation';
 import TabNavigation from './TabNavigation';
-
+import Adminnavigate from './Adminnavigate';
 export default function CheckNavigation() {
   const { user } = useUser();
   const [userEmail, setUserEmail] = useState([]);
@@ -33,7 +33,18 @@ export default function CheckNavigation() {
           <SellerNavigation />
         </NavigationContainer>
       );
-    } else {
+    } 
+
+    else if(user.primaryEmailAddress.emailAddress==="evehuntofficial@gmail.com"){
+      return(
+       <NavigationContainer>
+      <Adminnavigate />
+       </NavigationContainer>
+       
+      );
+    }
+    
+    else {
       return (
         <NavigationContainer>
           <TabNavigation />
