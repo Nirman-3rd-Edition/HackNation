@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Busify Dashboard</title>
+    <link rel="stylesheet" href="static/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+         let map;
+        let marker;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: { lat: 20.296239852905273, lng: 85.82453155517578 },
+            });
+            marker = new google.maps.Marker({
+                map,
+                title: "My location",
+            });
+            fetchCoordinates();
+        }
+
+        function fetchCoordinates() {
+            fetch('/get-location') // Make a request to the Flask server
+                .then(response => response.json())
+                .then(data => {
+                    const latitude = parseFloat(data.latitude);
+                    const longitude = parseFloat(data.longitude);
+                    console.log('Latitude:', latitude, 'Longitude:', longitude);
+                    updateMap(latitude, longitude);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function updateMap(latitude, longitude) {
+            const myLatLng = { lat: latitude, lng: longitude };
+            map.setCenter(myLatLng);
+            marker.setPosition(myLatLng);
+        }
+
+        // Update map every 5 seconds
+        setInterval(fetchCoordinates, 5000);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>BUSIFY DASHBOARD</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <form class="form">
+                <div class="user-box">
+                    <!-- <input type="text" id="inputField1" > -->
+                    <p style="color: #65d869; font-weight: bold;">Pickup Stop:</p>
+                    <select class="available_buses">
+                        <option>Bus1</option>
+                        <option>Bus2</option>
+                        <option>Bus3</option>
+                        <option>Bus4</option>
+                    </select>
+                </div>
+                <div class="user-box">
+                    <!-- <input type="text" id="inputField2" list="options2" required=""> -->
+                    <p style="color: #65d869; font-weight: bold;">Drop Location:</p>
+                    <select class="available_buses">
+                        <option>Bus1</option>
+                        <option>Bus2</option>
+                        <option>Bus3</option>
+                        <option>Bus4</option>
+                    </select>
+                </div>
+                <button class="submit">Change</button>
+                <div class="bustime">
+                    <p>Select your bus timing:</p>
+                    <input type="text" class="bustimeinput">
+                </div>
+        
+                <br>
+                <select class="available_buses">
+                    <option>Bus1</option>
+                    <option>Bus2</option>
+                    <option>Bus3</option>
+                    <option>Bus4</option>
+                </select>
+                <button class="submit">SUBMIT</button>
+            </form>
+            <!-- <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </a> -->
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <footer>
+        <p>CodeEsq</p>
+    </footer>
+   
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwOi6CfAIkg1Y7DxDXf7Ffee57VS9lnlY&callback=initMap"></script>
+</body>
+</html>
