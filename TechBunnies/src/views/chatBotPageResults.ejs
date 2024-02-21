@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>results</title>
+  </head>
+
+  <body>
+    <div>
+      <h1 class="container">CHAT BOT RESULTS</h1>
+      <h3>Have a doubt? chat with our AI powered chatbot...</h3>
+    </div>
+
+    <div>
+      <% if (value) { %>
+      <p>Received data from the server:</p>
+      <p><%= value %></p>
+      <% } else { %>
+      <p>No data received.</p>
+      <% } %>
+    </div>
+    <!-- Access 'value' here -->
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+  <%- include('../views/partials/links'); %>
+
+</head>
+
+<body>
+
+  <!-- header part -->
+
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/reques" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/upcoming" class="nav-link text-white"> ONGOING CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/profile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <!-- page content -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+    <div class="bg-box"></div>
+    <div class="main-wrapper mt-0 bg-trans">
+      <div class="container main-container">
+        <h6 class="subtitle">Legal Service Provider/ New Requests </h6>
+        <% if (exams.length === 0) { %>
+          <div class="text-center mt-4">
+            <!-- Replace with your desired image source -->
+            <img src="/img/Binary code-amico.png" style="width: 25%; height: auto; opacity: 0.8; margin-top: 20px;">
+            <h4 style="color: lightslategrey;">NO NEW REQUESTS FOUND...</h4>
+          </div>
+        <% } else { %>
+        <% exams.forEach(exam=> { %>
+          <div class="row main-row mt-4 box-design">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-5 align-middle">
+
+                  <h5>
+                    Type : <span><%= exam.type %></span>
+                  </h5>
+                  Name : <%= exam.costumerId.username %> <br>
+                  Email Id : <%= exam.costumerId.emailID %> <br>
+                  Phone : <%= exam.costumerId.phone %> <br>
+                </div>
+
+                <div class="col-5 align-middle mt-4">
+                  Location : <%= exam.costumerId.city %> <br>
+                  Description:  <%= exam.description %>
+
+                </div>
+
+                <div class="col-2 mt-3">
+
+                  <a href="/requestAccept/<%= exam._id %>" class="btn btn-pri btn-block">Accept</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+          <% } %>
+      </div>
+    </div>
+    </div>
+    <div>
+    </div>
+
+
+</body>
+
+</html>

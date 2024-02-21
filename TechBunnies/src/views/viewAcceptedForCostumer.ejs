@@ -1,0 +1,161 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+  <%- include('../views/partials/links'); %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <!-- header part -->
+
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/mycases" class="nav-link text-white"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/addcase" class="nav-link text-white"> ADD CASE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/accept" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> ACCEPTED CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/customerProfile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <!-- page content -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+
+    <div class="bg-box"></div>
+    <div class="main-wrapper mt-0 bg-trans">
+      <div class="container main-container">
+        <h6 class="subtitle">Customer/ Cases accepted by Legal Experts</h6>
+        <% if (exams.length === 0) { %>
+          <div class="text-center mt-4">
+            <!-- Replace with your desired image source -->
+            <img src="/img/Binary code-amico.png" style="width: 25%; height: auto; opacity: 0.8; margin-top: 20px;">
+            <h4 style="color: lightslategrey;">NO CASE ACCEPTED YET...</h4>
+          </div>
+        <% } else { %>
+        <% exams.forEach(exam=> { %>
+          <div class="row main-row mt-4 box-design">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-5 align-middle">
+
+                  <h5>
+                    <%= exam.type %>
+                  </h5>
+                  Name : <%= exam.lspId.username %> <br>
+                  Email Id : <%= exam.lspId.emailID %> <br>
+                  Phone : <%= exam.lspId.phone %> <br>
+                </div>
+
+                <div class="col-5 align-middle mt-4">
+                    Location: <%= exam.location %> <br>
+                    Fees: <%= exam.lspId.fees %> <br>
+                    Description: <%= exam.description %>
+
+                </div>
+
+                <div class="col-2 mt-3">
+
+                  <a href="/addreview/<%= exam._id %>" class="btn btn-pri btn-block">ADD REVIEW</a>
+                  <a href="/profil/<%= exam.lspId._id %>" class="btn btn-pri btn-block">VIEW PROFILE</a>
+                  <form class="pay-form">
+                    <input type="hidden" name="name" value="<%= exam.lspId.username %>">
+                    <input type="hidden" name="amount" value="<%= exam.lspId.fees %>">
+                    <input type="hidden" name="description" value="<%= exam.description %>">
+                    <input class="btn btn-grn btn-block " style="margin-top: 10px;" type="submit" value="Pay Now">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+          <% } %>
+      </div>
+    </div>
+    </div>
+
+</body>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+$(document).ready(function(){
+	$('.pay-form').submit(function(e){
+		e.preventDefault();
+
+		var formData = $(this).serialize();
+    // console.log(formData);
+
+		$.ajax({
+			url:"/createOrder",
+			type:"POST",
+			data: formData,
+			success:function(res){
+				if(res.success){
+					var options = {
+						"key": ""+res.key_id+"",
+						"amount": ""+res.amount+"",
+						"currency": "INR",
+						"name": ""+res.product_name+"",
+						"description": ""+res.description+"",
+						"image": "https://dummyimage.com/600x400/000/fff",
+						"order_id": ""+res.order_id+"",
+						"handler": function (response){
+							alert("Payment Succeeded");
+							// window.open("/","_self")
+						},
+						"prefill": {
+							"contact":""+res.contact+"",
+							"name": ""+res.name+"",
+							"email": ""+res.email+""
+						},
+						"notes" : {
+							"description":""+res.description+""
+						},
+						"theme": {
+							"color": "#2300a3"
+						}
+					};
+					var razorpayObject = new Razorpay(options);
+					razorpayObject.on('payment.failed', function (response){
+							alert("Payment Failed");
+					});
+					razorpayObject.open();
+				}
+				else{
+					alert(res.msg);
+				}
+			}
+		})
+
+	});
+});
+
+</script>
+
+</html>

@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <%- include('../views/partials/links'); %>
+    
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+  *{
+    font-family: 'Josefin Sans', sans-serif !important;
+  }
+      h1 {
+        color: green;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      input,
+      span {
+        margin-top: 20px;
+      }
+      .page-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+      }
+      #headng{
+        font-weight: bold;
+        text-align: center;
+        color: #f94141;
+      }
+      h4{
+        text-align: center;
+      }
+      #output-box{
+        border-radius: 10px;
+        padding: 5px;
+      }
+      #input-box{
+        padding: 5px;
+        width: 80%;
+        background-color: transparent;
+      }
+      button{
+        width: 18%;
+        padding: 6px;
+        border: none;
+        background-color: #f94141;
+        color: white;
+      }
+      button:hover{
+        background-color: #ff0000;
+        color: white;
+      }
+      .text-img{
+        display: flex;
+        margin-top: 5rem;
+      }
+    </style>
+
+<link rel="stylesheet" href="/css/validation.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+      <div class="container mt-1">
+        <h2 class="text-white">LegalConnect India</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+    
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-2">
+              <a href="/mycases" class="nav-link text-white"> HOME </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/addcase" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> ADD CASE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/accept" class="nav-link text-white"> ONGOING CASES </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/customerProfile" class="nav-link text-white"> PROFILE </a>
+            </li>
+            <li class="nav-item px-2">
+              <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="text-img">
+    <div class="page-body">
+      <div class="bg-box"></div>
+      <div>
+        <h2 id="headng">CHAT BOT</h2>
+        <h4>Have a doubt? chat with our AI powered chatbot...</h4>
+      </div>
+      <div class="form-div">
+        <form id="myform" action="/chatbotData" method="post">
+          <div class="container">
+            <input id="input-box" placeholder="Describe your case here" type="text" name="case" value="<%=input%>" autocomplete="off"/>
+            <button>GET DETAILS</button>
+          </div>
+        </form>
+        <textarea placeholder="Your case details will be shown here" name="output" id="output-box" cols="100" rows="10"><%=output%></textarea>
+      </div>
+    </div>
+    <div class="img-div">
+      <img src="/img/Chat bot-rafiki.png" alt="Chat bot img" width="400px">
+    </div>
+  </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  </body>
+</html>

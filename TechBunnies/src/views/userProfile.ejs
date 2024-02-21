@@ -1,0 +1,168 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/blogcss.css" />
+    <%- include('../views/partials/links'); %>  
+    
+   
+</head>
+
+<body>
+
+                <!-- header part -->
+
+    <nav class="navbar navbar-expand-lg bg-pri navbar-light">
+        <div class="container mt-1">
+            <h2 class="text-white">LegalConnect India</h2>
+            <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse"
+                data-target="#collapsenavbar">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+    
+            <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item px-2">
+                        <a href="/reques" class="nav-link text-white"> HOME </a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="/upcoming" class="nav-link text-white"> ONGOING CASES </a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="/profile" class="nav-link text-white" style="border: 1px solid white; border-radius: 5px;"> PROFILE </a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+                    <!-- page content -->
+
+          <div class="container mt-3">
+            
+            <h6 class="subtitle">Legal Service Provider/ Profile </h6>
+            <div class="d-flex justify-content-center">
+                <form class="col-md-6" id="profile" action="/profile" method="post">
+
+                    <div class="form-group">
+                        <label for="username">Name</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<%= users.username %>" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailID">Email ID</label>
+                        <input type="text" class="form-control" id="emailID" name="emailID" value="<%= users.emailID %>" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone No</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="<%= users.phone %>" required>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" value="<%= users.address %>" required>
+                    </div>
+                    
+                    <div class="row mx-md-n2">
+                        <div class="col px-md-2">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" value="<%= users.city %>" required>
+                        </div>
+                        <div class="col px-2">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" id="state" name="state" value="<%= users.state %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="licenceNumber">licence Number</label>
+                        <input type="text" class="form-control" id="licenceNumber" name="licenceNumber" value="<%= users.licenceNumber %>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">Specialization</label>
+                        <select class="js-example-basic-multiple form-control" name="specialization" id="id_label_multiple" multiple="multiple" aria-placeholder="Select Specialization">
+                        <!-- <select class="js-example-basic-multiple form-control" name="specialization" id="id_label_multiple" multiple="multiple"> -->
+                                <!-- <option value="Family/Divorce Cases">Family/Divorce Cases</option>
+                                <option value="Civil Cases">Civil Cases</option>
+                                <option value="Consumer Cases">Consumer Cases</option>
+                                <option value="Women Issues">Women Issues</option>
+                                <option value="Medico legal Cases">Medico legal Cases</option>
+                                <option value="Finance Cases">Finance Cases</option>
+                                <option value="Legal environmental Cases">Legal environmental Cases</option>
+                                <option value="Criminal Cases">Criminal Cases</option>
+                                <option value="Intellectual Issues">Intellectual issues</option>
+                                <option value="Business Issue">Business Issue</option>
+                                <option value="Miscellaneous">Miscellaneous</option> -->
+
+                                <option value="Arbitration Cases">Arbitration Cases</option>
+                            <option value="Contract Cases">Contract Cases</option>
+                            <option value="Tax Matters">Tax Matters</option>
+                            <option value="Land Acquistion and Requisition Matters">Land Acquistion and Requisition Matters</option>
+                            <option value="Letter petitions and PIL Matters">Letter petitions and PIL Matters</option>
+                            <option value="Election Matters">Election Matters</option>
+                            <option value="Criminal Matters">Criminal Matters</option>
+                            <option value="Company related Matters">Company related Matters</option>
+                            <option value="Compensation Matters">Compensation Matters</option>
+                            <option value="Personal Law Matters">Personal Law Matters</option>
+                            <option value="Miscellaneous">Miscellaneous</option>
+
+                                
+                        </select>
+                    </div>
+
+                    <div class="row mx-md-n2">
+                        <div class="col px-md-2">
+                            <label for="practiceLocation">Practice Location</label>
+                            <input type="text" class="form-control" id="practiceLocation" name="practiceLocation" value="<%= users.practiceLocation %>" required>
+                        </div>
+                        <div class="col px-2">
+                            <label for="experience">Experience</label>
+                            <input type="text" class="form-control" id="experience" name="experience" value="<%= users.experience %>" required>
+                        </div>
+                    </div>
+
+                    <div class="row mx-md-n2">
+                        <div class="col px-md-2">
+                            <label for="college">College</label>
+                            <input type="text" class="form-control" id="college" name="college" value="<%= users.college %>" required>
+                        </div>
+                        <div class="col px-2">
+                            <label for="fees">Consulting Fees</label>
+                            <input type="text" class="form-control" id="fees" name="fees" value="<%= users.fees %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="shortIntro">Short Intro</label>
+                        <textarea class="form-control z-depth-1" id="shortIntro" name="shortIntro" rows="2" value="<%= users.shortIntro %>"
+                            placeholder="Write something here..." required></textarea>
+                    </div>
+
+                  <div class="form-group"></div>
+                  <input type="submit" class="btn btn-primary btn-info mt-2" value="UPDATE">
+
+                    </div>
+                </form>
+            </div>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <script>
+        $(".js-example-basic-multiple").select2({
+            width: 'resolve', // need to override the changed default
+            theme: 'classic'
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    
+</body>
+
+</html>
