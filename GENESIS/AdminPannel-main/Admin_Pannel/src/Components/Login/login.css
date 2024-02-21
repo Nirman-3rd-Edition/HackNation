@@ -1,0 +1,11 @@
+#logcon{
+    background-image: url("../../assets/bglog.jpg");
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    #logcon{
+        background-image: url("../../assets/bglog2.jpg");
+        background-size: cover;
+    }
+}
