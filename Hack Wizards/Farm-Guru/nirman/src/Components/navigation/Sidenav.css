@@ -1,0 +1,52 @@
+.sidenav {
+  /* position: fixed; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.sidenav__card { 
+    border: 1px solid #eae9e9;
+     border-radius: 8px;
+      padding:10px 15px 10px 15px ; 
+      width: 100%; 
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+ } 
+
+.sidenav__buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav__button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #000000;
+    background: 0;
+    border: 0;
+    margin : 10px 0px 10px 0px;
+    padding : 20px 10px 20px 10px;
+    border-radius: 10px;
+    width:90%; 
+}
+
+.sidenav__button:hover{
+    cursor: pointer;
+    background-color: rgb(45, 163, 45);
+
+}
+
+.sidenav__button > span{
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left: 10px;
+
+}
+
+/* .sidenav__more{
+    position:fixed;
+    bottom: 3px;
+} */

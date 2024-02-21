@@ -1,0 +1,55 @@
+ * {
+     box-sizing:border-box;
+}
+
+.form_container {
+    width: 150%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(115deg, rgba(182, 219, 50, 0.658), rgba(10, 82, 127, 0.616)), url(https:w0.peakpx.com/wallpaper/469/26/HD-wallpaper-tractor-field-art-agriculture.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+}
+form{
+    width: 30%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.form-group {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.form_container form input {
+    display: block;
+    padding: 9px;
+    width: 100%;
+    border: 1px solid black;
+    margin-top: 3px;
+    font-size: 16px;
+}
+
+input{
+    border-radius: 7px;
+
+}
+
+
+
+.error{
+    color:red;
+}
+@media screen and (max-width:800px) {
+    .form_container {
+        width: 70vh;
+    
+    }
+}
+@media screen and (max-width:700px) {
+    .form_container {
+        width: 65%;
+    
+    }
+}
