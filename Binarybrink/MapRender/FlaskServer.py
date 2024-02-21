@@ -9,7 +9,7 @@ GMAPS_API_KEY = 'AIzaSyBQeJmi6jy-mkhmC3tHeLZjwpc-zCpyT2U'
 map_client = googlemaps.Client(GMAPS_API_KEY)
 
 app = Flask(__name__)
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 @app.route("/")
 def new_born():
     return "!"
@@ -17,7 +17,7 @@ def new_born():
 @app.route('/maps')
 def home():
     # Fetch station data from /stationdata route
-    station_data_response = requests.get('http://127.0.0.1:5000/stationdata')  # Update the URL based on your server configuration
+    station_data_response = requests.get('http://127.0.0.1:5000/stationdata')
     station_data = json.loads(station_data_response.text)
 
     # Use the fetched data in the HTML template
