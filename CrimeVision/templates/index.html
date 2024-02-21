@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +26,13 @@
             width: 100%;
             height: 80px;
             background-color: #333;
-            color: #fff; 
+            color: #fff; /* Text color */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
+            font-size: 1.5rem; /* Adjust font size as needed */
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing for style */
             z-index: -1;
         }
 
@@ -56,7 +57,7 @@
             height: 100%;
             border: none;
         }
-  
+
     body {
         margin: 0;
         padding: 0;
@@ -88,10 +89,10 @@
 </head>
 <body>
 
+
     <div id="background-rectangle">SURVEILLANCE WINDOW</div>
     <div id="cameraContainer">
         <img id="cameraFeed" src="{{ url_for('video_feed') }}" alt="Camera Feed">
     </div>
-    </script>
 </body>
 </html>
