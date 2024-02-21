@@ -21,6 +21,7 @@ export default function Home() {
   const [predicted, setPredicted] = useState({});
   const [videoDevices, setVideoDevices] = useState([]);
   const [imgShow, setImgShow] = useState(false);
+  const [safeValue, setSafeValue] = useState(false);
   const red = "bg-red-500";
   const yellow = "bg-yellow-500";
   const green = "bg-green-500";
@@ -101,6 +102,18 @@ export default function Home() {
     }
   }
 
+  function getTime(num) {
+    if (safeValue === true) return 60;
+    if (density !== null && density.length !== 0 && x !== 0) {
+      return 20 + density[num] * x;
+    } else return 20;
+  }
+
+  function get20() {
+    if (safeValue === true) return 60;
+    else return 20;
+  }
+
   useEffect(() => {
     if (trafficLightTimer[presentActive] !== 0) {
       setTimeout(() => {
@@ -163,37 +176,39 @@ export default function Home() {
         }
       }, 1000);
     } else {
+      setImgShow(false);
+      setIsPredicted(false);
       if (presentActive === 1)
         setTrafficLightTimer((el) => ({
           ...el,
-          1: 20,
-          4: 20,
-          3: 20,
-          2: 20 + density[2] * x,
+          1: get20(),
+          4: get20(),
+          3: get20(),
+          2: getTime(2),
         }));
       else if (presentActive === 2)
         setTrafficLightTimer((el) => ({
           ...el,
-          1: 20,
-          4: 20,
-          2: 20,
-          3: 20 + density[3] * x,
+          1: get20(),
+          4: get20(),
+          2: get20(),
+          3: getTime(3),
         }));
       else if (presentActive === 3)
         setTrafficLightTimer((el) => ({
           ...el,
-          1: 20,
-          2: 20,
-          3: 20,
-          4: 20 + density[4] * x,
+          1: get20(),
+          2: get20(),
+          3: get20(),
+          4: getTime(4),
         }));
       else if (presentActive === 4)
         setTrafficLightTimer((el) => ({
           ...el,
-          4: 20,
-          2: 20,
-          3: 20,
-          1: 20 + density[1] * x,
+          4: get20(),
+          2: get20(),
+          3: get20(),
+          1: getTime(1),
         }));
       let nextActive = (presentActive % 4) + 1;
       let nextActive2 = (presentActive % 4) + 2;
@@ -297,7 +312,7 @@ export default function Home() {
     startCamera();
   };
 
-  const capture = () => {
+  function capture() {
     setIsPredicted(false);
     const imageSrc = {
       1: webcamRef1.current.getScreenshot(),
@@ -308,9 +323,9 @@ export default function Home() {
     setCapturedImage(imageSrc);
     setImgShow(true);
     setClickButton("Predict");
-  };
+  }
 
-  const predict = async () => {
+  async function predict() {
     setPredicted({});
     let sendData = {};
     for (const k in capturedImage) {
@@ -361,9 +376,13 @@ export default function Home() {
         setX(x1);
         console.log("density", density);
         console.log("x", x1);
+        webcamRef1.current = null;
+        webcamRef2.current = null;
+        webcamRef3.current = null;
+        webcamRef4.current = null;
       })
       .catch((err) => console.log(err));
-  };
+  }
 
   // const predict = () => {
   //   setIsPredicted(true);
@@ -371,6 +390,32 @@ export default function Home() {
   //   setImgShow(false);
   // };
   // console.log(selectedCamera);
+  const [toCapture, setToCapture] = useState(false);
+  useEffect(() => {
+    if (safeValue === false) {
+      if (trafficLightTimer[presentActive] == 10) {
+        capture();
+      }
+    }
+  }, [trafficLightTimer[presentActive]]);
+
+  useEffect(() => {
+    if (safeValue === false) {
+      if (capturedImage) predict();
+    }
+  }, [capturedImage]);
+
+  const safeMode = () => {
+    if (safeValue === true) {
+      setSafeValue(false);
+      setTrafficLightTimer((el) => ({ ...el, 1: 20, 2: 20, 3: 20, 4: 20 }));
+      setPresentActive((presentActive % 4) + 1);
+    } else {
+      setSafeValue(true);
+      setTrafficLightTimer((el) => ({ ...el, 1: 60, 2: 60, 3: 60, 4: 60 }));
+      setPresentActive((presentActive % 4) + 1);
+    }
+  };
   return (
     <>
       <div className="flex justify-between mb-4">
@@ -413,7 +458,10 @@ export default function Home() {
         </div>
 
         <div className="w-1/4 p-4 text-white flex-row hello-hello-2 mx-10">
-          <div className="p-2 hello-hello  mx-4">
+          <div
+            className="p-2 hello-hello  mx-4"
+            style={{ paddingTop: "18rem" }}
+          >
             <div className="mx-auto mt-40 Hello-hello-hello">
               <h1 className="bg-white text-5xl py-3 px-3">
                 {trafficLightTimer[1]}
@@ -497,9 +545,12 @@ export default function Home() {
           <div className="flex justify-center items-center p-12">
             <button
               className="text-white bg-red-500 rounded-xl p-4"
-              onClick={clickButton === "Capture" ? capture : predict}
+              onClick={() => {
+                console.log("safe mode to enable");
+                safeMode();
+              }}
             >
-              {clickButton}
+              {safeValue === true ? "Safe Mode(Disable)" : "Safe Mode(Enable)"}
             </button>
           </div>
         </div>
